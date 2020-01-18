@@ -3,6 +3,7 @@ import sys
 
 from latextomd import latextomd
 
+
 def predict_encoding(file_path, n_lines=20):
     '''Predict a file's encoding using chardet'''
     import chardet
@@ -28,10 +29,10 @@ def main():
 
         print(predict_encoding(source_file))
 
-        with codecs.open(source_file, 'r','utf-8') as f:
+        with codecs.open(source_file, 'r', 'utf-8') as f:
             latex_string = f.read()
             markdown_string = latextomd.to_markdown(latex_string, export_file)
-            with codecs.open(export_file, 'w','utf-8') as f_out:
+            with codecs.open(export_file, 'w', 'utf-8') as f_out:
                 f_out.write(markdown_string)
 
 
