@@ -3,6 +3,7 @@ import sys
 
 from . import latextomd
 
+
 def predict_encoding(file_path, n_lines=20):
     '''Predict a file's encoding using chardet'''
     import chardet
@@ -13,6 +14,7 @@ def predict_encoding(file_path, n_lines=20):
         rawdata = b''.join([f.readline() for _ in range(n_lines)])
 
     return chardet.detect(rawdata)['encoding']
+
 
 def main():
     if len(sys.argv) != 3:
