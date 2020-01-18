@@ -1,8 +1,7 @@
+import codecs
 import sys
 
-
-from . import latextomd
-
+from latextomd import latextomd
 
 def predict_encoding(file_path, n_lines=20):
     '''Predict a file's encoding using chardet'''
@@ -17,16 +16,22 @@ def predict_encoding(file_path, n_lines=20):
 
 
 def main():
-    if len(sys.argv) != 3:
+    if len(sys.argv) == 1:
         print('Basic usage: latextomd source.tex export.md')
     else:
-        source_file = sys.argv[1]
+        if len(sys.argv) == 2:
+            source_file = sys.argv[1]
+            export_file = source_file.replace('.tex', '.md')
+        elif len(sys.argv) == 3:
+            source_file = sys.argv[1]
+            export_file = sys.argv[2]
+
         print(predict_encoding(source_file))
-        export_file = sys.argv[2]
-        with open(source_file, 'r') as f:
+
+        with codecs.open(source_file, 'r','utf-8') as f:
             latex_string = f.read()
             markdown_string = latextomd.to_markdown(latex_string, export_file)
-            with open(export_file, 'w') as f_out:
+            with codecs.open(export_file, 'w','utf-8') as f_out:
                 f_out.write(markdown_string)
 
 
