@@ -49,6 +49,7 @@ def _delete_blocks(latex_string):
 
 def to_markdown(latex_string, export_file_name=""):
     content = latex_string
+    content = _strip_lines(content)
    
     preamble, content = _process_preamble(content)
     content = LatexString(content).process()

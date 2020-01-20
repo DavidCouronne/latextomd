@@ -14,6 +14,23 @@ class Latex(object):
             except ValueError:
                 pass
 
+    def _replace_commands(self):
+        for command in config.replace_commands:
+            liste_commands = self.soup.find_all(command[0])
+            self.content = str(self.soup)
+            for match in liste_commands:
+                self.content = self.content.replace(
+                str(match), command[1].replace('S_T_R',match.string))
+            self.soup = TexSoup(self.content)
+
+
     def process(self):
         self._delete_commands()
-        return repr(self.soup)
+        self._replace_commands()
+        self.content = str(self.soup)
+        math_inline = self.soup.find_all('$')
+        for match in math_inline:
+            string = str(list(match.descendants)[0])
+            self.content = self.content.replace(string,string.strip())
+
+        return self.content

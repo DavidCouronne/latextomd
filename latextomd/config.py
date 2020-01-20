@@ -3,6 +3,13 @@ DEFAULT_OPTIONS = {
     'strip_lines': True
 }
 
+# Replace without regex
+replace_simple = [
+    ['\n$$', '\n$$\n'],
+    ['$$\n', '\n$$\n'],
+    [r'\[', '\n$$\n'],
+    [r'\]', '\n$$\n'],
+]
 
 # Deleted with TexSoup
 del_commands = ['vspace',
@@ -33,8 +40,6 @@ del_commands = ['vspace',
                 'bigskip',
                 'smallskip',
                 'setlength',
-                # 'Large',
-                'large',
                 'decofourleft',
                 'footrulewidth',
                 'decofourright'
@@ -42,4 +47,16 @@ del_commands = ['vspace',
 
 del_environnements = [r'\begin{center}', r'\end{center}']
 
-del_blocks =['center']
+del_blocks = ['center']
+
+replace_commands = [['chapter', '# S_T_R'],
+                    ['section', '## S_T_R'],
+                    ['subsection', '### S_T_R'],
+                    ['textbf', '**S_T_R**'],
+                    ['textsc', 'S_T_R'],
+                    ['emph', '_S_T_R_'],
+                    ['Large', 'S_T_R']
+                   ]
+
+math_sub = [[r"\\np\{((?P<arg>.*?))\}",r'\1'],
+[r"\\vect\{((?P<arg>.*?))\}", r"\\overrightarrow{\1}"]]
