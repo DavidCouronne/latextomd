@@ -1,25 +1,28 @@
-%!TEX encoding = UTF-8 Unicode
 \documentclass[10pt]{article}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc} 
+\usepackage[utf8]{inputenc}
 \usepackage{fourier}
 \usepackage[scaled=0.875]{helvet}
 \renewcommand{\ttdefault}{lmtt}
 \usepackage{amsmath,amssymb,makeidx}
 \usepackage[normalem]{ulem}
+\usepackage{diagbox}
 \usepackage{fancybox}
-\usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{ulem}
+\usepackage{multirow}
 \usepackage{dcolumn}
 \usepackage{textcomp}
-\usepackage{diagbox}
+%\usepackage[multiple]{footmisc}
+%\usepackage[para]{manyfoot}
+%\DeclareNewFootnote[para]{B}{alph}
 \usepackage{lscape}
+\usepackage{enumitem}
 \newcommand{\euro}{\eurologo{}}
-%Tapuscrit : Denis Vergès
-\usepackage{pstricks,pst-plot,pst-text,pst-tree,pstricks-add}
+\usepackage{graphics,graphicx}
+\usepackage{pstricks,pst-plot,pst-tree,pstricks-add}
+\usepackage{tikz}
 \usepackage[left=3.5cm, right=3.5cm, top=3cm, bottom=3cm]{geometry}
-\newcommand{\vect}[1]{\overrightarrow{\,\mathstrut#1\,}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\D}{\mathbb{D}}
@@ -30,829 +33,364 @@
 \renewcommand{\labelenumi}{\textbf{\theenumi.}}
 \renewcommand{\theenumii}{\textbf{\alph{enumii}}}
 \renewcommand{\labelenumii}{\textbf{\theenumii.}}
-\def\Oij{$\left(\text{O},~\vect{\imath},~\vect{\jmath}\right)$}
-\def\Oijk{$\left(\text{O},~\vect{\imath},~\vect{\jmath},~\vect{k}\right)$}
-\def\Ouv{$\left(\text{O},~\vect{u},~\vect{v}\right)$}
+\newcommand{\vect}[1]{\overrightarrow{\,\mathstrut#1\,}}
+\def\Oij{$\left(\text{O}~;~\vect{\imath},~\vect{\jmath}\right)$}
+\def\Oijk{$\left(\text{O}~;~\vect{\imath},~\vect{\jmath},~\vect{k}\right)$}
+\def\Ouv{$\left(\text{O}~;~\vect{u}~;~\vect{v}\right)$}
+\renewcommand{\i}{\text{i}}
+\newcommand{\e}{\text{e}}
 \usepackage{fancyhdr}
 \usepackage[dvips]{hyperref}
+%Tapuscrit : François Kriegk
 \hypersetup{%
 pdfauthor = {APMEP},
-pdfsubject = {Corrigé du baccalauréat S},
-pdftitle = {Asie 18 juin 2013},
+pdfsubject = {Terminale S},
+pdftitle = {Amérique du Nord mai 2019},
 allbordercolors = white,
 pdfstartview=FitH}   
-\thispagestyle{empty}
-\usepackage[frenchb]{babel}
+\usepackage[french]{babel}
+\DecimalMathComma
 \usepackage[np]{numprint}
 \begin{document}
 \setlength\parindent{0mm}
 \rhead{\textbf{A. P{}. M. E. P{}.}}
-\lhead{\small Corrigé du baccalauréat S }
-\lfoot{\small{Asie}}
-\rfoot{\small{18 juin 2013}}
-\renewcommand \footrulewidth{.2pt}
+\lhead{\small Terminale S}
+\lfoot{\small{Amérique du Nord}}
+\rfoot{\small{28 mai 2019}}
 \pagestyle{fancy}
 \thispagestyle{empty}
+\begin{center}
+    
+{\Large \textbf{\decofourleft~Baccalauréat S Amérique du Nord 28 mai 2019~\decofourright}}
+    
+\bigskip
+    
+\textbf{Durée : 4 heures} \end{center}
 
-\begin{center}{\Large{\textbf{\decofourleft~Corrigé du baccalauréat S Asie 
-18 juin 2013~\decofourright }}} \end{center}
+\bigskip
 
-\vspace{0,25cm}
+\textbf{Exercice 1 \hfill 5 points} 
 
-%Dans l'ensemble du sujet, et pour chaque question, toute trace de recherche même incomplète, ou d'initiative même non fructueuse, sera prise en compte dans l'évaluation.
-%
-%\vspace{0,5cm}
-
-\textbf{\textsc{Exercice 1} \hfill 5 points}
-
-\textbf{Commun  à tous les candidats}
+\textbf{Commun à tous les candidats} 
 
 \medskip
 
-%Dans cet exercice, les probabilités seront arrondies au centième. 
-%
-%\bigskip
+\emph{Dans cet exercice et sauf mention contraire, les résultats seront arrondis à }$10^{-3}$.
+
+\bigskip
+
+Une usine fabrique des tubes.
+
+\bigskip
 
 \textbf{Partie A}
 
-%\medskip
-% 
-%Un grossiste achète des boîtes de thé vert chez deux fournisseurs. Il achète 80\,\% de ses boîtes chez le fournisseur A et 20\,\% chez le fournisseur B.
+\bigskip
+
+\emph{Les questions} \textbf{1.} \emph{et} \textbf{2.} \emph{sont indépendantes.}
 
 \medskip
- 
-%10\,\% des boîtes provenant du fournisseur A présentent des traces de pesticides et 20\,\% de celles provenant du fournisseur B présentent aussi des traces de pesticides.
-% 
-%On prélève au hasard une boîte du stock du grossiste et on considère les évènements suivants : 
-%
-%\setlength\parindent{8mm}
-%\begin{itemize}
-%\item évènement A : \og la boîte provient du fournisseur A \fg{} ; 
-%\item évènement B : \og la boîte provient du fournisseur B \fg{} ; 
-%\item évènement S : \og la boîte présente des traces de pesticides \fg.
-%\end{itemize}
-%\setlength\parindent{0mm}
-%
-%\medskip
- 
-\begin{enumerate}
-\item %Traduire l'énoncé sous forme d'un arbre pondéré.
-Le grossiste a deux fournisseurs et il y a dans chaque boîte des traces de pesticides ou non. On a donc un arbre $2 \times 2$ :
 
-\begin{center}
-\pstree[treemode=R,nodesep=4pt]{\Tdot}
-{
-	\pstree{\TR{$A$}\taput{$0,8$}}
-		{
-\Tdot~[tnpos=r]{$S$}\taput{$0,1$}
-\Tdot~[tnpos=r]{$\overline{S}$}\tbput{$0,9$}
- 		}
-	\pstree{\TR{$B$}\tbput{$0,2$}}
-		{
-\Tdot~[tnpos=r]{$S$}\taput{$0,2$}
- \Tdot~[tnpos=r]{$\overline{S}$}\tbput{$0,8$}
- 		}
-}
-\end{center}
- 
-\item 
+On s'intéresse à deux types de tubes, appelés tubes de type 1 et tubes de type 2.
+
+\medskip
+
+\begin{enumerate}
+	\item Un tube de type 1 est accepté au contrôle si son épaisseur est comprise entre $1,35$ millimètre et $1,65$ millimètre.
 	\begin{enumerate}
-		\item %Quelle est la probabilité de l'évènement $B \cap \overline{S}$ ?
-En suivant la quatrième branche :
+		\item On désigne par $X$ la variable aléatoire qui, à chaque tube de type 1 prélevé au hasard dans la production d'une journée, associe son épaisseur exprimée en millimètres. On suppose que la variable aléatoire $X$ suit la loi normale d'espérance $1,5$ et d'écart-type $0,07$.
 		
-$p\left(B \cap \overline{S}\right)  = p(B) \times p_{B}\left(\overline{S} \right) = 0,2 \times 0,8 = 0,16$. 
-		\item %Justifier que la probabilité que la boîte prélevée ne présente aucune trace de pesticides est égale à $0,88$.
-On calcule de même :
-
-$p\left(A \cap \overline{S}\right)  = p(A) \times p_{A}\left(\overline{S} \right) = 0,8 \times 0,9 = 0,72$.
-
-$\{A~;~B\}$ étant une partition de l'univers, on a donc :
-
-$p\left(\overline{S}\right) = p\left(A \cap \overline{S}\right)  + 	p\left(B \cap \overline{S}\right)  = 0,72 + 0,16 = 0,88$.
-	\end{enumerate} 
-\item Il faut donc calculer :
-%On constate que la boîte prélevée présente des traces de pesticides. 
-
-%Quelle est la probabilité que cette boîte provienne du fournisseur B ?
-
-
-$p_{S}(B) = \dfrac{p(S \cap B)}{p(S)}$.
-
-On a vu que $p\left(\overline{S}\right) = 0,88$, donc $p(S) = 1 - p\left(\overline{S}\right) = 0,12$.
-
-Donc $p_{S}(B) =\dfrac{0,2 \times 0,2}{0,12} = \dfrac{4}{12} = \dfrac{1}{3} \approx 0,33$ au centième près.
-\end{enumerate}
-
-\bigskip
- 
-\textbf{Partie B}
-
-\medskip
- 
-%Le gérant d'un salon de thé achète $10$~boîtes chez le grossiste précédent. On suppose que le stock de ce dernier est suffisamment important pour modéliser cette situation par un tirage aléatoire de $10$~boîtes avec remise.
-% 
-%On considère la variable aléatoire $X$ qui associe à ce prélèvement de $10$~boîtes, le nombre de boîtes sans trace de pesticides.
-%
-%\medskip
- 
-\begin{enumerate}
-\item %Justifier que la variable aléatoire $X$ suit une loi binomiale dont on précisera les paramètres.
-On a vu que la probabilité de tirer une boîte de façon aléatoire dans le stock du grossiste sans trouver de pesticides est égale à $0,88$. C'est une épreuve de Bernoulli.
-
-Répéter de façon indépendante 10 fois cette expérience est donc une épreuve de Bernoulli de paramètres $n = 10$ et $p = 0,88$.
-
-La variable $X$ suit donc une loi binomiale $\mathcal{B}(10~;~0,88)$.   
-\item %Calculer la probabilité que les 10 boîtes soient sans trace de pesticides.
-Il faut trouver $p(X = 10) = \binom{10}{10}\times 0,88^{10}\times (1 - 0,88)^{10 - 10} = 0,88^{10} \approx 0,28$ au centième près.
-\item %Calculer la probabilité qu'au moins $8$~boîtes ne présentent aucune trace de pesticides.
-Il faut trouver :
-
-$p(X \geqslant 8) = p(X = 8) + p(X = 9) + p(X = 10) = $
-
-$\binom{10}{8}\times 0,88^{8}\times (1 - 0,88)^{10 - 8} + \binom{10}{9}\times 0,88^{9}\times (1 - 0,88)^{10 - 9} + \binom{10}{10}\times 0,88^{10}\times (1 - 0,88)^{10 - 10} \approx$
-
-$ \np{0,233043} + \np{0,379774} + \np{0,278501} \approx \np{0,891318} \approx 0,89$ au centième près
-\end{enumerate}
- 
-\newpage
- 
-\textbf{Partie C}
-
-\medskip
- 
-%¿ des fins publicitaires, le grossiste affiche sur ses plaquettes: \og 88\,\% de notre thé est garanti sans trace de pesticides \fg. 
-%
-%Un inspecteur de la brigade de répression des fraudes souhaite étudier la validité de l'affirmation. À cette fin, il prélève $50$~boîtes au hasard dans le stock du grossiste et en trouve $12$ avec des traces de pesticides.
-%
-%\medskip
-% 
-%On suppose que, dans le stock du grossiste, la proportion de boîtes sans trace de pesticides est bien égale à $0,88$.
-% 
-%On note $F$ la variable aléatoire qui, à tout échantillon de $50$~boîtes, associe la fréquence des boîtes ne contenant aucune trace de pesticides.
-
-%\medskip
- 
-\begin{enumerate}
-\item %Donner l'intervalle de fluctuation asymptotique de la variable aléatoire $F$ au seuil de 95\,\%.
-On vérifie tout d'abord que :
-
-$\bullet~~$ $n = 50$ et $50 \geqslant 30$ ;
-
-$\bullet~~$ $np = 50 \times 0,88 = 44$ et $44 \geqslant 5$ ;
-
-$\bullet~~$ $n(1 - p) = 50 \times 0,12 = 6$ et $6 \geqslant 5$.
-
-On sait qu'alors l'intervalle de fluctuation asymptotique au seuil de 95\,\% est égale à :
-
-I$_{f} = \left[0,88 - \dfrac{1,96 \times \sqrt{0,88 \times (1 - 0,88)}}{\sqrt{50}}~;~0,88 + \dfrac{1,96 \times \sqrt{0,88 \times (1 - 0,88)}}{\sqrt{50}}\right]$, d'où au centième près :
-
-I$_{f} = [0,79~;~0,98]$. 
-\item %L'inspecteur de la brigade de répression peut-il décider, au seuil de 95\,\%, que la publicité est mensongère ?
-L'inspecteur de la brigade de répression constate une proportion de lots sans pesticides de 
-
-$\dfrac{50 - 12}{50} \approx 0,76$.
-Or $0,76 \notin \text{I}_{f}$, donc il doit constater au risque de 5\,\% que la publicité est mensongère. 
-\end{enumerate}
- 
-\vspace{0,5cm}
-
-\textbf{\textsc{Exercice 2} \hfill 6 points}
-
-\textbf{Commun  à tous les candidats} 
-
-%On considère les fonctions $f$ et $g$ définies pour tout réel $x$ par : 
-%
-%\[f(x) = \text{e}^x \quad  \text{et}\quad  g(x) = 1 - \text{e}^{- x}.\]
-% 
-%Les courbes représentatives de ces fonctions dans un repère orthogonal du plan, notées respectivement $\mathcal{C}_{f}$ et $\mathcal{C}_{g}$, sont fournies en annexe.
-
-\bigskip
- 
-\textbf{Partie A}
-
-\medskip
-  
-%Ces courbes semblent admettre deux tangentes communes. Tracer aux mieux ces tangentes sur la figure de l'annexe.
-Voir la figure. 
-
-\bigskip
- 
-\textbf{Partie B}
-
-\medskip 
-
-%Dans cette partie, on admet l'existence de ces tangentes communes. 
-%
-%On note $\mathcal{D}$ l'une d'entre elles. Cette droite est tangente à la courbe $\mathcal{C}_{f}$ au point A d'abscisse $a$ et tangente à la courbe $\mathcal{C}_{g}$ au point B d'abscisse $b$.
-%
-%\medskip
- 
-\begin{enumerate}
-\item 
-	\begin{enumerate}
-		\item %Exprimer en fonction de $a$ le coefficient directeur de la tangente à la courbe $\mathcal{C}_{f}$ au point A.
-
-Le coefficient directeur de la tangente à la courbe $\mathcal{C}_{f}$ au point A est égal à $f'(a)$. Or
-
-$f'(x)  = \text{e}^{x}$, donc $f'(a) = \text{e}^{a}$. 
-		\item %Exprimer en fonction de $b$ le coefficient directeur de la tangente à la courbe $\mathcal{C}_{g}$ au point B.
-De même le coefficient directeur de la tangente à la courbe $\mathcal{C}_{g}$ au point B est égal à $g'(b)$. Or $g'(x) = - \left(- \text{e}^{-x}\right)$, donc  $g'(b) = \text{e}^{- b}$.
-		\item %En déduire que $b = - a$.
-Si les deux tangentes sont égales le coefficient directeur de leurs équations réduites sont égaux, soit :
-
-$f'(a) = g'(b) \iff \text{e}^{a} = \text{e}^{- b}$ et par croissance de la fonction logarithme népérien :
-
-$a = - b \iff b = - a$.
-	\end{enumerate} 
-\item %Démontrer que le réel $a$ est solution de l'équation 
-
-%\[2( x -1)\text{e}^x + 1 = 0.\]
-Une équation réduite de la tangente à la courbe $\mathcal{C}_{f}$ au point A est égale à :
-
-$y - \text{e}^a = \text{e}^{a}(x - a) \iff y = x\text{e}^{a} + \text{e}^a(1  - a)$.
-
-Une équation réduite de la tangente à la courbe $\mathcal{C}_{g}$ au point B est égale à :
-
-$y - \left(1 - \text{e}^{- b}\right) = \text{e}^{- b}(x - b) \iff y = x\text{e}^{ - b} + 1 - \text{e}^{- b} - b\text{e}^{- b}$.
-
-Ou en remplaçant $- b$ par $a$ :
-
-$y = x\text{e}^{a} + 1 - \text{e}^{a} + a\text{e}^{a} \iff y = x\text{e}^{a} + 1 + \text{e}^{a}(a - 1)$.
-
-Si les deux tangentes sont égales, leurs équations réduites sont les mêmes. On a déjà vu l'égalité des coefficients directeurs. Les ordonnées à l'origine sont aussi les mêmes soit :
-
-$\text{e}^a(1  - a) = 1 + \text{e}^{a}(a - 1) \iff \text{e}^a(2  - 2a) = 1 \iff 2(a - 1)\text{e}^a + 1 = 0$.
-
-Donc $a$ est solution de l'équation dans $\R$ :
-\[2(x - 1)\text{e}^x + 1 = 0.\] 
-\end{enumerate} 
-\medskip
- 
-\textbf{Partie C}
-
-\medskip
- 
-%On considère la fonction $\varphi$ définie sur  $\R$ par 
-%
-%\[\varphi(x) = 2(x - 1)\text{e}^x + 1.\]
- 
-\begin{enumerate}
-\item 
-	\begin{enumerate}
-		\item %Calculer les limites de la fonction $\varphi$ en $- \infty$ et $+ \infty$.
-		Sur $\R$, \: $\varphi(x) = 2x\text{e}^x - \text{e}^x + 1$.
-
-On sait que $\displaystyle\lim_{x \to - \infty} \text{e}^x = 0$ et $\displaystyle\lim_{x \to - \infty} x\text{e}^x = 0$, d'où par somme de limite :
-
-$\displaystyle\lim_{x \to - \infty} \varphi(x) = 1$.
-
-La droite d'équation $y = 1$ est asymptote horizontale à la courbe représentative de $\varphi$.
-
-On a $\displaystyle\lim_{x to + \infty} (x - 1) = + \infty$ et  $\displaystyle\lim_{x \to + \infty} \text{e}^x = + \infty$, d'où par somme de limites : $\displaystyle\lim_{x \to + \infty} \varphi(x) = + \infty$.
-		\item %Calculer la dérivée de la fonction $\varphi$, puis étudier son signe.
-Somme de fonctions dérivable sur $\R$, $\varphi$ est dérivable sur $\R$ et :
-
-$\varphi'(x) = 2\text{e}^x + 2(x - 1)\text{e}^x = 2x\text{e}^x$.
-
-Comme,  quel que soit $x \in \R$; \: $\text{e}^x > 0$, le signe de $\varphi'(x)$ est celui de $x$. Donc sur $]- \infty~;~0[,$
-
-$\varphi'(x) < 0$ : la fonction est décroissante sur cet intervalle et sur $]0~;~+ \infty[$, \:$\varphi'(x) > 0$ : la fonction $\varphi$ est croissante sur cet intervalle. D'où le tableau de variations :  
-		\item %Dresser le tableau de variation de la fonction $\varphi$ sur $\R$. Préciser la valeur de $\varphi(0)$.
-		~
-\psset{unit=1cm}
-\begin{center}
-\begin{pspicture}(7,3)
-\psframe(7,3)\psline(0,2)(7,2)\psline(0,2.5)(7,2.5)
-\psline(1,0)(1,3)
-\uput[u](0.,2.5){$x$} \uput[u](1.5,2.5){$- \infty$} \uput[u](4,2.5){$0$} \uput[u](6.5,2.5){$ + \infty$}
-\rput(0.5,2.25){$f'(x)$}\rput(2.5,2.25){$-$}\rput(4,2.25){$0$}\rput(5.5,2.25){$+$}
-\psline{->}(1.5,1.5)(3.5,0.5)
-\psline{->}(4.5,0.5)(6.5,1.5) 
-\uput[d](1.2,2){1}\uput[d](6.5,2){$+ \infty$}
-\uput[u](4,0){$- 1$}\rput(0.5,1){$f(x)$}
-\end{pspicture}
-\end{center}
-	\end{enumerate} 
-\item
-	\begin{enumerate}
-		\item %Démontrer que l'équation $\varphi(x) = 0$ admet exactement deux solutions dans $\R$.
-Sur $]- \infty~;~0]$ la fonction $\varphi$ est continue et strictement décroissante à valeurs dans $[- 1~;~1]$. Comme $0 \in  [- 1~;~1]$ il existe un réel unique $\alpha$ de $]- \infty~;~0]$ tel que $f(\alpha) = 0$.
-
-Le même raisonnement sur l'intervalle $[0~;~+\infty[$ montre qu'il existe un réel unique de cet intervalle $\beta$ tel que $f(\beta) = 0$.
-
-Donc l'équation $\varphi(x) = 0$ admet exactement deux solutions dans $\R$. 
-		\item %On note $\alpha$ la solution négative de l'équation $\varphi(x) = 0$ et $\beta$ la solution positive de cette équation.
-		 
-%À l'aide d'une calculatrice, donner les valeurs de $\alpha$ et $\beta$ arrondies au centième.
-La calculatrice donne successivement :
-
-$\varphi(- 2) \approx 0,18$ et $\varphi(- 1) \approx -0,47$, donc $- 2 < \alpha < - 1$ ;
-
-$\varphi(- 1,7) \approx 0,013$ et $\varphi(- 1,6) \approx -0,05$, donc $- 1,7 < \alpha < - 1,6$ ;
-
-$\varphi(- 1,68) \approx 0,001$ et $\varphi(- 1,67) \approx -0,005$, donc $- 1,68 < \alpha < - 1,67$ ;
-
-$\varphi(- 1,679) \approx 0,00041$ et $\varphi(- 1,678) \approx -0,0002$, donc $- 1,679 < \alpha < - 1,678$.
-
-Conclusion au centième près $\alpha \approx - 1,68$.
-
-De la même façon on obtient $\beta \approx 0,77$. 
-	\end{enumerate} 
-\end{enumerate}
-
-\bigskip
- 
-\textbf{Partie D}
-
-\medskip
-
-%Dans cette partie, on démontre l'existence de ces tangentes communes, que l'on a admise dans la partie B.
-% 
-%On note E le point de la courbe $\mathcal{C}_{f}$ d'abscisse $\alpha$ et F le point de la courbe $\mathcal{C}_{g}$ d'abscisse $- \alpha$ ($a$ est le nombre réel défini dans la partie C).
-
-%\medskip
- 
-\begin{enumerate}
-\item %Démontrer que la droite (EF) est tangente à la courbe $\mathcal{C}_{f}$ au point E.
-Le coefficient directeur de la tangente en E à $\mathcal{C}_{f}$ est $\text{e}^{\alpha}$.
-
-Le coefficient directeur de la droite (EF) est: $\dfrac{1 - \text{e}^{\alpha} - \text{e}^{\alpha}}{- \alpha - \alpha} = \dfrac{1 - 2\text{e}^{\alpha}}{- 2\alpha}$.
-
-Or $\alpha$ est solution de l'équation : $2(x - 1)\text{e}^x + 1 = 0$, autrement dit 
-
-$2(\alpha - 1)\text{e}^{\alpha} + 1 = 0 \iff 2\alpha\text{e}^{\alpha} = 2\text{e}^{\alpha} - 1$, d'où en revenant au coefficient directeur de la droite (EF) : $\dfrac{1 - 2\text{e}^{\alpha}}{- 2\alpha} = \dfrac{- 2 \alpha\text{e}^{\alpha}}{-2\alpha} = \text{e}^{\alpha}$
-
-Conclusion : la droite (EF) est bien la tangente à la courbe $\mathcal{C}_{f}$ au point d'abscisse $\alpha$ et la tangente à la courbe $\mathcal{C}_{g}$ au point d'abscisse $-\alpha$.
-
-\item %Démontrer que (EF) est tangente à $\mathcal{C}_{g}$ au point F.
-Le coefficient directeur de la tangente à la courbe $\mathcal{C}_{g}$ au point d'abscisse $- \alpha$ est $\text{e}^{- (- \alpha)} = \text{e}^{\alpha}.$
-
-On a vu dans la question précédente que la droite (EF) a pour coefficient directeur $\text{e}^{\alpha}$ et contient le point F.
-
-Conclusion la droite (EF) est la tangente à la courbe $\mathcal{C}_{g}$ au point d'abscisse $- \alpha$. 
-\end{enumerate}
-
-\vspace{0,5cm}
-
-\textbf{\textsc{Exercice 3} \hfill 4 points}
-
-\textbf{Commun  à tous les candidats}
-
-\medskip
-
-%\emph{Les quatre questions de cet exercice sont indépendantes.\\ 
-%Pour chaque question, une affirmation est proposée. Indiquer si chacune d'elles est vraie ou fausse, en justifiant la réponse. Une réponse non justifiée ne rapporte aucun point.}
-%
-%\medskip
-% 
-%Dans les questions 1. et 2., le plan est rapporté au repère orthonormé direct \Ouv. 
-%
-%On considère les points A, B, C, D et E d'affixes respectives : 
-%
-%\[a = 2 + 2\text{i},\quad  b = - \sqrt{3} + \text{i},\quad c = 1 + \text{i}\sqrt{3},\quad d = - 1 + \dfrac{\sqrt{3}}{2}\text{i}\quad \text{et}\quad e = - 1 + \left(2 + \sqrt{3} \right)\text{i}.\] 
-
-\begin{enumerate}
-\item \textbf{Affirmation 1} : VRAIE%les points A, B et C sont alignés.
-
-On a $\vect{\text{AB}}\left(- \sqrt{3} - 2~;~- 1\right)$ et $\vect{\text{AC}}\left(- 1~;~\sqrt{3} - 2\right)$.
-
-D'où $\vect{\text{AC}} = \left(2 - \sqrt{3}\right)\vect{\text{AB}}$.
-
-Les vecteurs sont colinéaires donc les points A, B et C sont alignés.
-\item \textbf{Affirmation 2} : FAUSSE % les points B, C et D appartiennent à un même cercle de centre E.
-
-On calcule successivement :
-
-EB$^2  = 8 ~; ~ \text{EC}^2 = 8$ et ED$^2
- = \dfrac{19}{4} + 2\sqrt{3} \neq 8$.
- 
- Les points B, C et D ne sont pas équidistants de E.
-\item %Dans cette question, l'espace est muni d'un repère \Oijk.
- 
-%On considère les points I(1~;~0~;~0), J(0~;~1~;~0) et K(0~;~0~;~1).  
-
-\textbf{Affirmation 3} : VRAIE %la droite $\mathcal{D}$ de représentation paramétrique $\left\{\begin{array}{l c l}
-%x &=& 2 - t \\
-%y &=& 6 - 2 t\\
-%z &=&- 2 + t
-%\end{array}\right.$  où $t \in \R$, coupe le plan  (IJK) au point E$\left(- \dfrac{1}{2}~;~1~;~\dfrac{1}{2} \right)$.
-
-Une équation du plan (IJK) est $x + y + z = 1$. Un  point commun à ce plan et à la droite $\mathcal{D}$ a ses coordonnées telles que :
-
-$2 - t + 6 - 2t - 2 + t = 1 \iff 5 = 2t \iff t = \dfrac{5}{2}.$
-
-Ce point commun existe donc et a pour coordonnées $\left(- \dfrac{1}{2}~;~1~;~\dfrac{1}{2} \right)$.
-\item %Dans le cube ABCDEFGH, le point T est le milieu du segment [HF].
-
-%\medskip
-%
-%\begin{center}
-%\psset{unit=1cm}
-%\begin{pspicture}(8,7.4)
-%\psline(2.1,1)(6.2,1)(5.6,5)(1.5,5)(2.6,6.9)(6.8,6.9)(5.6,5)%ABFEHGF
-%\psline(6.2,1)(7.4,3)(6.8,6.9)%BCG
-%\psline(0,5.42)(1.5,5)
-%\psline(7.4,3)(8.6,2.7)
-%\psline(2.1,1)(1.5,5)
-%\psline[linestyle=dotted,linewidth=1.5pt](1.5,5)(7.4,3)%EC
-%\psline(4.8,7.6)(4.1,6)
-%\psline(2.1,1)(1.8,0.4)
-%\psline[linestyle=dotted,linewidth=1.5pt](4.1,6)(2.1,1)
-%\psline[linestyle=dotted,linewidth=1.5pt](2.1,1)(3.3,3)(7.4,3)
-%\psline[linestyle=dotted,linewidth=1.5pt](3.3,3)(2.6,6.9)
-%\uput[l](2.1,1){A} \uput[dr](6.2,1){B} \uput[ur](7.4,3){C} 
-%\uput[ur](3.3,3){D} \uput[ul](1.5,5){E} \uput[ul](5.6,5){F} 
-%\uput[ur](6.8,6.9){G} \uput[ul](2.6,6.9){H} \uput[ul](4.1,6){T} 
-%\end{pspicture}
-%\end{center} 
-
-
-\textbf{Affirmation 4} : VRAIE %les droites (AT) et (EC) sont orthogonales.
-
-(EFGH) est un carré donc le milieu T de [HF] est le milieu de [EG].
-
-On a donc $\vect{\text{ET}} = \dfrac{1}{2}\vect{\text{EG}}$.
-
-En prenant par exemple le repère $\left(\text{A},~\vect{\text{AB}}~;~\vect{\text{AD}}~;~\vect{\text{AE}}\right)$ calculons le produit scalaire :
-
-$\vect{\text{AT}} \cdot \vect{\text{EC}} = \left(\vect{\text{AE}} + \vect{\text{ET}} \right) \cdot \left(\vect{\text{EG}} + \vect{\text{GC}} \right) = 
-\left(\vect{\text{AE}} + \dfrac{1}{2}\vect{\text{EG}} \right) \cdot \left(\vect{\text{EG}} + \vect{\text{GC}} \right) =$
- 
-$\vect{\text{AE}}\cdot \vect{\text{EG}} + \vect{\text{AE}} \cdot \vect{\text{GC}} + \dfrac{1}{2}\vect{\text{EG}} \cdot \vect{\text{EG}} + \dfrac{1}{2}\vect{\text{EG}}\cdot\vect{\text{GC}}$.
-
-Or ABCDEFGH est un cube, donc $\vect{\text{AE}} \cdot \vect{\text{EG}} = 0$ et $\vect{\text{EG}} \cdot \vect{\text{GC}} = 0$.
-
-De plus $\vect{\text{AE}} = - \vect{\text{GC}}$ et EG $ = c\sqrt{2}$, $c$ étant la mesure du côté du cube.
-
-Finalement : $\vect{\text{AT}} \cdot \vect{\text{EC}} = - c^2  + \dfrac{1}{2}\left(c \sqrt{2} \right)^2 = - c^2 + c^2 = 0$.
-
-Les vecteurs sont orthogonaux donc les droites (AT) et (EC) sont orthogonales.
-\end{enumerate}
-
-\vspace{0,5cm}
-
-\textbf{\textsc{Exercice 4} \hfill 5 points}
-
-\textbf{Candidats n'ayant pas choisi l'enseignement de spécialité}  
-
-\bigskip
-
-\textbf{Partie A}
-
-\medskip
- 
-%On considère la suite $\left(u_{n}\right)$ définie par : $u_{0} = 2$ et, pour tout entier naturel $n$ : 
-%
-%\[u_{n+1} = \dfrac{1 + 3u_{n}}{3 + u_{n}}.\] 
-% 
-%On admet que tous les termes de cette suite sont définis et strictement positifs.
-%
-%\medskip
- 
-\begin{enumerate}
-\item %Démontrer par récurrence que, pour tout entier naturel $n$, on a : $u_{n} > 1$.
-\emph{Initialisation} : la relation est vraie au rang $0$ ;
-
-\emph{Hérédité} : supposons que pour tout naturel $p$ tel que $u_{p} > 1$.
-
-$\dfrac{1 + 3u_{p}}{3 + u_{p}} = \dfrac{3 + u_{p} - 2 + 2u_{p}}{3 + u_{p}} =  \dfrac{\left(3 + u_{p}\right) + \left(2u_{p} - 2\right)}{3 + u_{p}} = 1  + 2\dfrac{u_{p} - 1}{3 + u_{p}}$.
-
-Par hypothèse de récurrence on a :
-
-$u_{p} - 1$ et comme $u_{p} > 1,\, 3 + u_{p} > 4 > 0$ donc son inverse $\dfrac{1}{3 + u_{p}} > 0$ et finalement $\dfrac{u_{p} - 1}{3 + u_{p}} > 0$, c'est-à-dire que $u_{p+1} = \dfrac{1 + 3u_{p}}{3 + u_{p}} > 1$
-
-Conclusion : la propriété est vraie au rang $0$, et elle est héréditaire à partir de tout rang, donc d'après le principe de récurrence,   pour tout entier naturel $n$, \, $u_{n} > 1$.
-\item  
-	\begin{enumerate}
-		\item %Établir que, pour tout entier naturel $n$, on a : $u_{n+1}- u_{n} = \dfrac{\left(1 - u_{n} \right)\left(1 + u_{n} \right)}{3+ u_{n}}$.
-Quel que soit le naturel $n$, \, $u_{n+1}- u_{n} = \dfrac{1 + 3u_{n}}{3 + u_{n}} - u_{n} = \dfrac{1 + 3u_{n} - 3u_{n}- u_{n}^2}{3 + u_{n}} = \dfrac{1 - u_{n}^2}{3 + u_{n}} = \dfrac{\left(1 - u_{n} \right)\left(1 + u_{n} \right)}{3+ u_{n}}$.	
-		\item %Déterminer le sens de variation de la suite $\left(u_{n}\right)$. 
-On sait que quel que soit le naturel $n$, \, $u_{n} > 1 \Rightarrow u_{n}^2 > 1^2 \Rightarrow 1 - u_{n}^2 < 0$ et comme $3 + u_{n} > 0$ et finalement $u_{n+1}  - u_{n} < 0$ ce qui signifie que la suite $\left(u_{n}\right)$ est décroissante.
-
-  %En déduire que la suite $\left(u_{n}\right)$ converge.
-La suite $\left(u_{n}\right)$ est décroissante et minorée par $1$ : elle converge vers une limite supérieure ou égale à $1$. 
+\smallskip
+		
+On prélève au hasard un tube de type 1 dans la production de la journée. Calculer la probabilité que le tube soit accepté au contrôle.		
+		\item L'entreprise désire améliorer la qualité de la production des tubes de type 1. Pour cela, on modifie le réglage des machines produisant ces tubes. On note $X_1$ la variable aléatoire qui, à chaque tube de type 1 prélevé dans la production issue de la machine modifiée, associe son épaisseur. On suppose que la variable aléatoire $X_1$ suit une loi normale d'espérance $1,5$ et d'écart-type $\sigma_1$.
+		
+\smallskip
+		
+Un tube de type 1 est prélevé au hasard dans la production issue de la machine modifiée. Déterminer une valeur approchée à $10^{-3}$ près de $\sigma_1$ pour que la probabilité que ce tube soit accepté au contrôle soit égale à 0,98. (On pourra utiliser la variable aléatoire $Z$ définie par $Z = \dfrac{X_1 - 1,5}{\sigma_1}$ qui suit la loi normale centrée réduite.)
 	\end{enumerate}
-\end{enumerate}
+\item Une machine produit des tubes de type 2. Un tube de type 2 est dit \og{}conforme pour la longueur \fg{} lorsque celle-ci, en millimètres, appartient à l’intervalle $[298~;~302]$. Le cahier des charges établit que, dans la production de tubes de type 2, une proportion de 2\,\% de tubes non \og{} conformes pour la longueur\fg{} est acceptable.
 	
-\bigskip
+\smallskip
+	
+On souhaite décider si la machine de production doit être révisée. Pour cela, on prélève au hasard dans la production de tubes de type 2 un échantillon de $250$ tubes dans lequel 10 tubes se révèlent être non \og{}conformes pour la longueur\fg{}.	
+	\begin{enumerate}
+		\item Donner un intervalle de fluctuation asymptotique à $95$\,\% de la fréquence des tubes non \og{}conformes pour la longueur\fg{} dans un échantillon de $250$ tubes.		
+		\item Décide-t-on de réviser la machine ? Justifier la réponse.
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip 
 
 \textbf{Partie B}
 
 \medskip
 
-%On considère la suite $\left(u_{n}\right)$ 	définie par : $u_{0} = 2$ et, pour tout entier nature $n$ :
-%
-%\[ u_{n+1} = \dfrac{1 + 0,5u_{n}}{0,5 + u_{n}}.\]
-% 
-%On admet que tous les termes de cette suite sont définis et strictement positifs.
-%
-%\medskip
- 
-\begin{enumerate}
-\item 
+Des erreurs de réglage dans la chaine de production peuvent affecter l'épaisseur ou la longueur des tubes de type 2.
 
-%On considère l'algorithme suivant :
-%\begin{center}
-%\begin{tabular}{|c |l|}\hline
-% Entrée& Soit un entier naturel non nul $n$\\ \hline 
-%Initialisation &Affecter à $u$ la valeur 2\\ \hline 
-%\multirow{4}{1.2cm}{Traitement et sortie }&POUR $i$ allant de 1 à $n$\\ 
-%&\hspace{1cm}Affecter à $u$ la valeur $\dfrac{1 + 0,5u}{0,5 + u}$\\  
-%&\hspace{1cm}Afficher $u$\\ \hline 
-%&FIN POUR\\ \hline
-%\end{tabular}
-%\end{center}
-% 
-%Reproduire et compléter le tableau suivant, en faisant fonctionner cet algorithme pour $n = 3$. Les valeurs de $u$ seront arrondies au millième. 
+Une étude menée sur la production a permis de constater que :
+
+\begin{itemize}
+	\item 96\,\% des tubes de type 2 ont une épaisseur conforme;	
+	\item parmi les tubes de type 2 qui ont une épaisseur conforme, 95\,\% ont une longueur conforme;	
+	\item 3,6\,\% des tubes de type 2 ont une épaisseur non conforme et une longueur conforme.
+\end{itemize}
+
+On choisit un tube de type 2 au hasard dans la production et on considère les événements :
+
+\begin{itemize}
+	\item $E$ : \og{}l'épaisseur du tube est conforme\fg{};
+	\item $L$ : \og{}la longueur du tube est conforme\fg{}.
+\end{itemize}
+
+On modélise l'expérience aléatoire par un arbre pondéré :
+
+%:-+-+-+- Engendré par : http://math.et.info.free.fr/TikZ/Arbre/
+\begin{center}
+% Racine à Gauche, développement vers la droite
+\begin{tikzpicture}[xscale=1,yscale=1]
+% Styles (MODIFIABLES)
+\tikzstyle{fleche}=[->,>=latex,thick]
+\tikzstyle{noeud}=[fill=white,circle]
+\tikzstyle{feuille}=[fill=white,circle]
+\tikzstyle{etiquette}=[midway,fill=white,circle,inner sep=2pt]
+% Dimensions (MODIFIABLES)
+\def\DistanceInterNiveaux{3}
+\def\DistanceInterFeuilles{1}
+% Dimensions calculées (NON MODIFIABLES)
+\def\NiveauA{(0)*\DistanceInterNiveaux}
+\def\NiveauB{(1)*\DistanceInterNiveaux}
+\def\NiveauC{(2)*\DistanceInterNiveaux}
+\def\InterFeuilles{(-1)*\DistanceInterFeuilles}
+% Noeuds (MODIFIABLES : Styles et Coefficients d'InterFeuilles)
+\node[noeud] (R) at ({\NiveauA},{(1.5)*\InterFeuilles}) {};
+\node[noeud] (Ra) at ({\NiveauB},{(0.5)*\InterFeuilles}) {$E$};
+\node[feuille] (Raa) at ({\NiveauC},{(0)*\InterFeuilles}) {$L$};
+\node[feuille] (Rab) at ({\NiveauC},{(1)*\InterFeuilles}) {$\overline{L}$};
+\node[noeud] (Rb) at ({\NiveauB},{(2.5)*\InterFeuilles}) {$\overline{E}$};
+\node[feuille] (Rba) at ({\NiveauC},{(2)*\InterFeuilles}) {$L$};
+\node[feuille] (Rbb) at ({\NiveauC},{(3)*\InterFeuilles}) {$\overline{L}$};
+% Arcs (MODIFIABLES : Styles)
+\draw[fleche] (R.east) --(Ra) node[etiquette] {$\dots$};
+\draw[fleche] (Ra.east) --(Raa) node[etiquette] {$\dots$};
+\draw[fleche] (Ra.east) --(Rab) node[etiquette] {$\dots$};
+\draw[fleche] (R.east) --(Rb) node[etiquette] {$\dots$};
+\draw[fleche] (Rb.east) --(Rba) node[etiquette] {$\dots$};
+\draw[fleche] (Rb.east) --(Rbb) node[etiquette] {$\dots$};
+\end{tikzpicture}
+\end{center}
+%:-+-+-+-+- Fin
+
+\begin{enumerate}
+	\item Recopier et compléter entièrement cet arbre.	
+	\item Montrer que la probabilité de l'événement $L$ est égale à 0,948.
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Exercice 2 \hfill 4 points} 
+
+\textbf{Commun à tous les candidats} 
+
+\medskip
+
+Le plan complexe est muni d'un repère orthonormé direct \Ouv. Dans ce qui suit, $z$ désigne un nombre complexe.
+
+\medskip
+
+Pour chacune des affirmations ci-dessous, indiquer sur la copie si elle est vraie ou si elle est fausse. Justifier. Toute réponse non justifiée ne rapporte aucun point.
+
+\medskip
+
+\begin{tabularx}{\linewidth}{l X}
+\textbf{Affirmation 1 :}& L'équation $z - \text{i} = \text{i}(z + 1)$ a pour solution $\sqrt{2}\e^{\text{i}\frac{\pi}{4}}$.      \\ \\
+	
+\textbf{Affirmation 2 :}& Pour tout réel $x \in \left] -\dfrac{\pi}{2}~;~\dfrac{\pi}{2} \right[$, le nombre complexe $1 + \e^{2\text{i} x}$ admet pour forme exponentielle $2 \cos x \e^{-\text{i}x}$.\\ \\
+	
+\textbf{Affirmation 3 :}& Un point M d'affixe $z$ tel que $\big|z - \text{i}\big| = \big|z + 1\big|$ appartient à la droite d'équation $y = -x$.\\ \\
+	
+\textbf{Affirmation 4 :}& L'équation $z^5 + z - \text{i} + 1 = 0$ admet une solution réelle.
+\end{tabularx}
+
+\vspace{5mm}
+
+\textbf{Exercice 3 \hfill 6 points} 
+
+\textbf{Commun à tous les candidats} 
+
+\medskip
+
+\textbf{Partie A : établir une inégalité}
+\medskip
+
+Sur l'intervalle $[0~;~ +\infty[$, on définit la fonction $f$ par $f(x) = x - \ln(x + 1)$.
+\begin{enumerate}
+	\item Étudier le sens de variation de la fonction $f$ sur l'intervalle $[0~;~ +\infty[$.	
+	\item En déduire que pour tout $x \in [0~;~ +\infty[, \quad \ln(x + 1) \leqslant x$.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Partie B : application à l'étude d'une suite}
+
+On pose $u_0 = 1$ et pour tout entier naturel $n$, $u_{n+1} = u_n - \ln(1 + u_n)$. On admet que la suite de terme général $u_n$ est bien définie.
+
+\begin{enumerate}
+\item Calculer une valeur approchée à $10^{-3}$ près de $u_2$.	
+\item 
+		\begin{enumerate}
+			\item Démontrer par récurrence que pour tout entier naturel $n, \quad u_n \geqslant 0$.		
+			\item Démontrer que la suite $(u_n)$ est décroissante, et en déduire que pour tout entier naturel $n, \quad u_n \leqslant 1 $.			
+			\item Montrer que la suite $(u_n)$ est convergente.
+	\end{enumerate}
+\item On note $\ell$ la limite de la suite $(u_n)$ et on admet que $\ell = f(\ell)$, où $f$ est la fonction définie dans la \textbf{partie A}. En déduire la valeur de $\ell$.
+\item 
+\begin{enumerate}
+		\item Écrire un algorithme qui, pour un entier naturel $p$ donné, permet de déterminer le plus petit rang $N$ à partir duquel tous les termes de la suite $\left(u_n\right)$ sont inférieurs à $10^{-p}$.		
+		\item Déterminer le plus petit entier naturel $n$ à partir duquel tous les termes de la suite $\left(u_n\right)$ sont inférieurs à $10^{-15}.\,$\footnote{La plupart des calculatrices et même des tableurs sont incapables de traiter cette question donnant même des résultats faux. Elle peut être sautée.}
+	\end{enumerate}
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Exercice 4 \hfill 5 points} 
+
+\textbf{Candidats n’ayant pas suivi l’enseignement de spécialité}
+
+On relie les centres de chaque face d'un cube ABCDEFGH pour former un solide IJKLMN comme sur la figure ci-dessous.
 
 \begin{center}
-\begin{tabularx}{0.6\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline 
-$i$&1&2& 3\\ \hline 
-$u$&0,800&1,077&0,976\\ \hline 
-\end{tabularx}
-\end{center} 
-\item %Pour $n = 12$, on a prolongé le tableau précédent et on a obtenu : 
-%
-%\begin{center}
-%\begin{tabularx}{\linewidth}{|c|*{9}{>{\centering \arraybackslash}X|}}\hline 
-%$i$&4&5&6&7&8&9&10&11&12\\ \hline
-%$u$&\footnotesize\np{1,0083}&\footnotesize\np{0,9973}&\footnotesize\np{1,0009}&\footnotesize\np{0,9997}&\footnotesize\np{1,0001}&\footnotesize \np{0,99997}&\footnotesize\np{1,00001}&\footnotesize \np{0,999996}&\footnotesize \np{1,000001}\\ \hline
-%\end{tabularx}
-%\end{center}
-%
-%Conjecturer le comportement de la suite $\left(u_{n}\right)$ à l'infini.
-Il semble que la suite converge vers $1$ par valeurs alternativement supérieures et inférieures. 
-\item %On considère la suite $\left(v_{n}\right)$ définie, pour tout entier naturel $n$, par : $v_{n} = \dfrac{u_{n} - 1}{u_{n} + 1}$. 
-	\begin{enumerate}
-		\item %Démontrer que la suite $\left(v_{n}\right)$ est géométrique de raison $- \dfrac{1}{3}$.
-$V_{n+1} = \dfrac{u_{n+1} - 1}{u_{n+1} + 1} = \dfrac{\frac{1 + 0,5u_{n}}{0,5 + u_{n}} - 1}{\frac{1 + 0,5u_{n}}{0,5 + u_{n}} + 1}  = \dfrac{0,5 - 0,5u_{n}}{1,5 + 1,5u_{n}} = \dfrac{- 0,5\left(u_{n} - 1\right)}{1,5\left(u_{n} + 1 \right)} = -\dfrac{1}{3}v_{n}$.
+	\begin{tikzpicture}[x={(-3:73mm)},y={(26:32mm)},z={(90:74mm)}]
+	\coordinate (A) at (0,0,0);
+	\coordinate (B) at (1,0,0);
+	\coordinate (C) at (1,1,0);
+	\coordinate (D) at (0,1,0);
+	\coordinate (E) at (0,0,1);
+	\coordinate (F) at (1,0,1);
+	\coordinate (G) at (1,1,1);
+	\coordinate (H) at (0,1,1);
+	\coordinate (I) at (0.5,0.5,0);
+	\coordinate (J) at (1,0.5,0.5);
+	\coordinate (K) at (0.5,1,0.5);
+	\coordinate (L) at (0,0.5,0.5);
+	\coordinate (M) at (0.5,0,0.5);
+	\coordinate (N) at (0.5,0.5,1);
+	
+	\draw (A) node [left]{A} -- (B) node [below right]{B} --
+	(C) node [right]{C} -- (D) node [above left]{D}--cycle
+	(E) node [left]{E} -- (F) node [below right]{F} --
+	(G) node [right]{G} -- (H) node [above left]{H}--cycle
+	(A)--(E) (B)--(F) (C)--(G) (D)--(H);
+	
+	\draw[line width=1pt] (I) node [below right] {I} --(J) node [right] {J}--(N)  node [above] {N}--(L)  node [left] {L}--cycle
+	(L)--(M) node [below left] {M}--(J) (N)--(M)--(I);
+	\draw[line width=1pt, dashed] (J)--(K) node [above right] {K} --(L) (N)--(K)--(I);
 
-La suite $\left(v_{n}\right)$ est donc géométrique de raison $- \dfrac{1}{3}$.
-		\item %Calculer $v_{0}$ puis écrire $v_{n}$ en fonction de $n$.
-On a $v_{0} = \dfrac{2 - 1}{2 + 3} = \dfrac{1}{3}$.
-
-On sait qu'alors pour tout naturel $n,\, v_{n} = \dfrac{1}{3}\times \left(- \dfrac{1}{3} \right)^n$.
-	\end{enumerate} 
-\item
-	\begin{enumerate}
-		\item %Montrer que, pour tout entier naturel $n$, on a : $v_{n} \neq 1$.
-		Quel que soit le naturel $n$, \, $\left(- \dfrac{1}{3} \right)^n \leqslant 1$, donc $v_{n} \leqslant \dfrac{1}{3}$ et par conséquent $v_{n}\neq 1$.  
-		\item %Montrer que, pour tout entier naturel $n$, on a : $u_{n} = \dfrac{1 + v_{n}}{1 - v_{n}}$.
-$v_{n} = \dfrac{u_{n} - 1}{u_{n} + 1} \iff v_{n}\left(u_{n} + 1 \right) = u_{n} - 1 \iff 
-v_{n}u_{n} + v_{n} = u_{n} - 1 \iff$
-
-$ v_{n}u_{n} - u_{n}+  =  - 1  - v_{n} \iff u_{n}\left(v_{n} - 1\right) = - 1  - v_{n}$ et comme $v_{n} \neq 1$, 
-
-$u_{n} = \dfrac{- 1 - v_{n}}{v_{n} - 1} = \dfrac{1 + v_{n}}{1 - v_{n}}$.  
-		\item %Déterminer la limite de la suite $\left(u_{n}\right)$.
-Comme $- 1 < - \dfrac{1}{3} < 1$, on sait que $\displaystyle \lim_{n \to + \infty} \left(- \dfrac{1}{3} \right)^n = 0$, soit  $\displaystyle \lim_{n \to + \infty} v_{n} = 0$, donc d'après le résultat précédent $\displaystyle \lim_{n \to + \infty} u_{n} = \dfrac{1}{1} = 1$.
-	\end{enumerate}
-\end{enumerate}
-
-\vspace{0,5cm}
-
-\textbf{\textsc{Exercice 4} \hfill 5 points}
-
-\textbf{Candidats ayant choisi l'enseignement de spécialité} 
-
-\medskip
- 
-%Un logiciel permet de transformer un élément rectangulaire d'une photographie.
-% 
-%Ainsi, le rectangle initial OEFG est transformé en un rectangle OE$'$F$'$G$'$, appelé image de OEFG.
-%
-%\begin{center}
-%\psset{unit=1cm}
-%\begin{pspicture}(7.5,6.5)
-%\pspolygon(3.3,0.8)(7,4.8)(5.4,6.25)(1.75,2.2)
-%\pspolygon(3.3,0.8)(5.1,2.75)(2.1,5.6)(0.3,3.5)
-%\uput[dr](5.1,2.8){E} \uput[u](2.1,5.6){F} \uput[ul](0.3,3.5){G} 
-%\uput[d](3.3,0.8){O} \uput[dr](7,4.8){E$'$} \uput[u](5.4,6.25){F$'$} 
-%\uput[dl](1.75,2.2){G$'$}
-%\rput(3,0.12){Figure 1} 
-%\end{pspicture}
-%\end{center} 
-% 
-%L'objet de cet exercice est d'étudier le rectangle obtenu après plusieurs transformations successives.
-%
-%\bigskip
- 
-\textbf{Partie A}
-
-\medskip
- 
-%Le plan est rapporté à un repère orthonormé \Oij.
-% 
-%Les points E, F et G ont pour coordonnées respectives (2~;~2), $(-1~;~5)$ et $(-3~;~3)$.
-% 
-%La transformation du logiciel associe à tout point $M(x~;~y)$ du plan le point $M'(x'~;~y')$, image du point $M$ tel que: 
-%
-%\renewcommand\arraystretch{1.8}
-%\[\left\{\begin{array}{l c l}
-%x'&=&\dfrac{5}{4}x + \dfrac{3}{4}y\\
-%y'&=&\dfrac{3}{4}x + \dfrac{5}{4}y
-%\end{array}\right.\]
-%\renewcommand\arraystretch{1}
-%
-%\begin{center}
-%\psset{unit=1cm}
-%\begin{pspicture}(-4,-2)(3,5.5)
-%\psaxes[linewidth=1.5pt,Dx=10,Dy=10]{->}(0,0)(-4,-1)(3,5.5)
-%\pspolygon(0,0)(2,2)(-1,5)(-3,3)
-%\uput[dl](0,0){O} \uput[ur](2,2){E} \uput[u](-1,5){F} \uput[l](-3,3){G}
-%\rput(-1,-1.5){Figure 2} 
-%\end{pspicture}
-%\end{center}
-
-\begin{enumerate}
-\item 
-	\begin{enumerate}
-		\item %Calculer les coordonnées des points E$'$, F$'$ et G$'$, images des points E, F et G par cette transformation.
-On a :
-
-$\left\{\begin{array}{l c l}
-x_{\text{E}'}&=&\frac{5}{4}\times 2 + \frac{3}{4}\times 2\\
-y_{\text{E}'}&=&\frac{3}{4}\times 2 + \frac{5}{4}\times 2\\
-\end{array}\right. \iff \left\{\begin{array}{l c l}
-x_{\text{E}'}&=& 4\\
-y_{\text{E}'}&=&4
-\end{array}\right.$
-
-$\left\{\begin{array}{l c l}
-x_{\text{F}'}&=&\frac{5}{4}\times (- 1) + \frac{3}{4}\times 5\\
-y_{\text{F}'}&=&\frac{3}{4}\times (- 1) + \frac{5}{4}\times 5\\
-\end{array}\right. \iff \left\{\begin{array}{l c l}
-x_{\text{F}'}&=& \frac{5}{2}\\
-y_{\text{F}'}&=&\frac{11}{2}
-\end{array}\right.$
-
-$\left\{\begin{array}{l c l}
-x_{\text{G}'}&=&\frac{5}{4}\times (- 3) + \frac{3}{4}\times 3\\
-y_{\text{G}'}&=&\frac{3}{4}\times (- 3) + \frac{5}{4}\times 3\\
-\end{array}\right. \iff \left\{\begin{array}{l c l}
-x_{\text{G}'}&=&- \frac{3}{2}\\
-y_{\text{G}'}&=&\frac{3}{2}
-\end{array}\right.$
-		\item %Comparer les longueurs OE et OE$'$ d'une part, OG et OG$'$ d'autre part.
-OE$^2 = 2^2 + 2^2 = 8$, donc OE $ = 2\sqrt{2}$.
-
-OE$'^2 	 = 4^2 + 4^2 = 32$, donc OE$' = 4\sqrt{2}$. Donc OE$' = 2 \text{OE}$.
-
-OG$^2 = (- 3)^2 + 3^2 = 9 + 9 = 18$, donc OG $ = 3\sqrt{2}$ ;
-
-OG$'^2 = \left(- \frac{3}{2} \right)^2 + \left(\frac{3}{2} \right)^2 = \frac{18}{4}$, donc OG$' = \frac{3\sqrt{2}}{2}$. Donc OG
-$' = \dfrac{1}{2}\text{OG}$.
-	 
-%Donner la matrice carrée d'ordre 2, notée $A$, telle que: $\begin{pmatrix}x'\\y' \end{pmatrix}= A \begin{pmatrix}x\\y \end{pmatrix}$.
-On a $A = \begin{pmatrix}\frac{5}{4}&\frac{3}{4}\\\frac{3}{4}&\frac{5}{4} \end{pmatrix}$.
-	\end{enumerate}
-\end{enumerate}
-
-\bigskip
- 
-\textbf{Partie B}
-
-\medskip
- 
-%Dans cette partie, on étudie les coordonnées des images successives du sommet F du rectangle OEFG lorsqu'on applique plusieurs fois la transformation du logiciel.
- 
-\begin{enumerate}
-\item %On considère l'algorithme suivant destiné à afficher les coordonnées de ces images successives.
- 
-%Une erreur a été commise.
-% 
-%Modifier cet algorithme pour qu'il permette d'afficher ces coordonnées.
-%
-%\begin{center}
-%\begin{tabular}{|c|l|}\hline 
-%Entrée &Saisir un entier naturel non nul $N$\\ \hline 
-%\multirow{2}{2cm}{Initialisation }&Affecter à $x$ la valeur $- 1$\\ 
-%&Affecter à $y$ la valeur 5\\ \hline 
-%\multirow{6}{2cm}{Traitement}&POUR $i$ allant de 1 à $N$\\ 
-%&Affecter à $a$ la valeur $\frac{5}{4} x + \frac{3}{4}y$\\ 
-%&Affecter à $b$ la valeur $\frac{3}{4}x + \frac{5}{4}y$\\ 
-%&Affecter à $x$ la valeur $a$\\ 
-%&Affecter à $y$ la valeur $b$\\ 
-%&FIN POUR\\ \hline 
-%Sortie &Afficher $x$, afficher $y$\\ \hline
-%\end{tabular}
-%\end{center} 
-Il suffit d'écrire avant le FIN POUR : afficher $x$, afficher $y$
-\item %On a obtenu le tableau suivant :
-
-%\[\begin{array}{|*{8}{c|}} \hline
-%i &1 &2 &3 &4 &5 &10 &15\\ \hline 
-%x &2,5 &7,25 &15,625 &\np{31,8125} &\np{63,9063} &\np{2047,9971} &\np{65535,9999}\\ \hline 
-%y &5,5 &8,75 &16,375 &\np{32,1875} &\np{64,0938} &\np{2048,0029} &\np{65536,0001}\\ \hline
-%\end{array}\]
-% 
-%Conjecturer le comportement de la suite des images successives du point F.
-Il semble que les cordonnées sont de plus en plus grandes tout en se rapprochant (les points images sont de plus en plus proches de la droite $y = x$.) 
-\end{enumerate}
-
-\bigskip
- 
-\textbf{Partie C}
-
-\medskip
-
-%Dans cette partie, on étudie les coordonnées des images successives du sommet E du rectangle OEFG. On définit la suite des points $E_{n}\left(x_{n}~;~y_{n}\right)$ du plan par $E_{0} =$ E et la relation de récurrence :
-%
-%\[\begin{pmatrix}x_{n+1}\\y_{n+1}\end{pmatrix} = A\begin{pmatrix}x_{n}\\y_{n}\end{pmatrix},\] 
-%
-%où $\left(x_{n+1}~;~y_{n+1}\right)$ désignent les coordonnées du point $E_{n+1}$.
-%
-%Ainsi $x_{0} = 2$ et $y_{0} = 2$. 
-%
-%\medskip
-
-\begin{enumerate}
-\item %On admet que, pour tout entier $n \geqslant 1$, la matrice $A^n$ peut s'écrire sous la forme : $A^{n} = \begin{pmatrix}\alpha_{n}&\beta_{n}\\\beta_{n}&\alpha_{n}\end{pmatrix}$. 
-
-%Démontrer par récurrence que, pour tout entier naturel $n \geqslant 1$, on a : 
-%\[\alpha_{n} = 2^{n-1}  + \dfrac{1}{2^{n+1}} \quad \text{et}\quad  \beta_{n} = 2^{n-1}  - \dfrac{1}{2^{n+1}}.\] 
-\emph{Initialisation} : pour $n = 1$, on a bien $A^1 = \begin{pmatrix}\frac{5}{4}&\frac{3}{4}\\\frac{3}{4}&\frac{5}{4} \end{pmatrix}$ et :
-
-$\alpha_{1} = 2^0 + \frac{1}{2^2}$ et $\beta_{1} =  2^0 - \frac{1}{2^2}$.
-
-\emph{Hérédité} : supposons que pour  tout  naturel $p$ tel que : $A^p = \begin{pmatrix}\alpha_{p}&\beta_{p}\\ \beta_{p}&\alpha_{p} \end{pmatrix}$ et 
-
-\[\alpha_{p} = 2^{p-1}  + \dfrac{1}{2^{p+1}} \quad \text{et}\quad  \beta_{p} = 2^{p-1}  - \dfrac{1}{2^{p+1}}.\]
-
-La relation $A^{p+1} = A \times A^p$ entraîne que :
-
-$\alpha_{p+1} = \frac{5}{4}\alpha_{p} + \frac{3}{4}\beta_{p}$ et
-
-$\beta_{p+1} = \frac{3}{4}\alpha_{p} + \frac{5}{4}\beta_{p}$, soit en utilisant la relation de récurrence :
-
-$\alpha_{p+1} = \frac{5}{4}\left(2^{p-1}  + \dfrac{1}{2^{p+1}}\right) + \frac{3}{4}\left(2^{p-1}  - \dfrac{1}{2^{p+1}} \right) = \frac{8}{4}2^{p-1} + \frac{2}{4}\dfrac{1}{2^{p+1}} = 2^p + \dfrac{1}{2^{p+2}}$.
-
-De même : 
-
-$\beta_{p+1} = \frac{3}{4}\left(2^{p-1}  + \dfrac{1}{2^{p+1}}\right) + \frac{5}{4}\left(2^{p-1}  - \dfrac{1}{2^{p+1}} \right) = \dfrac{8}{4}2^{p-1} - \dfrac{2}{4}\dfrac{1}{2^{p+1}} = 2^p  - \dfrac{1}{2^{p+2}}$.
-
-Donc les relations sont vraies au rang $p + 1$.
-
-On a donc démontré par récurrence que pour tout entier naturel $n \geqslant 1$, on a : 
-
-\[\alpha_{n} = 2^{n-1}  + \dfrac{1}{2^{n+1}} \quad \text{et}\quad  \beta_{n} = 2^{n-1}  - \dfrac{1}{2^{n+1}}.\]
-\item 
-	\begin{enumerate}
-		\item %Démontrer que, pour tout entier naturel $n$, le point $E_{n}$ est situé sur la droite d'équation $y = x$.
-		 
-%On pourra utiliser que, pour tout entier naturel $n$, les coordonnées $\left(x_{n}~;~y_{n}\right)$ du point $E_{n}$ vérifient :
-
-L'égalité 
-\[\begin{pmatrix}x_{n}\\y_{n}\end{pmatrix} = A^n \begin{pmatrix}2\\2\end{pmatrix}.\]
-
-se traduit par :
-
-$\left\{\begin{array}{l c l}
-x_{n}&=&2\alpha_{n} + 2\beta_{n}\\
-y_{n}&=&2\beta_{n} + 2\alpha_{n}
-\end{array}\right.$
-
-On a quel que soit le naturel $n$, \, $x_{n} = y_{n}$.
- 
-		\item %Démontrer que la longueur O$E_{n}$ tend vers $+ \infty$ quand $n$ tend vers $+ \infty$.
-OE$_{n}^2  = x_{n}^2 + y_{n}^2 = 2x_{n}^2$ ; 
-
-Avec $x_{n} = 2\alpha_{n} + 2\beta_{n} = 2\left(\alpha_{n} + \beta_{n} \right)$ et $\alpha_{n} + \beta_{n} = 2^n$, on obtient 
-
-OE$_{n}^2  = 2 \times 4 \left(2^n \right)^2 = 2^{2n + 3}$.
-
-Or $\displaystyle\lim_{n \to + \infty}  2^{2n+3} = + \infty$, donc $\displaystyle\lim_{n \to + \infty} \text{OE}_{n} = + \infty$.
-	\end{enumerate}
-\end{enumerate}
-
-\newpage
-
-\begin{center} 
-\textbf{Annexe}
-
-\vspace{0,5cm}
- 
-\textbf{à rendre avec la copie}
-
-\vspace{0,5cm}
- 
-\textbf{Exercice 2}
-
-\vspace{0,5cm} 
-
-\psset{unit=1.3cm}
-\begin{pspicture*}(-5,-3.5)(5.1,5)
-\psgrid[gridlabels=0pt,subgriddiv=1,gridwidth=0.2pt,gridcolor=orange]
-\psaxes[linewidth=1pt](0,0)(-5,-3.5)(5,4.99)
-\psaxes[linewidth=1.5pt]{->}(0,0)(1,1)
-\psplot[plotpoints=8000,linewidth=1.25pt,linecolor=blue]{-4.5}{1.55}{2.71828 x exp}
-\psplot[plotpoints=8000,linewidth=1.25pt,linecolor=red]{-1.5}{5}{1 2.71828 x neg exp sub}
-\uput[dr](0,0){O}
-\rput(1.05,3.5){\blue $\mathcal{C}_{f}$}
-\rput(2.4,0.7){\red $\mathcal{C}_{g}$}
-\psplot{-4}{4}{0.186374 x 1.68 add mul 0.186374 add}
-\psplot{-4}{4}{2.15977 x 0.77 sub mul 2.15977 add}
-\end{pspicture*}
-\vspace{0,5cm}
+\end{tikzpicture}
 \end{center}
+
+Plus précisément, les points I, J, K, L, M et N sont les centres respectifs des faces carrées ABCD, BCGF, CDHG, ADHE, ABFE et EFGH (donc les milieux des diagonales de ces carrés).
+
+\medskip
+ 
+\begin{enumerate}
+	\item Sans utiliser de repère (et donc de coordonnées) dans le raisonnement mené, justifier que les droites (IN) et (ML) sont orthogonales.
+\end{enumerate}
+
+\medskip
+
+Dans la suite, on considère le repère orthonormé $\left(\text{A}~;~\vect{\text{AB}}~;~\vect{\text{AD}}~;~\vect{\text{AE}}\right) $ dans lequel, par exemple, le point N a pour coordonnées $\left(\dfrac{1}{2}~;~\dfrac{1}{2}~;~1\right) $.
+
+\medskip
+
+\begin{enumerate}[resume]
+	\item 
+		\begin{enumerate}
+			\item Donner les coordonnées des vecteurs $ \vect{\text{NC}} $ et $ \vect{\text{ML}} $.			
+			\item En déduire que les droites (NC) et (ML) sont orthogonales.			
+			\item Déduire des questions précédentes une équation cartésienne du plan (NCI).
+	\end{enumerate}	
+\item 
+\begin{enumerate}
+		\item Montrer qu'une équation cartésienne du plan (NJM) est : $x - y + z = 1 $.		
+		\item La droite (DF) est-elle perpendiculaire au plan (NJM)? Justifier.		
+		\item Montrer que l'intersection des plans (NJM) et (NCI) est une droite dont on donnera un point et un vecteur directeur. 
+Nommer la droite ainsi obtenue en utilisant deux points de la figure.
+	\end{enumerate}
+\end{enumerate}
+
+\vspace{5mm}
+
+\textbf{Exercice 4 \hfill 5 points} 
+
+\textbf{Candidats ayant suivi l’enseignement de spécialité}
+
+\medskip
+
+
+Deux matrices colonnes $\begin{pmatrix} x\\y \end{pmatrix}$ et $\begin{pmatrix} x'\\y' \end{pmatrix}$ à coefficients entiers sont dites congrues modulo 5 si et seulement si $\left\{\begin{array}{l} x \equiv x'~[5]\\ y\equiv y'~[5]  \end{array} \right.$.
+
+
+Deux matrices carrées d'ordre 2 $\begin{pmatrix} a&c\\b&d \end{pmatrix}$ et $\begin{pmatrix} a'&c'\\b'&d' \end{pmatrix}$ à coefficients entiers sont dites congrues modulo 5 si et seulement si $\left\{\begin{array}{l} a \equiv a'~[5]\\ b\equiv b'~[5] \\c \equiv c'~[5]\\ d\equiv d'~[5] \end{array} \right.$.
+
+\bigskip
+
+Alice et Bob veulent s'échanger des messages en utilisant la procédure décrite ci-dessous.
+
+\parbox{0.53\linewidth}{
+\begin{itemize}
+\item Ils choisissent une matrice M carrée d'ordre 2, à coefficients entiers.
+\item Leur message initial est écrit en lettres majuscules sans accent.
+\item Chaque lettre de ce message est remplacée par une matrice colonne $\begin{pmatrix} x\\y \end{pmatrix}$ déduite du tableau ci-contre : $x$ est le chiffre situé en haut de la colonne et $y$ est le chiffre situé à la gauche de la ligne; par exemple, la lettre \textsf{T} d'un message initial correspond à la matrice colonne $\begin{pmatrix} 4\\3 \end{pmatrix}$.
+\item On calcule une nouvelle matrice $\begin{pmatrix} x'\\y' \end{pmatrix}$ en multipliant $\begin{pmatrix} x\\y \end{pmatrix}$ à gauche par la matrice M : 
+	
+$\begin{pmatrix} x'\\y' \end{pmatrix} = \text{M} \begin{pmatrix} x\\y \end{pmatrix}$.	
+	\item On calcule $r'$ et $t'$ les restes respectifs des divisions euclidiennes de $x'$ et $y'$ par 5. 
+\end{itemize}} \hfill
+\begin{tabular}{|*{6}{>{\centering \arraybackslash \rule[-2.5ex]{0pt}{6.5ex}}m{6mm}|}} \hline 
+	&0&1&2&3&4 \\ \hline
+0	&\textsf{A}&\textsf{B}&\textsf{C}&\textsf{D}&\textsf{E} \\ \hline
+1	&\textsf{F}&\textsf{G}&\textsf{H}&\textsf{I}&\textsf{J} \\ \hline
+2	&\textsf{K}&\textsf{L}&\textsf{M}&\textsf{N}&\textsf{O} \\ \hline
+3	&\textsf{P}&\textsf{Q}&\textsf{R}&\textsf{S}&\textsf{T}\\ \hline
+4	&\textsf{U}&\textsf{V}&\textsf{X}&\textsf{Y}&\textsf{Z} \\ \hline 
+\multicolumn{6}{l}{~}\\
+		
+\multicolumn{6}{p{55mm}}{Remarque : la lettre \textsf{W} est remplacée par les deux lettres accolées \textsf{V}.}
+	\end{tabular}
+\begin{itemize}
+		\item On utilise le tableau ci-contre pour obtenir la nouvelle lettre correspondant à la matrice colonne $\begin{pmatrix} r'\\t' \end{pmatrix}$.
+\end{itemize}
+
+\begin{enumerate}
+	\item Bob et Alice choisissent la matrice $\text{M} = \begin{pmatrix} 1&2\\3&4 \end{pmatrix}$.	
+	\begin{enumerate}
+		\item Montrer que la lettre \og{}\textsf{T}\fg{} du message initial est codée par la lettre \og{}\textsf{U}\fg{} puis coder le message \og{}\textsf{TE}\fg{}.		
+		\item On pose $\text{P} = \begin{pmatrix} 3&1\\4&2 \end{pmatrix}$. Montrer que les matrices PM et $\text{I} = \begin{pmatrix} 1&0\\0&1 \end{pmatrix}$ sont congrues modulo 5.		
+		\item On considère A, A' deux matrices d'ordre 2 à coefficients entiers congrues modulo 5 et 
+		
+$\text{Z} =\begin{pmatrix} x\\y \end{pmatrix}$, $\text{Z}' =\begin{pmatrix} x'\\y' \end{pmatrix}$ deux matrices colonnes à coefficients entiers congrues modulo 5. Montrer alors que les matrices AZ et A'Z' sont congrues modulo 5.
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+Dans ce qui suit on admet que si A, A' sont deux matrices carrées d'ordre 2 à coefficients entiers congrues modulo 5 et si B, B' sont deux matrices carrées d'ordre 2 à coefficients entiers congrues modulo 5 alors les matrices produit AB et A'B' sont congrues modulo 5.
+
+\begin{enumerate}[start=2]
+	\item[]	\begin{enumerate}[start=4]
+		\item On note $\text{X}= \begin{pmatrix} x_1\\x_2 \end{pmatrix}$ et $\text{Y} = \begin{pmatrix} y_1\\y_2 \end{pmatrix}$ deux matrices colonnes à coefficients entiers. Déduire des questions précédentes que si MX et Y sont congrues modulo 5 alors les matrices X et PY sont congrues modulo 5; ce qui permet de \og{}décoder\fg{} une lettre chiffrée par la procédure utilisée par Alice et Bob avec la matrice M choisie.
+		
+		\item Décoder alors la lettre \og{}\textsf{D}\fg{}.
+	\end{enumerate}
+	\item On souhaite déterminer si la matrice $\text{R}=\begin{pmatrix} 1&2\\4&3	\end{pmatrix}$ peut être utilisée pour coder un message.
+	\begin{enumerate}
+		\item On pose $\text{S} = \begin{pmatrix} 2&2\\4&4	\end{pmatrix}$. Vérifier que la matrice RS et la matrice $\begin{pmatrix} 0&0\\0&0	\end{pmatrix}$ sont congrues modulo 5. 
+		
+		\item On admet qu'un message codé par la matrice R peut être décodé s‘il existe une matrice T telle que les matrices TR et I soient congrues modulo 5.
+		Montrer que si c‘est le cas alors les matrices TRS et S sont congrues modulo 5 (par la procédure expliquée en question \textbf{1. d.} pour le codage avec la matrice M).
+		
+		\item En déduire qu‘un message codé par la matrice R ne peut être décodé.
+	\end{enumerate}
+\end{enumerate}
 \end{document}

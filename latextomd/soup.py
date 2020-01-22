@@ -16,6 +16,7 @@ class Latex(object):
 
     def _replace_commands(self):
         for command in config.replace_commands:
+            print(command[0])
             liste_commands = self.soup.find_all(command[0])
             self.content = str(self.soup)
             for match in liste_commands:

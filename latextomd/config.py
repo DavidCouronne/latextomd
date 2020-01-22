@@ -54,9 +54,16 @@ replace_commands = [['chapter', '# S_T_R'],
                     ['subsection', '### S_T_R'],
                     ['textbf', '**S_T_R**'],
                     ['textsc', 'S_T_R'],
-                    ['emph', '_S_T_R_'],
-                    ['Large', 'S_T_R']
-                   ]
+                    ['emph', '_S_T_R_']
+                    ]
 
-math_sub = [[r"\\np\{((?P<arg>.*?))\}",r'\1'],
-[r"\\vect\{((?P<arg>.*?))\}", r"\\overrightarrow{\1}"]]
+math_sub = [[r"\\np\{((?P<arg>.*?))\}", r'\1'],
+[r"\\textsf\{((?P<arg>.*?))\}", r'\1'],
+            [r"\\Large(\{(?P<arg>.*?)\})?", r'\1'],
+            [r"\\parbox\{((?P<arg>.*?))\}",''],
+            [r"\\Oijk",
+             r"$\\left(\\text{O};~\\vect{i},~\\vect{j},~\\vect{k}\\right)$"],
+            [r"\\Ouv", r"$\\left(\\text{O};~\\vect{u},~\\vect{v}\\right)$"],
+            [r"\\Oij", r"$\\left(\\text{O};~\\vect{i},~\\vect{j}\\right)$"],
+            [r"\\vect\{((?P<arg>.*?))\}", r"\\overrightarrow{\1}"],
+            [r"\\e(\W)",r'\1'] ]

@@ -1,0 +1,10 @@
+{
+\begin{itemize}
+\item Ils choisissent une matrice M carrée d'ordre 2, à coefficients entiers.
+\item Leur message initial est écrit en lettres majuscules sans accent.
+\item Chaque lettre de ce message est remplacée par une matrice colonne $\begin{pmatrix} x\\y \end{pmatrix}$ déduite du tableau ci-contre : $x$ est le chiffre situé en haut de la colonne et $y$ est le chiffre situé à la gauche de la ligne; par exemple, la lettre \textsf{T} d'un message initial correspond à la matrice colonne $\begin{pmatrix} 4\\3 \end{pmatrix}$.
+\item On calcule une nouvelle matrice $\begin{pmatrix} x'\\y' \end{pmatrix}$ en multipliant $\begin{pmatrix} x\\y \end{pmatrix}$ à gauche par la matrice M :
+
+$\begin{pmatrix} x'\\y' \end{pmatrix} = \text{M} \begin{pmatrix} x\\y \end{pmatrix}$.
+\item On calcule $r'$ et $t'$ les restes respectifs des divisions euclidiennes de $x'$ et $y'$ par 5.
+\end{itemize}}
