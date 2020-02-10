@@ -1,0 +1,115 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier}
+\usepackage[scaled=0.875]{helvet}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage{amsmath,amssymb,makeidx}
+\usepackage[normalem]{ulem}
+\usepackage{diagbox}
+\usepackage{fancybox}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage{multirow}
+\usepackage{dcolumn}
+\usepackage{textcomp}
+%\usepackage[multiple]{footmisc}
+%\usepackage[para]{manyfoot}
+%\DeclareNewFootnote[para]{B}{alph}
+\usepackage{lscape}
+\usepackage{enumitem}
+\newcommand{\euro}{\eurologo{}}
+\usepackage{graphics,graphicx}
+\usepackage{pstricks,pst-plot,pst-tree,pstricks-add}
+\usepackage{tikz}
+\usepackage[left=3.5cm, right=3.5cm, top=3cm, bottom=3cm]{geometry}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\theenumi}{\textbf{\arabic{enumi}}}
+\renewcommand{\labelenumi}{\textbf{\theenumi.}}
+\renewcommand{\theenumii}{\textbf{\alph{enumii}}}
+\renewcommand{\labelenumii}{\textbf{\theenumii.}}
+\newcommand{\vect}[1]{\overrightarrow{\,\mathstrut#1\,}}
+\def\Oij{$\left(\text{O}~;~\vect{\imath},~\vect{\jmath}\right)$}
+\def\Oijk{$\left(\text{O}~;~\vect{\imath},~\vect{\jmath},~\vect{k}\right)$}
+\def\Ouv{$\left(\text{O}~;~\vect{u}~;~\vect{v}\right)$}
+\renewcommand{\i}{\text{i}}
+\newcommand{\e}{\text{e}}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+%Tapuscrit : François Kriegk
+\hypersetup{%
+pdfauthor = {APMEP},
+pdfsubject = {Terminale S},
+pdftitle = {Amérique du Nord mai 2019},
+allbordercolors = white,
+pdfstartview=FitH}
+\usepackage[french]{babel}
+\DecimalMathComma
+\usepackage[np]{numprint}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{tikzpicture}[xscale=1,yscale=1]
+
+\tikzstyle{fleche}=[->,>=latex,thick]
+\tikzstyle{noeud}=[fill=white,circle]
+\tikzstyle{feuille}=[fill=white,circle]
+\tikzstyle{etiquette}=[midway,fill=white,circle,inner sep=2pt]
+
+\def\DistanceInterNiveaux{3}
+\def\DistanceInterFeuilles{1}
+
+\def\NiveauA{(0)*\DistanceInterNiveaux}
+\def\NiveauB{(1)*\DistanceInterNiveaux}
+\def\NiveauC{(2)*\DistanceInterNiveaux}
+\def\InterFeuilles{(-1)*\DistanceInterFeuilles}
+
+\node[noeud] (R) at ({\NiveauA},{(1.5)*\InterFeuilles}) {};
+\node[noeud] (Ra) at ({\NiveauB},{(0.5)*\InterFeuilles}) {$E$};
+\node[feuille] (Raa) at ({\NiveauC},{(0)*\InterFeuilles}) {$L$};
+\node[feuille] (Rab) at ({\NiveauC},{(1)*\InterFeuilles}) {$\overline{L}$};
+\node[noeud] (Rb) at ({\NiveauB},{(2.5)*\InterFeuilles}) {$\overline{E}$};
+\node[feuille] (Rba) at ({\NiveauC},{(2)*\InterFeuilles}) {$L$};
+\node[feuille] (Rbb) at ({\NiveauC},{(3)*\InterFeuilles}) {$\overline{L}$};
+
+\draw[fleche] (R.east) --(Ra) node[etiquette] {$\dots$};
+\draw[fleche] (Ra.east) --(Raa) node[etiquette] {$\dots$};
+\draw[fleche] (Ra.east) --(Rab) node[etiquette] {$\dots$};
+\draw[fleche] (R.east) --(Rb) node[etiquette] {$\dots$};
+\draw[fleche] (Rb.east) --(Rba) node[etiquette] {$\dots$};
+\draw[fleche] (Rb.east) --(Rbb) node[etiquette] {$\dots$};
+\end{tikzpicture}
+\newpage\thispagestyle{empty}
+\begin{tikzpicture}[x={(-3:73mm)},y={(26:32mm)},z={(90:74mm)}]
+\coordinate (A) at (0,0,0);
+\coordinate (B) at (1,0,0);
+\coordinate (C) at (1,1,0);
+\coordinate (D) at (0,1,0);
+\coordinate (E) at (0,0,1);
+\coordinate (F) at (1,0,1);
+\coordinate (G) at (1,1,1);
+\coordinate (H) at (0,1,1);
+\coordinate (I) at (0.5,0.5,0);
+\coordinate (J) at (1,0.5,0.5);
+\coordinate (K) at (0.5,1,0.5);
+\coordinate (L) at (0,0.5,0.5);
+\coordinate (M) at (0.5,0,0.5);
+\coordinate (N) at (0.5,0.5,1);
+
+\draw (A) node [left]{A} -- (B) node [below right]{B} --
+(C) node [right]{C} -- (D) node [above left]{D}--cycle
+(E) node [left]{E} -- (F) node [below right]{F} --
+(G) node [right]{G} -- (H) node [above left]{H}--cycle
+(A)--(E) (B)--(F) (C)--(G) (D)--(H);
+
+\draw[line width=1pt] (I) node [below right] {I} --(J) node [right] {J}--(N)  node [above] {N}--(L)  node [left] {L}--cycle
+(L)--(M) node [below left] {M}--(J) (N)--(M)--(I);
+\draw[line width=1pt, dashed] (J)--(K) node [above right] {K} --(L) (N)--(K)--(I);
+
+\end{tikzpicture}
+\end{document}

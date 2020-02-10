@@ -5,11 +5,22 @@ DEFAULT_OPTIONS = {
 
 # Replace without regex
 replace_simple = [
+    ['$\\C$', '\\mathcal{C}'],
+    ['\\e^', '\\text{e}^'],
+    ['\\mathscr', '\\mathcal'],
     ['\n$$', '\n$$\n'],
     ['$$\n', '\n$$\n'],
     [r'\[', '\n$$\n'],
     [r'\]', '\n$$\n'],
+    ['\\begin', '\n\\begin'],
+    ['\\begin{exercice}', ':::exercice Exercice:\n\n'],
+    ['\\end{exercice}', ':::'],
+    ['\\begin{center}', ''],
+    ['\\end{center}', ''],
+    ['\\begin{solution}', ':::startsolution\n'],
+    ['\\end{solution}', '\n\n:::endsolution']
 ]
+
 
 # Deleted with TexSoup
 del_commands = ['vspace',
@@ -58,12 +69,28 @@ replace_commands = [['chapter', '# S_T_R'],
                     ]
 
 math_sub = [[r"\\np\{((?P<arg>.*?))\}", r'\1'],
-[r"\\textsf\{((?P<arg>.*?))\}", r'\1'],
+            [r"\\nombre\{((?P<arg>.*?))\}", r'\1'],
+            #[r"\\section\{((?P<arg>.*?))\}", r':::section \1'],
+            [r"\\textsf\{((?P<arg>.*?))\}", r'\1'],
             [r"\\Large(\{(?P<arg>.*?)\})?", r'\1'],
-            [r"\\parbox\{((?P<arg>.*?))\}",''],
+            [r"\\parbox\{((?P<arg>.*?))\}", ''],
+            [r"\\end\{((?P<arg>.*?))\}", r'\\end{\1}\n'],
             [r"\\Oijk",
              r"$\\left(\\text{O};~\\vect{i},~\\vect{j},~\\vect{k}\\right)$"],
             [r"\\Ouv", r"$\\left(\\text{O};~\\vect{u},~\\vect{v}\\right)$"],
             [r"\\Oij", r"$\\left(\\text{O};~\\vect{i},~\\vect{j}\\right)$"],
             [r"\\vect\{((?P<arg>.*?))\}", r"\\overrightarrow{\1}"],
-            [r"\\e(\W)",r'\1'] ]
+            [r"\\e(\W)", r'\1']]
+
+
+postpandoc = [
+    [r"\\textsf\{((?P<arg>.*?))\}", r'\1'],
+    [r"\\Large(\{(?P<arg>.*?)\})?", r'\1'],
+    [r"\\parbox\{((?P<arg>.*?))\}", ''],
+    [r"\\end\{((?P<arg>.*?))\}", r'\\end{\1}\n'],
+    [r"\\Oijk",
+     r"$\\left(\\text{O};~\\vect{i},~\\vect{j},~\\vect{k}\\right)$"],
+    [r"\\Ouv", r"$\\left(\\text{O};~\\vect{u},~\\vect{v}\\right)$"],
+    [r"\\Oij", r"$\\left(\\text{O};~\\vect{i},~\\vect{j}\\right)$"],
+    [r"\\vect\{((?P<arg>.*?))\}", r"\\overrightarrow{\1}"],
+    [r"\\e(\W)", r'\1']]

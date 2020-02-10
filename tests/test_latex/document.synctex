@@ -1,0 +1,58 @@
+SyncTeX Version:1
+Input:1:D:\WorkSpace\python-packages\latextomd\latextomd\tests\test_latex\document.tex
+Input:2:C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls
+Input:3:C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo
+Input:4:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+Input:5:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+Input:6:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+Input:7:C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty
+Input:8:C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+Input:9:C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\xetex.def
+Input:10:D:\WorkSpace\python-packages\latextomd\latextomd\tests\test_latex\document.aux
+Output:pdf
+Magnification:1000
+Unit:1
+X Offset:0
+Y Offset:0
+Content:
+!793
+{1
+[1,11:4736287,46220575:26673152,41484288,0
+[1,11:8799519,46220575:22609920,40435712,0
+[1,11:8799519,6571295:22609920,786432,0
+h1,11:8799519,6571295:22609920,0,0
+]
+[1,11:8799519,44254495:22609920,36044800,0
+[1,9:8799519,41405610:22609920,30347029,0
+(1,7:8799519,39828815:22609920,28770234,0
+g1,7:8799519,39828815
+h1,6:8799519,39828815:0,0,0
+(1,6:8799519,39828815:34471852,28770234,0
+)
+g1,7:43271371,39828815
+g1,7:43271371,39828815
+)
+(1,7:8799519,41270607:22609920,445645,135003
+k1,7:18140365,41270607:9340846
+(1,7:18140365,41270607:3928228,445645,135003
+g1,7:20208681,41270607
+g1,7:21009531,41270607
+)
+k1,7:31409439,41270607:9340846
+)
+]
+]
+(1,11:8799519,46220575:22609920,436470,0
+k1,11:19940639,46220575:11141120
+k1,11:31409439,46220575:11141120
+)
+]
+]
+!759
+}1
+Input:11:D:\WorkSpace\python-packages\latextomd\latextomd\tests\test_latex\document.aux
+!96
+Postamble:
+Count:36
+!24
+Post scriptum:
