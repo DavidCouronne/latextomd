@@ -3,13 +3,14 @@ from latextomd import latextomd
 import unittest
 
 export_file = "document.md"
-class TestVersionMethods(unittest.TestCase):
 
+
+class TestVersionMethods(unittest.TestCase):
     def test_version(self):
         self.assertEqual(__version__, "0.1.2")
 
-class TestLatexToMdProcess(unittest.TestCase):
 
+class TestLatexToMdProcess(unittest.TestCase):
     def test_text(self):
         latex_string = "some text"
         markdown_string = latextomd.LatexToMd(latex_string, export_file).process()
@@ -21,7 +22,7 @@ class TestLatexToMdProcess(unittest.TestCase):
         self.assertEqual(markdown_string, "some text")
 
     def test_default_preamble(self):
-        latex_string="some text"
+        latex_string = "some text"
         objet = latextomd.LatexToMd(latex_string, export_file)
         markdown_string = objet.process()
         self.assertEqual(markdown_string, "some text")
@@ -37,6 +38,6 @@ class TestLatexToMdProcess(unittest.TestCase):
         objet = latextomd.LatexToMd(latex_string, export_file)
         markdown_string = objet.process()
         self.assertEqual(markdown_string, "some text")
-        self.assertEqual(objet.preamble, "\\documentclass{article}\n\\usepackage{mypackage}\n")
-
-
+        self.assertEqual(
+            objet.preamble, "\\documentclass{article}\n\\usepackage{mypackage}\n"
+        )

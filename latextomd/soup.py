@@ -21,17 +21,17 @@ class Latex(object):
             self.content = str(self.soup)
             for match in liste_commands:
                 self.content = self.content.replace(
-                str(match), command[1].replace('S_T_R',match.string))
+                    str(match), command[1].replace("S_T_R", match.string)
+                )
             self.soup = TexSoup(self.content)
-
 
     def process(self):
         self._delete_commands()
         self._replace_commands()
         self.content = str(self.soup)
-        math_inline = self.soup.find_all('$')
+        math_inline = self.soup.find_all("$")
         for match in math_inline:
             string = str(list(match.descendants)[0])
-            self.content = self.content.replace(string,string.strip())
+            self.content = self.content.replace(string, string.strip())
 
         return self.content

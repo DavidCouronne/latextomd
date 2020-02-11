@@ -34,12 +34,11 @@ class LatexString(object):
         return self.content
 
     def _remove_comments(self):
-        self.content = re.sub('(?<!\\\\)%.*$', '', self.content, flags=re.M)
+        self.content = re.sub("(?<!\\\\)%.*$", "", self.content, flags=re.M)
 
     def _replace_simple(self):
         for replace_simple in config.replace_simple:
-            self.content = self.content.replace(
-                replace_simple[0], replace_simple[1])
+            self.content = self.content.replace(replace_simple[0], replace_simple[1])
 
     def _math_replace(self):
         for item in config.math_sub:
@@ -61,7 +60,7 @@ class LatexString(object):
                 line = line.replace(r"\item", "\n\n$\\bullet$ ")
             new_lines.append(line)
         self.lines = new_lines
-        self.content = '\n'.join(self.lines)
+        self.content = "\n".join(self.lines)
 
     def _convertList(self):
         """Agit sur les lignes.
@@ -81,7 +80,7 @@ class LatexString(object):
                 line = line.replace(r"\item", "\n\n$\\bullet$ ")
             new_lines.append(line)
         self.lines = new_lines
-        self.content = '\n'.join(self.lines)
+        self.content = "\n".join(self.lines)
 
     def _convertEnumerate(self):
         """Agit sur les lignes.
@@ -96,12 +95,12 @@ class LatexString(object):
         for line in self.lines:
             if r"\begin{enumerate}" in line or r"\begin{colenumerate}" in line:
                 level_enumerate = level_enumerate + 1
-                if 'start' in line:
+                if "start" in line:
                     print(level_enumerate)
                     if level_enumerate == 1:
-                        enumi = int(line.split('=')[1].split(']')[0]) - 1
+                        enumi = int(line.split("=")[1].split("]")[0]) - 1
                     else:
-                        enumii = int(line.split('=')[1].split(']')[0]) - 1
+                        enumii = int(line.split("=")[1].split("]")[0]) - 1
 
                 line = ""
 
@@ -115,16 +114,17 @@ class LatexString(object):
             elif r"\item" in line and level_enumerate != 0:
                 if level_enumerate == 1:
                     enumi = enumi + 1
-                    line = line.replace(r"\item", str(enumi)+". ")
+                    line = line.replace(r"\item", str(enumi) + ". ")
                     line = "\n\n" + line
                 else:
-                    line = line.replace(r"\item", str(
-                        enumi)+". "+arabic[enumii]+") ")
+                    line = line.replace(
+                        r"\item", str(enumi) + ". " + arabic[enumii] + ") "
+                    )
                     enumii = enumii + 1
                     line = "\n\n" + line
             new_lines.append(line)
         self.lines = new_lines
-        self.content = '\n'.join(self.lines)
+        self.content = "\n".join(self.lines)
 
     def findPstricks(self):
         """Agit sur les lignes.
@@ -171,12 +171,14 @@ class LatexString(object):
     def replaceFigure(self):
         if len(self.figure) == 0:
             return
-        total = self.preamble.replace('[dvips]', '') + \
-            '\n\\begin{document}\n\\thispagestyle{empty}\n' + \
-            '\n\\newpage\\thispagestyle{empty}\n'.join(
-                self.figure) + '\n\\newpage\\thispagestyle{empty}\nEMPTY\n\\end{document}'
-        if not os.path.exists('temp'):
-            os.mkdir('temp')
+        total = (
+            self.preamble.replace("[dvips]", "")
+            + "\n\\begin{document}\n\\thispagestyle{empty}\n"
+            + "\n\\newpage\\thispagestyle{empty}\n".join(self.figure)
+            + "\n\\newpage\\thispagestyle{empty}\nEMPTY\n\\end{document}"
+        )
+        if not os.path.exists("temp"):
+            os.mkdir("temp")
 
         f = codecs.open("prepandoc.tex", "w", "utf-8")
         f.write(total)
@@ -184,13 +186,22 @@ class LatexString(object):
         os.system("xelatex prepandoc.tex")
         os.system("pdfcrop prepandoc.pdf")
         print(self.export_file_name)
-        command = 'magick convert -density 600 prepandoc-crop.pdf ' + \
-            self.export_file_name.replace('.md', '')+'.jpg'
+        command = (
+            "magick convert -density 600 prepandoc-crop.pdf "
+            + self.export_file_name.replace(".md", "")
+            + ".jpg"
+        )
         os.system(command)
-        #os.system("magick convert -density 600 prepandoc-crop.pdf truc-%p.jpg")
+        # os.system("magick convert -density 600 prepandoc-crop.pdf truc-%p.jpg")
         for figure in self.figure:
             self.content = self.content.replace(
-                figure, "\\includegraphics{./"+self.export_file_name.replace('.md', '')+"-"+str(self.nbfigure)+"}\n")
+                figure,
+                "\\includegraphics{./"
+                + self.export_file_name.replace(".md", "")
+                + "-"
+                + str(self.nbfigure)
+                + "}\n",
+            )
             self.nbfigure = self.nbfigure + 1
 
         """ os.system("dvisvgm temp")

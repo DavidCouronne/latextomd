@@ -9,21 +9,21 @@ class TestProcessExercice(unittest.TestCase):
         self.assertEqual(output, "some texte")
 
     def test_without_argument(self):
-        latex = '\\begin{exercice}'
+        latex = "\\begin{exercice}"
         output = LatexBlocks(latex).process()
-        self.assertEqual(output, ':::exercice Exercice 1:\n\n')
+        self.assertEqual(output, ":::exercice Exercice 1:\n\n")
 
     def test_with_title(self):
-        latex = '\\begin{exercice}[title]'
+        latex = "\\begin{exercice}[title]"
         output = LatexBlocks(latex).process()
-        self.assertEqual(output, ':::exercice Exercice 1: title\n\n')
+        self.assertEqual(output, ":::exercice Exercice 1: title\n\n")
 
     def test_with_bareme(self):
-        latex = '\\begin{exercice}[][2]'
+        latex = "\\begin{exercice}[][2]"
         output = LatexBlocks(latex).process()
-        self.assertEqual(output, ':::exercice Exercice 1: /2 points\n\n')
+        self.assertEqual(output, ":::exercice Exercice 1: /2 points\n\n")
 
     def test_with_title_and_bareme(self):
-        latex = '\\begin{exercice}[title][2]'        
-        output = LatexBlocks(latex).process()        
-        self.assertEqual(output, ':::exercice Exercice 1: title /2 points\n\n')
+        latex = "\\begin{exercice}[title][2]"
+        output = LatexBlocks(latex).process()
+        self.assertEqual(output, ":::exercice Exercice 1: title /2 points\n\n")

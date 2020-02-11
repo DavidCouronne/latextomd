@@ -23,7 +23,7 @@ def _process_preamble(latex_string):
         if r"\end{document}" in content:
             content = content.split(r"\end{document}")[0]
     else:
-        preamble = '\\documentclass{article}\n'
+        preamble = "\\documentclass{article}\n"
         content = latex_string
     return preamble, content
 
@@ -41,18 +41,18 @@ def _strip_lines(latex_string):
     result = []
     for line in lines:
         result.append(line.strip())
-    return '\n'.join(result)
+    return "\n".join(result)
 
 
 def _clean_lines(latex_string):
     lines = latex_string.splitlines()
-    while lines[0] == '':
+    while lines[0] == "":
         lines = lines[1:]
-    while lines[-1] == '':
+    while lines[-1] == "":
         lines = lines[:-1]
-    content = '\n'.join(lines)
-    while '\n\n\n' in content:
-        content = content.replace('\n\n\n', '\n\n')
+    content = "\n".join(lines)
+    while "\n\n\n" in content:
+        content = content.replace("\n\n\n", "\n\n")
     return content
 
 
@@ -67,7 +67,7 @@ def _delete_blocks(latex_string):
     """
     content = latex_string
     for env in config.del_environnements:
-        content = content.replace(env, '')
+        content = content.replace(env, "")
     return content
 
 
@@ -81,17 +81,16 @@ def _pandoc(preamble, content):
     Returns:
         string -- Markdown
     """
-    total = '\n\\begin{document}\n'.join(
-        [preamble, content]) + '\n\\end{document}'
+    total = "\n\\begin{document}\n".join([preamble, content]) + "\n\\end{document}"
     f = codecs.open("temp.tex", "w", "utf-8")
     f.write(total)
     f.close()
-    #os.system("pandoc temp.tex -o temp.md --katex --from latex --to gfm")
+    # os.system("pandoc temp.tex -o temp.md --katex --from latex --to gfm")
     os.system("pandoc temp.tex -o temp.md")
-    with codecs.open('temp.md', 'r', 'utf-8') as f:
+    with codecs.open("temp.md", "r", "utf-8") as f:
         content = f.read()
     return content
-    #os.system(f"dvisvgm temp.dvi")
+    # os.system(f"dvisvgm temp.dvi")
 
 
 def to_markdown(latex_string, export_file_name=""):
@@ -101,7 +100,7 @@ def to_markdown(latex_string, export_file_name=""):
     preamble, content = _process_preamble(content)
     content = LatexString(content, preamble, export_file_name).process()
     content = _pandoc(preamble, content)
-    #content = Latex(content).process()
+    # content = Latex(content).process()
     content = Postpandoc(content).process()
     content = _delete_blocks(content)
     # content = _strip_lines(content)
