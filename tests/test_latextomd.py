@@ -1,9 +1,8 @@
 from latextomd import __version__
 import unittest
 
-class TestStringMethods(unittest.TestCase):
 
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
+class TestVersionMethods(unittest.TestCase):
 
-    
+    def test_version(self):
+        self.assertEqual(__version__, "0.1.2")
