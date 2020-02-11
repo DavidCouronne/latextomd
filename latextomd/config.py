@@ -92,4 +92,6 @@ postpandoc = [
     [r"\\Ouv", r"$\\left(\\text{O};~\\vect{u},~\\vect{v}\\right)$"],
     [r"\\Oij", r"$\\left(\\text{O};~\\vect{i},~\\vect{j}\\right)$"],
     [r"\\vect\{((?P<arg>.*?))\}", r"\\overrightarrow{\1}"],
+    [r"\\rbrace",r"\\}"],
+    [r"\\strut",""],
     [r"\\e(\W)", r'\1']]

@@ -108,3 +108,14 @@ def to_markdown(latex_string, export_file_name=""):
 
     content = _clean_lines(content)
     return content
+
+
+class LatexToMd(object):
+    def __init__(self, latex_string, export_file_name=""):
+        self.content = latex_string
+
+    def process(self):
+        self.content = _strip_lines(self.content)
+        self.preamble, self.content = _process_preamble(self.content)
+        self.content = _clean_lines(self.content)
+        return self.content

@@ -1,0 +1,1 @@
+$\left(\text{O};~\overrightarrow{i},~\overrightarrow{j}\right)$
