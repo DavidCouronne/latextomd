@@ -21,7 +21,8 @@ class LatexBlocks(object):
         self.exercice = 0
 
     def process(self):
-        self.process_exercice()
+        if '\\begin{exercice}' in self.content:
+            self.process_exercice()
         return self.content
 
     def process_exercice(self):
@@ -32,9 +33,17 @@ class LatexBlocks(object):
         newlines = []
         for line in self.lines:
             if "\\begin{exercice}" in line:
+                matches = re.finditer(
+                    regex_exercice, line, re.MULTILINE)
+                titre = ""
+                bareme = ""
                 self.exercice = self.exercice + 1
-                line = regex_exercice_compile.sub(
-                    f':::tip Exercice {self.exercice}: ' + r'\1', self.content)
+                for matchNum, match in enumerate(matches, start=1):
+                    titre = match.group(2)
+                    if match.group(4):
+                        bareme = f"{match.group(4)} points"
+                line = f':::exercice Exercice {self.exercice}: {titre} {bareme}\n\n'
+
             newlines.append(line)
         self.lines = newlines
         self.content = '\n'.join(self.lines)

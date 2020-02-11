@@ -1,7 +1,6 @@
-:::exercice Exercice:
+:::exercice Exercice 1: Les complexes sont nos amis 5.5 points
 
-\[Les complexes sont nos amis\]\[5.5\] Le plan est muni d'un repère
-orthonormé
+Le plan est muni d'un repère orthonormé
 $\left(\text{O};~\overrightarrow{u},~\overrightarrow{v}\right)$.
 
 Les points A, B et C ont pour affixes respectives $a = - 4,\: b = 2$ et
@@ -100,12 +99,12 @@ On a MN=NP donc MNP est bien isocèle en N
 
 :::
 
-:::exercice Exercice:
+:::exercice Exercice 2: Un peu de physique, mais pas trop\... 10 points
 
-\[Un peu de physique, mais pas trop\...\]\[10\] Lors d'une expérience en
-laboratoire, on lance un projectile dans un milieu fluide. L'objectif
-est de déterminer pour quel angle de tir $\theta$ par rapport à
-l'horizontale la hauteur du projectile ne dépasse pas $1,6$ mètre.
+Lors d'une expérience en laboratoire, on lance un projectile dans un
+milieu fluide. L'objectif est de déterminer pour quel angle de tir
+$\theta$ par rapport à l'horizontale la hauteur du projectile ne dépasse
+pas $1,6$ mètre.
 
 Comme le projectile ne se déplace pas dans l'air mais dans un fluide, le
 modèle parabolique usuel n'est pas adopté.
@@ -272,11 +271,11 @@ $\theta = \arctan(3,69) \approx 74,8$ degrés
 
 :::
 
-:::exercice Exercice:
+:::exercice Exercice 3: VRAI-FAUX 4 points
 
-\[VRAI-FAUX\]\[4\] Pour chacune des affirmations suivantes, indiquer si
-elle est vraie ou fausse, en justifiant la réponse. Il est attribué deux
-points par réponse exacte correctement justifiée.
+Pour chacune des affirmations suivantes, indiquer si elle est vraie ou
+fausse, en justifiant la réponse. Il est attribué deux points par
+réponse exacte correctement justifiée.
 
 1\. On considère dans $\R$ l'équation :
 
@@ -368,10 +367,9 @@ centre P d'affixe 2 et de rayon $\dfrac{13}{4}$.
 
 :::
 
-:::exercice Exercice:
+:::exercice Exercice 4: Complexes: suites\... 10.5 points
 
-\[Complexes: suites\...\]\[10.5\] Le plan complexe est muni d'un repère
-orthonormé direct
+Le plan complexe est muni d'un repère orthonormé direct
 $\left(\text{O};~\overrightarrow{u},~\overrightarrow{v}\right)$.
 
 On pose $z_0 = 8$ et, pour tout entier naturel $n$ :
