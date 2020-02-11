@@ -1,3 +1,5 @@
+![CI](https://github.com/DavidCouronne/latextomd/workflows/CI/badge.svg)
+
 # latextomd
 
 A simple python package to convert latex to markdown (katex)
