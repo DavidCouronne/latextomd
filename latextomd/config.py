@@ -5,6 +5,7 @@ DEFAULT_OPTIONS = {
 
 # Replace without regex
 replace_simple = [
+    ['\\ds\\','\\displaystyle\\'],
     ['$\\C$', '\\mathcal{C}'],
     ['\\e^', '\\text{e}^'],
     ['\\mathscr', '\\mathcal'],
@@ -13,8 +14,6 @@ replace_simple = [
     [r'\[', '\n$$\n'],
     [r'\]', '\n$$\n'],
     ['\\begin', '\n\\begin'],
-    ['\\begin{exercice}', ':::exercice Exercice:\n\n'],
-    ['\\end{exercice}', ':::'],
     ['\\begin{center}', ''],
     ['\\end{center}', ''],
     ['\\begin{solution}', ':::startsolution\n'],

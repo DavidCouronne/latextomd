@@ -1,9 +1,10 @@
-import re
-import os
 import codecs
+import os
+import re
 import subprocess
 
 from latextomd import config
+from latextomd.latexblocks import LatexBlocks
 
 
 class LatexString(object):
@@ -16,14 +17,17 @@ class LatexString(object):
 
     def process(self):
         """Process transformation from Latex to markdown
-        
+
         Returns:
             str -- pre-markdown
         """
         self._remove_comments()
         self._replace_simple()
         self._math_replace()
+        self._convertList()
+        # self._convertItemize()
         self._convertEnumerate()
+        self.content = LatexBlocks(self.content).process()
         self._findTikz()
         self.findPstricks()
         self.replaceFigure()
@@ -41,6 +45,43 @@ class LatexString(object):
         for item in config.math_sub:
             p = re.compile(item[0])
             self.content = p.sub(item[1], self.content)
+
+    def _convertItemize(self):
+        """Agit sur les lignes.
+        Converti les environnements itemize en listes html"""
+        new_lines = []
+        self.lines = self.content.splitlines()
+
+        for line in self.lines:
+            if r"\begin{itemize}" in line:
+                line = "\n\n"
+            elif r"\end{itemize}" in line:
+                line = "\n\n"
+            elif r"\item" in line:
+                line = line.replace(r"\item", "\n\n$\\bullet$ ")
+            new_lines.append(line)
+        self.lines = new_lines
+        self.content = '\n'.join(self.lines)
+
+    def _convertList(self):
+        """Agit sur les lignes.
+        Converti les environnements list en listes html"""
+        new_lines = []
+        in_list = False
+        self.lines = self.content.splitlines()
+
+        for line in self.lines:
+            if r"\begin{list}" in line:
+                line = "\n\n"
+                in_list = True
+            elif r"\end{list}" in line:
+                line = "\n\n"
+                in_list = False
+            elif r"\item" in line and in_list:
+                line = line.replace(r"\item", "\n\n$\\bullet$ ")
+            new_lines.append(line)
+        self.lines = new_lines
+        self.content = '\n'.join(self.lines)
 
     def _convertEnumerate(self):
         """Agit sur les lignes.
@@ -103,7 +144,7 @@ class LatexString(object):
                 if r"\begin{pspicture" in line:
                     in_pstricks = True
                     lignes_pstricks.append(line)
-        self.figure = self.figure+ pstricks
+        self.figure = self.figure + pstricks
 
     def _findTikz(self):
         """Agit sur les lignes.
@@ -143,12 +184,13 @@ class LatexString(object):
         os.system("xelatex prepandoc.tex")
         os.system("pdfcrop prepandoc.pdf")
         print(self.export_file_name)
-        command = 'magick convert -density 600 prepandoc-crop.pdf '+self.export_file_name.replace('.md','')+'.jpg'
+        command = 'magick convert -density 600 prepandoc-crop.pdf ' + \
+            self.export_file_name.replace('.md', '')+'.jpg'
         os.system(command)
         #os.system("magick convert -density 600 prepandoc-crop.pdf truc-%p.jpg")
         for figure in self.figure:
             self.content = self.content.replace(
-                figure, "\\includegraphics{./"+self.export_file_name.replace('.md','')+"-"+str(self.nbfigure)+"}\n")
+                figure, "\\includegraphics{./"+self.export_file_name.replace('.md', '')+"-"+str(self.nbfigure)+"}\n")
             self.nbfigure = self.nbfigure + 1
 
         """ os.system("dvisvgm temp")
