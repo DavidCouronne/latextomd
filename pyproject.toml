@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "latextomd"
-version = "0.1.3"
+version = "0.1.4"
 description = "Simple project to convert latex in markdown"
 authors = ["David Couronné <couronne.david@gmail.com>"]
 license = "MIT"

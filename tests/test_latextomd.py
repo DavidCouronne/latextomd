@@ -5,11 +5,6 @@ import unittest
 export_file = "document.md"
 
 
-class TestVersionMethods(unittest.TestCase):
-    def test_version(self):
-        self.assertEqual(__version__, "0.1.2")
-
-
 class TestLatexToMdProcess(unittest.TestCase):
     def test_text(self):
         latex_string = "some text"
