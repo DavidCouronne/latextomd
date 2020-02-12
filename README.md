@@ -4,6 +4,8 @@
 
 A simple python package to convert latex to markdown (katex)
 
+Documentation: https://latextomd.netlify.com/
+
 ## Installation
 
 ```bash
