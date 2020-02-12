@@ -36,7 +36,7 @@ pip install latextomd
 2. The run in terminal, in the previous file folder: 
 
 ```bash
-latextomd sample-tikz.tex
+latextomd -i sample-tikz.tex
 ```
 
 3. It will produce `sample-tikz.md` and `sample-tikz-0.jpg`

@@ -7,7 +7,7 @@ sidebar_label: Basic Usage
 
 
 ```bash
-latextomd document.tex
+latextomd -i document.tex
 ```
 
 This will produce `document.md`
@@ -15,6 +15,6 @@ This will produce `document.md`
 Or:
 
 ```bash
-latextomd input.tex output.md
+latextomd -i input.tex -o output.md
 ```
 

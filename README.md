@@ -15,7 +15,7 @@ pip install latextomd
 ## Basic usage
 
 ```bash
-latextomd source.tex export.md
+latextomd -i source.tex -o export.md
 ```
 
 # Requirements (Windows 10)
