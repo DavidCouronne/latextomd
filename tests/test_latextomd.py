@@ -28,6 +28,20 @@ class TestLatexToMdProcess(unittest.TestCase):
         self.assertEqual(markdown_string, "some text")
         self.assertEqual(objet.preamble, "\\documentclass{article}\n")
 
+    def test_remove_comments(self):
+        latex_string = r"some text % some comments"
+        markdown_string = latextomd.LatexToMd(latex_string, export_file).process()
+        self.assertEqual(markdown_string, "some text")
+
+
+class TestLatexToMdPrepandoc(unittest.TestCase):
+    def test_replace_simple(self):
+        latex_string = r"\item \begin{enumerate}"
+        latextomd_object = latextomd.LatexToMd(latex_string, export_file)
+        latextomd_object.prepandoc()
+        markdown_string = latextomd_object.content
+        self.assertEqual(markdown_string, "\\item\n\\begin{enumerate}")
+
     def test_preamble(self):
         latex_string = r"""\documentclass{article}
         \usepackage{mypackage}
@@ -35,9 +49,11 @@ class TestLatexToMdProcess(unittest.TestCase):
         some text
         \end{document}
         """
-        objet = latextomd.LatexToMd(latex_string, export_file)
-        markdown_string = objet.process()
+        latextomd_object = latextomd.LatexToMd(latex_string, export_file)
+        latextomd_object.prepandoc()
+        markdown_string = latextomd_object.content
         self.assertEqual(markdown_string, "some text")
         self.assertEqual(
-            objet.preamble, "\\documentclass{article}\n\\usepackage{mypackage}\n"
+            latextomd_object.preamble,
+            "\\documentclass{article}\n\\usepackage{mypackage}\n\n",
         )

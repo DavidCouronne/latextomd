@@ -8,6 +8,7 @@ class Postpandoc(object):
 
     def process(self):
         self._replace()
+
         return self.content
 
     def _replace(self):

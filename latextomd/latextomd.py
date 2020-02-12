@@ -111,10 +111,49 @@ def to_markdown(latex_string, export_file_name=""):
 
 class LatexToMd(object):
     def __init__(self, latex_string, export_file_name=""):
+        """Initialisation LatexToMd
+        
+        Arguments:
+            latex_string {str} -- latex string
+        
+        Keyword Arguments:
+            export_file_name {str} -- export file name (default: {""})
+        """
         self.content = latex_string
 
     def process(self):
-        self.content = _strip_lines(self.content)
+        """Convert Latex String in Markdown String
+        
+        Returns:
+            {str} -- Markdown String
+        """
+        self.prepandoc()
+        return self.content
+
+    def prepandoc(self):
+        self._remove_comments()
+        self._replace_simple()
+        self._strip_lines()
         self.preamble, self.content = _process_preamble(self.content)
         self.content = _clean_lines(self.content)
-        return self.content
+
+    def _remove_comments(self):
+        """Remove comments in latex_string
+        """
+        self.content = re.sub("(?<!\\\\)%.*$", "", self.content, flags=re.M)
+
+    def _replace_simple(self):
+        """Replace without regex
+        use config.replace_simple
+        """
+        for replace_simple in config.replace_simple:
+            self.content = self.content.replace(replace_simple[0], replace_simple[1])
+
+    def _strip_lines(self):
+        """Strip lines in latex string
+        """
+        lines = self.content.splitlines()
+        result = []
+        for line in lines:
+            result.append(line.strip())
+        self.content = "\n".join(result)

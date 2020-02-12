@@ -89,6 +89,7 @@ class LatexString(object):
         enumi = 0
         enumii = 0
         new_lines = []
+        in_itemize = False
         arabic = "abcdefghijklmnopqrstuvwxz"
         self.lines = self.content.splitlines()
 
@@ -111,7 +112,11 @@ class LatexString(object):
                     enumi = 0
                 level_enumerate = level_enumerate - 1
                 line = ""
-            elif r"\item" in line and level_enumerate != 0:
+            elif r"\begin{itemize" in line:
+                in_itemize = True
+            elif r"\end{itemize" in line:
+                in_itemize = False
+            elif r"\item" in line and level_enumerate != 0 and not in_itemize:
                 if level_enumerate == 1:
                     enumi = enumi + 1
                     line = line.replace(r"\item", str(enumi) + ". ")
