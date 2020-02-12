@@ -1,1 +1,1 @@
-![image](./sample-tikz-0.jpg)
+![image](./sample-0.jpg)
