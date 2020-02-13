@@ -77,7 +77,7 @@ values={[
 </TabItem>
 <TabItem value="render">
 
-![image](sample-tikz-0.jpg)
+![image](assets/sample-tikz-0.jpg)
 
 </TabItem>
 </Tabs>
