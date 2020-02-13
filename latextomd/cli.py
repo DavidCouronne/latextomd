@@ -10,10 +10,12 @@ parser.add_argument("-i", help="input file path. Must be a .tex file")
 parser.add_argument(
     "-o", help="output file path (optionnal). By default the input file path with .md"
 )
+parser.add_argument("--pandoc-enumerate", action="store_true", help="let pandoc handle enumerate environnements")
 parser.add_argument("-d", action="store_true", help="debug mode")
 
 args = parser.parse_args()
 
+#print(args)
 if args.v:
     print(f"This is latextomd version {__version__}")
     sys.exit(2)
