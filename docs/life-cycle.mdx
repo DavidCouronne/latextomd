@@ -175,24 +175,25 @@ strip all lines.
   defaultValue="before"
   values={[
     { label: 'Before', value: 'before', },
-    { label: 'After', value: 'after', },    
+    { label: 'After', value: 'after', },
+    { label: 'Render', value: 'render', },     
   ]
 }>
 <TabItem value="before">
 
 ```latex
 \begin{enumerate}
-    \item one
-    \item two
+    \item Resolve $x^2=4$
+    \item Resolev $x^2=-2$
 \end{enumerate}
 
 \begin{enumerate}
-    \item one
+    \item Let $f: x \mapsto \ln(x)-x$
     \begin{enumerate}
-        \item a
-        \item b
+        \item Calculate $f'(x)$
+        \item Calculate $\displaystyle\lim_{x\to +\infty}f(x)$
     \end{enumerate}
-    \item two
+    \item Sketch the graph
 \end{enumerate}
 ```
 
@@ -200,18 +201,35 @@ strip all lines.
 <TabItem value="after">
 
 ```latex
-1\. one
+1\. Resolve $x^2=4$
 
-2\. two
+2\. Resolve $x^2=-2$
 
-1\. one
+1\. Let $f: x \mapsto \ln(x)-x$
 
-1\. a) a
+1\. a) Calculate $f'(x)$
 
-1\. b) b
+1\. b) Calculate $\displaystyle\lim_{x\to +\infty}f(x)$
 
-2\. two
+2\. Sketch the graph
 ```
+
+</TabItem>
+<TabItem value="render">
+
+
+1\. Resolve $x^2=4$
+
+2\. Resolve $x^2=-2$
+
+1\. Let $f: x \mapsto \ln(x)-x$
+
+1\. a) Calculate $f'(x)$
+
+1\. b) Calculate $\displaystyle\lim_{x\to +\infty}f(x)$
+
+2\. Sketch the graph
+
 
 </TabItem>
 </Tabs>
@@ -224,24 +242,25 @@ With `latextomd -i input.tex --pandoc-enumerate`
   defaultValue="before"
   values={[
     { label: 'Before', value: 'before', },
-    { label: 'Markdown', value: 'markdown', },    
+    { label: 'Markdown', value: 'markdown', },  
+     { label: 'Render', value: 'render', },  
   ]
 }>
 <TabItem value="before">
 
 ```latex
 \begin{enumerate}
-    \item one
-    \item two
+    \item Resolve $x^2=4$
+    \item Resolve $x^2=-2$
 \end{enumerate}
 
 \begin{enumerate}
-    \item one
+    \item Let $f: x \mapsto \ln(x)-x$
     \begin{enumerate}
-        \item a
-        \item b
+        \item Calculate $f'(x)$
+        \item Calculate $\displaystyle\lim_{x\to +\infty}f(x)$
     \end{enumerate}
-    \item two
+    \item Sketch the graph
 \end{enumerate}
 ```
 
@@ -249,19 +268,42 @@ With `latextomd -i input.tex --pandoc-enumerate`
 <TabItem value="markdown">
 
 ```markdown
-1.  one
+1.  Resolve $x^2=4$
 
-2.  two
+2.  Resolve $x^2=-2$
 
-1.  one
 
-    1.  a
+1.  Let $f: x \mapsto \ln(x)-x$
 
-    2.  b
+    1.  Calculate $f'(x)$
 
-2.  two
+    2.  Calculate $\displaystyle\lim_{x\to +\infty}f(x)$
+
+2.  Sketch the graph
+
+
 
 ```
+
+</TabItem>
+<TabItem value="render">
+
+
+1.  Resolve $x^2=4$
+
+2.  Resolve $x^2=-2$
+
+
+1.  Let $f: x \mapsto \ln(x)-x$
+
+    1.  Calculate $f'(x)$
+
+    2.  Calculate $\displaystyle\lim_{x\to +\infty}f(x)$
+
+2.  Sketch the graph
+
+
+
 
 </TabItem>
 </Tabs>
