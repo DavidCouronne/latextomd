@@ -65,7 +65,15 @@ replace_commands = [
     ["textsc", "S_T_R"],
     ["emph", "_S_T_R_"],
 ]
-
+blocks = [
+    [r"\\begin\{multicols\}\{((?P<arg>.*?))\}", ""],
+    [r"\\end{multicols}", ""],
+    [
+        r"\\begin\{definition\}(\[(?P<block_title>.*?)\])?",
+        r"\n:::definition Définition: \2\n\n",
+    ],
+    [r"\\end{definition}", "\n\n:::"],
+]
 math_sub = [
     [r"\\np\{((?P<arg>.*?))\}", r"\1"],
     [r"\\nombre\{((?P<arg>.*?))\}", r"\1"],
@@ -79,7 +87,7 @@ math_sub = [
     [r"\\Oij", r"$\\left(\\text{O};~\\vect{i},~\\vect{j}\\right)$"],
     [r"\\vect\{((?P<arg>.*?))\}", r"\\overrightarrow{\1}"],
     [r"\\e(\W)", r"\1"],
-]
+] + blocks
 
 
 postpandoc = [

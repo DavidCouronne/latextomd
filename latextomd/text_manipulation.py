@@ -119,11 +119,11 @@ class LatexString(object):
             elif r"\item" in line and level_enumerate != 0 and not in_itemize:
                 if level_enumerate == 1:
                     enumi = enumi + 1
-                    line = line.replace(r"\item", r"\textbf{" + f"{enumi}. "+"}")
+                    line = line.replace(r"\item", r"\textbf{" + f"{enumi}. " + "}")
                     line = "\n\n" + line
                 else:
                     line = line.replace(
-                        r"\item",r"\textbf{" + f"{enumi}.{arabic[enumii]}) "+"}" 
+                        r"\item", r"\textbf{" + f"{enumi}.{arabic[enumii]}) " + "}"
                     )
                     enumii = enumii + 1
                     line = "\n\n" + line

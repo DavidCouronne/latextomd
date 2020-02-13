@@ -1,11 +1,19 @@
-\documentclass{article}
-\usepackage{tikz}
+\documentclass{cornouaille}
+\dscornouaille
 
 \begin{document}
 \thispagestyle{empty}
 \begin{tikzpicture}
-\draw[thick,rounded corners=8pt] (0,0) -- (0,2) -- (1,3.25)
--- (2,2) -- (2,0) -- (0,2) -- (2,2) -- (0,0) -- (2,0);
+\tkzTabInit{$x$ / 0.85 , $1-4x^2$ / 0.5 }
+{$-\infty$ , $-\frac{1}{2}$, $\frac{1}{2}$ , $+\infty$}
+\tkzTabLine{,-,z,+,z,-,}
+\end{tikzpicture}
+\newpage\thispagestyle{empty}
+\begin{tikzpicture}
+\tkzTabInit{$x$ / 0.85 , $f'(x)$ / 0.5 , $f(x)$ / 1.5}
+{$0$ , $\frac{1}{2}$, $+\infty$}
+\tkzTabLine{,+,z,-,}
+\tkzTabVar{-/ $-\infty$, +/ $\ln\left(\frac{1}{2}\right)-\frac{1}{2}$ , -/ $-\infty$  }
 \end{tikzpicture}
 \newpage\thispagestyle{empty}
 EMPTY
