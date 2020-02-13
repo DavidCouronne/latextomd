@@ -4,18 +4,25 @@ import sys
 
 from latextomd import __version__, latextomd
 
-parser = argparse.ArgumentParser(description="""Basic usage: latextomd -i input.tex -o output.md""")
-parser.add_argument("-v", default=False, help="show version and exit",action="store_true")
+parser = argparse.ArgumentParser(
+    description="""Basic usage: latextomd -i input.tex -o output.md"""
+)
+parser.add_argument(
+    "-v", default=False, help="show version and exit", action="store_true"
+)
 parser.add_argument("-i", help="input file path. Must be a .tex file")
 parser.add_argument(
     "-o", help="output file path (optionnal). By default the input file path with .md"
 )
-parser.add_argument("--pandoc-enumerate", action="store_true", help="let pandoc handle enumerate environnements")
+parser.add_argument(
+    "--pandoc-enumerate",
+    action="store_true",
+    help="let pandoc handle enumerate environnements",
+)
 parser.add_argument("-d", action="store_true", help="debug mode")
 
 args = parser.parse_args()
 
-#print(args)
 if args.v:
     print(f"This is latextomd version {__version__}")
     sys.exit(2)
