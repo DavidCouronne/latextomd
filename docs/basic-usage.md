@@ -4,8 +4,6 @@ title: Basic Usage
 sidebar_label: Basic Usage
 ---
 
-
-
 ```bash
 latextomd -i document.tex
 ```
@@ -17,4 +15,3 @@ Or:
 ```bash
 latextomd -i input.tex -o output.md
 ```
-

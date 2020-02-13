@@ -103,7 +103,8 @@ module.exports = {
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl: "https://github.com/facebook/docusaurus/edit/master/website/",
           remarkPlugins:[
-            require("remark-math")
+            require("remark-math"),
+            require('remark-admonitions')
           ],
           rehypePlugins:[
             require("rehype-katex")
