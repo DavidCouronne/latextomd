@@ -51,7 +51,6 @@ defaultValue="output"
 values={[
 { label: 'sample-tikz.tex', value: 'input', },
 { label: 'sample-tikz.md', value: 'output', },
-{ label: 'sample-tikz-0.jpg', value: 'render', },
  ]
 }>
 <TabItem value="input">
@@ -75,9 +74,6 @@ values={[
 ```
 
 </TabItem>
-<TabItem value="render">
+</Tabs>
 
 ![image](assets/sample-tikz-0.jpg)
-
-</TabItem>
-</Tabs>
