@@ -110,20 +110,28 @@ def to_markdown(latex_string, export_file_name=""):
 
 
 class LatexToMd(object):
-    def __init__(self, latex_string, export_file_name=""):
+    def __init__(self, latex_string, export_file_name="", options={}):
         """Initialisation LatexToMd
-        
+
         Arguments:
             latex_string {str} -- latex string
-        
+
         Keyword Arguments:
             export_file_name {str} -- export file name (default: {""})
         """
         self.content = latex_string
+        self.options = options
+        self._process_options()
+
+    def _process_options(self):
+        try:
+            self.pandoc_enumerate = self.options["pandoc_enumerate"]
+        except:
+            self.pandoc_enumerate = False
 
     def process(self):
         """Convert Latex String in Markdown String
-        
+
         Returns:
             {str} -- Markdown String
         """

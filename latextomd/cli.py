@@ -41,6 +41,9 @@ def predict_encoding(file_path, n_lines=20):
 
 
 def main():
+    options = {
+        "pandoc_enumerate": args.pandoc_enumerate,
+    }
 
     if not args.i:
         print("An input file must be specified.")
@@ -53,6 +56,7 @@ def main():
     print("Source encoding:", predict_encoding(source_file))
     with codecs.open(source_file, "r", "utf-8") as f:
         latex_string = f.read()
+        latextomd_object = latextomd.LatexToMd(latex_string, export_file, options)
         markdown_string = latextomd.to_markdown(latex_string, export_file)
         with codecs.open(export_file, "w", "utf-8") as f_out:
             f_out.write(markdown_string)
