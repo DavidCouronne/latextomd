@@ -12,7 +12,7 @@ show help message and exit
 
 ## -v
 
-`latextomd -h`
+`latextomd -v`
 
 show current version and exit
 

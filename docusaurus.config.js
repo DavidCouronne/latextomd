@@ -13,12 +13,13 @@ module.exports = {
   ,
   title: "latextomd",
   tagline: "latextomd Documentation",
-  url: "https://your-docusaurus-test-site.com",
+  url: "https://latextomd.netlify.com/",
   baseUrl: "/",
   favicon: "img/favicon.ico",
 
   organizationName: "David Couronné", // Usually your GitHub org/user name.
   projectName: "latextomd", // Usually your repo name.
+  
   themeConfig: {
     remarkPlugins: [remarkMath],
     rehypePlugins:[rehypeKatex],
