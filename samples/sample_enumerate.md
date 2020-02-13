@@ -1,11 +1,11 @@
-1.  one
+1\. one
 
-2.  two
+2\. two
 
-1.  one
+1\. one
 
-a)  a
+1\. a) a
 
-b)  b
+1\. b) b
 
-2.  two
+2\. two

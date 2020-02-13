@@ -1,0 +1,270 @@
+---
+id: life-cycle
+title: Life Cycle
+description: latextomd life cycle
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Basic description
+
+When you run: `latextomd -i input.tex - o output.tex`: 
+
+1. Pre-Pandoc processing: process enumerate, process tikz/pstricks, some other staff...
+2. Convert with pandoc to markdown
+3. Post-Pandoc processing: process math mode, some other staff...
+
+## Pre-Pandoc
+
+A class of `LatexToMd`is instentiate whith the `content` of `input.tex`.
+
+### _remove_comments
+
+<Tabs
+  defaultValue="before"
+  values={[
+    { label: 'Before', value: 'before', },
+    { label: 'After', value: 'after', },    
+  ]
+}>
+<TabItem value="before">
+
+```latex
+some text % some comments
+```
+
+</TabItem>
+<TabItem value="after">
+
+```latex
+some text
+```
+
+</TabItem>
+</Tabs>
+
+
+### _replace_simple
+
+Process basics replacements without regex. See `config.replace_simple`. For example:
+
+
+<Tabs
+  defaultValue="before"
+  values={[
+    { label: 'Before', value: 'before', },
+    { label: 'After', value: 'after', },    
+  ]
+}>
+<TabItem value="before">
+
+```latex
+\begin{enumerate}
+    \item One item \begin{enumerate}
+        \item let \[x=12\]
+    \end{enumerate}
+\end{enumerate}
+```
+
+</TabItem>
+<TabItem value="after">
+
+```latex
+\begin{enumerate}
+    \item One item 
+\begin{enumerate}
+        \item let $$x=12$$
+    \end{enumerate}
+\end{enumerate}
+```
+
+</TabItem>
+</Tabs>
+
+### _strip_lines
+
+
+strip all lines.
+
+<Tabs
+  defaultValue="before"
+  values={[
+    { label: 'Before', value: 'before', },
+    { label: 'After', value: 'after', },    
+  ]
+}>
+<TabItem value="before">
+
+```latex
+\begin{enumerate}
+    \item One item 
+\begin{enumerate}
+        \item let $$x=12$$
+    \end{enumerate}
+\end{enumerate}
+```
+
+</TabItem>
+<TabItem value="after">
+
+```latex
+\begin{enumerate}
+\item One item 
+\begin{enumerate}
+\item let $$x=12$$
+\end{enumerate}
+\end{enumerate}
+```
+
+</TabItem>
+</Tabs>
+
+
+ ### _process_preamble
+
+ Split the `content`whith `preamble`.
+
+ Default preamble is `\documentclass{article}`.
+
+ <Tabs
+  defaultValue="before"
+  values={[
+    { label: 'Before', value: 'before', },
+    { label: 'After', value: 'after', }, 
+    { label: 'Preamble', value: 'preamble', },   
+  ]
+}>
+<TabItem value="before">
+
+```latex
+\documentclass{article}
+\usepackage{tikz}
+\begin{document}
+\begin{enumerate}
+    \item One
+    \item Two
+\end{enumerate}
+\end{document}
+```
+
+</TabItem>
+<TabItem value="after">
+
+```latex
+\begin{enumerate}
+\item One
+\item Two
+\end{enumerate}
+```
+
+</TabItem>
+<TabItem value="preamble">
+
+```latex
+\documentclass{article}
+\usepackage{tikz}
+```
+
+</TabItem>
+</Tabs>
+
+### _convert_enumerate
+
+
+<Tabs
+  defaultValue="before"
+  values={[
+    { label: 'Before', value: 'before', },
+    { label: 'After', value: 'after', },    
+  ]
+}>
+<TabItem value="before">
+
+```latex
+\begin{enumerate}
+    \item one
+    \item two
+\end{enumerate}
+
+\begin{enumerate}
+    \item one
+    \begin{enumerate}
+        \item a
+        \item b
+    \end{enumerate}
+    \item two
+\end{enumerate}
+```
+
+</TabItem>
+<TabItem value="after">
+
+```latex
+1\. one
+
+2\. two
+
+1\. one
+
+1\. a) a
+
+1\. b) b
+
+2\. two
+```
+
+</TabItem>
+</Tabs>
+
+You can let `pandoc` handle the enumerate environnements whit the flag `--pandoc-enumerate`
+
+With `latextomd -i input.tex --pandoc-enumerate`
+
+<Tabs
+  defaultValue="before"
+  values={[
+    { label: 'Before', value: 'before', },
+    { label: 'Markdown', value: 'markdown', },    
+  ]
+}>
+<TabItem value="before">
+
+```latex
+\begin{enumerate}
+    \item one
+    \item two
+\end{enumerate}
+
+\begin{enumerate}
+    \item one
+    \begin{enumerate}
+        \item a
+        \item b
+    \end{enumerate}
+    \item two
+\end{enumerate}
+```
+
+</TabItem>
+<TabItem value="markdown">
+
+```markdown
+1.  one
+
+2.  two
+
+1.  one
+
+    1.  a
+
+    2.  b
+
+2.  two
+
+```
+
+</TabItem>
+</Tabs>
+
+
+

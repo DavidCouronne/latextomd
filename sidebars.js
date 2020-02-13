@@ -8,6 +8,6 @@
 module.exports = {
   someSidebar: {
     'Getting Started': ['installation','basic-usage', 'basic-examples'],
-    Guide: ['options'],
+    Guide: ['life-cycle','cli'],
   },
 };
