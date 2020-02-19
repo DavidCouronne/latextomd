@@ -49,9 +49,10 @@ latextomd -i sample-tikz.tex
 <Tabs
 defaultValue="output"
 values={[
-{ label: 'sample-tikz.tex', value: 'input', },
-{ label: 'sample-tikz.md', value: 'output', },
- ]
+{ label: "sample-tikz.tex", value: "input", },
+{ label: "sample-tikz.md", value: "output", },
+
+]
 }>
 <TabItem value="input">
 
@@ -77,6 +78,3 @@ values={[
 </Tabs>
 
 ![image](/assets/sample-tikz-0.jpg)
-
-</TabItem>
-</Tabs>
