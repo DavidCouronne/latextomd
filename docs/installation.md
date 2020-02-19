@@ -46,15 +46,7 @@ latextomd -i sample-tikz.tex
 
 3. It will produce `sample-tikz.md` and `sample-tikz-0.jpg`
 
-<Tabs
-defaultValue="output"
-values={[
-{ label: "sample-tikz.tex", value: "input", },
-{ label: "sample-tikz.md", value: "output", },
 
-]
-}>
-<TabItem value="input">
 
 ```latex
 \documentclass{article}
@@ -67,14 +59,12 @@ values={[
 \end{document}
 ```
 
-</TabItem>
-<TabItem value="output">
+
 
 ```md
 ![image](./sample-tikz-0.jpg)
 ```
 
-</TabItem>
-</Tabs>
+
 
 ![image](/assets/sample-tikz-0.jpg)
