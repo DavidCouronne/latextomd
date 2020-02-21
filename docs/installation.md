@@ -1,6 +1,7 @@
 ---
 id: installation
-title: Installation
+title: Installation of latextomd
+description: How to install latextomd
 ---
 
 import Tabs from '@theme/Tabs';
@@ -46,7 +47,7 @@ latextomd -i sample-tikz.tex
 
 3. It will produce `sample-tikz.md` and `sample-tikz-0.jpg`
 
-
+`sample-tikz.tex`
 
 ```latex
 \documentclass{article}
@@ -59,12 +60,12 @@ latextomd -i sample-tikz.tex
 \end{document}
 ```
 
-
+`sample-tikz.md`
 
 ```md
 ![image](./sample-tikz-0.jpg)
 ```
 
-
+`sample-tikz-0.jpg`
 
 ![image](/assets/sample-tikz-0.jpg)
