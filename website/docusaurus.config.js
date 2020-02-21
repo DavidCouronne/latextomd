@@ -2,15 +2,15 @@ const remarkMath = require("remark-math");
 const rehypeKatex = require("rehype-katex");
 
 module.exports = {
-  stylesheets:[
+  stylesheets: [
     {
-      href:"https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css",
-      integrity:"sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq",
-      crossorigin:"anonymous"
+      href: "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css",
+      integrity:
+        "sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq",
+      crossorigin: "anonymous"
     }
-  ]
+  ],
 
-  ,
   title: "latextomd",
   tagline: "latextomd Documentation",
   url: "https://latextomd.netlify.com/",
@@ -19,12 +19,12 @@ module.exports = {
 
   organizationName: "David Couronné", // Usually your GitHub org/user name.
   projectName: "latextomd", // Usually your repo name.
-  
+
   themeConfig: {
-    image: 'img/open-graph.png',
+    image: "img/open-graph.png",
     remarkPlugins: [remarkMath],
-    rehypePlugins:[rehypeKatex],
-    
+    rehypePlugins: [rehypeKatex],
+
     prism: {
       theme: require("prism-react-renderer/themes/nightOwl")
     },
@@ -93,8 +93,7 @@ module.exports = {
         }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} David Couronné. Built with Docusaurus.`
-    },
-    
+    }
   },
 
   presets: [
@@ -103,15 +102,16 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/DavidCouronne/latextomd/edit/master/website/",
+          editUrl:
+            "https://github.com/DavidCouronne/latextomd/edit/master/website/",
           admonitions: false,
-          remarkPlugins:[
+          remarkPlugins: [
             require("remark-math"),
-            require("gridsome-plugin-remark-container"),
+            require("gridsome-plugin-remark-container")
             //require('remark-admonitions')
           ],
-          rehypePlugins:[
-            require("rehype-katex"),
+          rehypePlugins: [
+            require("rehype-katex")
             //require("remark-rehype")
           ]
         },
