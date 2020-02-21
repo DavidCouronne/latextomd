@@ -103,7 +103,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/DavidCouronne/latextomd/edit/master/",
+          editUrl: "https://github.com/DavidCouronne/latextomd/edit/master/website/",
           admonitions: false,
           remarkPlugins:[
             require("remark-math"),
