@@ -2,6 +2,12 @@
 id: installation
 title: Installation of latextomd
 description: How to install latextomd
+keywords: 
+  - latextomd
+  - latex
+  - markdown
+  - convert
+  - python
 ---
 
 import Tabs from '@theme/Tabs';

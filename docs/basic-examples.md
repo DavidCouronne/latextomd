@@ -3,6 +3,12 @@ id: basic-examples
 title: Basic Examples
 sidebar_label: Basic Examples
 description: latextomd basics examples
+keywords: 
+  - latextomd
+  - latex
+  - markdown
+  - convert
+  - python
 ---
 
 
