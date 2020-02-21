@@ -21,7 +21,7 @@ module.exports = {
   projectName: "latextomd", // Usually your repo name.
   
   themeConfig: {
-    image: ' https://res.cloudinary.com/dpw19qolx/image/upload/v1572590743/bernard-hermant-IhcSHrZXFs4-unsplash.jpg',
+    image: 'img/open-graph.png',
     remarkPlugins: [remarkMath],
     rehypePlugins:[rehypeKatex],
     
