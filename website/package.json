@@ -13,10 +13,10 @@
     "@docusaurus/preset-classic": "^2.0.0-alpha.40",
     "classnames": "^2.2.6",
     "gridsome-plugin-remark-container": "^0.1.3",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "rehype-katex": "^2.0.0",
-    "remark-admonitions": "^1.1.1",
+    "remark-admonitions": "^1.2.0",
     "remark-math": "^2.0.0",
     "remark-rehype": "^5.0.0"
   },
