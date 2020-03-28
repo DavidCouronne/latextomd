@@ -1,0 +1,546 @@
+\documentclass{cornouaille}
+\begin{document}
+\begin{exercice}[Pondichéry 2019]
+\textbf{\textsc{Exercice 2} \hfill 6 points}
+ 
+\textbf{Commun  à tous les candidats}
+
+Le but de cet exercice est d'étudier la suite $\left(u_n\right)$ définie par la donnée de son premier terme $u_1$ et, pour tout entier naturel $n$ supérieur ou égal à 1, par la relation : \index{suite}
+
+\[u_{n+1} = (n + 1)u_n - 1.\]
+
+\smallskip
+ 
+\textbf{Partie A}
+
+\medskip 
+
+\begin{enumerate}
+\item  Vérifier, en détaillant le calcul, que si $u_1 = 0$ alors $u_4 = - 17$. 
+\item Recopier et compléter l'algorithme ci-dessous pour qu'en saisissant préalablement dans $U$ une valeur de $u_1$ il calcule les termes de la suite $\left(u_n\right)$ de $u_2$ à $u_{13}$.\index{algorithme} 
+
+\begin{center}
+\begin{tabularx}{0.4\linewidth}{|X|}\hline
+Pour $N$ allant de 1 à 12\\
+\hspace{1cm} $U \gets $\\ 
+Fin Pour \\ \hline
+\end{tabularx}
+\end{center}
+
+\item On a exécuté cet algorithme pour $u_1 = 0,7$ puis pour $u_1 = 0,8$. 
+
+Voici les valeurs obtenues. 
+
+\begin{center}
+\begin{tabularx}{0.8\linewidth}{|*{2}{X|}}\hline
+\multicolumn{1}{|c|}{Pour $u_1 = 0,7$}&\multicolumn{1}{|c|}{Pour $u_1 = 0,8$}\\ \hline     
+0,4					&0,6 \\  
+0,2					&0,8\\   
+$- 0,2$				&2,2 \\  
+$- 2$				&10\\    
+$- 13$				&59\\   
+$- 92$				&412 \\  
+$- 737$				&\np{3295}\\   
+\np{-6634}			&\np{29654} \\ 
+\np{-66341}			&\np{296539}\\   
+\np{-729752}		&\np{3261928}\\   
+\np{-8757025}		&\np{39143135} \\  
+\np{-113841326}	&\np{508860754}\\ \hline
+\end{tabularx}
+\end{center}
+
+Quelle semble être la limite de cette suite si $u_1 = 0,7$ ? Et si $u_1 = 0,8$ ? 
+\end{enumerate}
+
+\bigskip
+
+\textbf{Partie B} 
+
+\medskip
+
+On considère la suite $\left(I_n\right)$ définie pour tout entier naturel $n$, supérieur ou égal à 1, par : 
+
+\[I_n = \displaystyle\int_0^1 x^n \text{e}^{1 - x}\:\text{d}x.\]\index{suite d'intégrales}
+
+On rappelle que le nombre e est la valeur de la fonction exponentielle en 1, c'est-à-dire que e $= \text{e}^1$.
+
+\medskip 
+
+\begin{enumerate}
+\item Prouver que la fonction $F$ définie sur l'intervalle [0~;~1] par $F(x)=(- 1 - x)\text{e}^{1 - x}$ est une primitive sur l'intervalle [0~;~1] de la fonction $f$ définie sur l'intervalle [0~;~1] par $f(x) = x \text{e}^{1 - x}$.\index{primitive}
+\item En déduire que $I_1 = \text{e} - 2$. 
+\item On admet que, pour tout entier naturel $n$ supérieur ou égal à 1, on a : 
+
+\[I_{n+1} =  (n+1)I_{n} - 1.\] 
+
+Utiliser cette formule pour calculer $I_2$. 
+\item 
+	\begin{enumerate}
+		\item Justifier que, pour tout nombre réel $x$ de l'intervalle [0~;~1] et pour tout entier naturel $n$ supérieur ou égal à 1, on a : $0 \leqslant x^n \text{e}^{1-x} \leqslant  x^n \text{e}$. 
+		\item Justifier que : $\displaystyle\int_0^1 x^n\text{e}\:\text{d}x = \dfrac{\text{e}}{n+ 1}$. 
+		\item En déduire que, pour tout entier naturel $n$ supérieur ou égal à 1, on a : $0 \leqslant I_n \leqslant \dfrac{\text{e}}{n+ 1}$. 
+		\item Déterminer $\displaystyle\lim_{n \to + \infty} I_n$. 
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+\textbf{Partie C}
+
+\medskip 
+
+Dans cette partie, on note $n$! le nombre défini, pour tout entier naturel n supérieur ou égal à 1, par : 1!=1 
+
+2!$ =2 \times 1$ 
+
+et si $n \geqslant 3$ : 
+$n$! $= n \times  (n-1) \times  \ldots  \times 1$ 
+
+On a ainsi par exemple 
+
+3! $= 3\times 2\times 1 = 3\times(2 \times 1) = 3\times 2$! 
+
+4! $= 4\times 3\times 2\times 1 = 4\times (3\times 2\times 1) = 4\times 3$! 
+
+8! $= 8\times 7\times 6\times 5\times 4\times 3\times 2\times 1 = 8\times(7\times 6\times 5\times 4\times 3\times 2\times 1) = 8\times 7$! 
+
+Et, plus généralement : 
+
+\[(n+1)\text{!} = (n+1)  \times n\text{!}\]
+
+\smallskip 
+
+\begin{enumerate}
+\item Démontrer par récurrence que, pour tout entier naturel $n$ supérieur ou égal à 1, on a :\index{récurrence} 
+
+\[u_n =n\text{!}\left(u_1 - \text{e} + 2\right)+ I_n.\] 
+
+On rappelle que, pour tout entier naturel $n$ supérieur ou égal à 1, on a :
+
+\[ u_{n+1} = (n+1)u_{n} - 1\quad \text{ et } I_{n+1} = (n+1)I_{n} - 1.\] 
+
+\item  On admet que : $\displaystyle\lim_{n \to + \infty} n\text{!} = + \infty$. 
+	\begin{enumerate}
+		\item Déterminer la limite de la suite $\left(u_n\right)$ lorsque $u_1 = 0,7$. 
+		\item Déterminer la limite de la suite $\left(u_n\right)$ lorsque $u_1 = 0,8$.\index{limite de suite} 
+	\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Polynésie 2019]
+\textbf{Exercice 3 \hfill  5 points}
+
+\textbf{Commun à  tous les candidats}
+
+\medskip
+
+On considère la suite $\left(I_n\right)$ définie par $I_0 = \displaystyle\int_0^{\frac{1}{2}}\dfrac{1}{1 - x}\:\text{d}x$ et pour tout entier naturel $n$ non nul 
+
+ \[I_n = \displaystyle\int_0^{\frac{1}{2}}\dfrac{x^n}{1 - x}\:\text{d}x.\]\index{suite d'intégrales}
+
+\smallskip
+
+\begin{enumerate}
+\item Montrer que $I_0 = \ln (2)$. 
+\item  
+	\begin{enumerate}
+		\item Calculer $I_0 - I_1$.
+		\item En déduire $I_1$.  
+	\end{enumerate}
+\item 
+	\begin{enumerate}
+		\item Montrer que, pour tout entier naturel $n,\: I_n - I_{n+1} = \dfrac{\left(\frac{1}{2} \right)^{n+1}}{n+1}$. 
+		\item Proposer un algorithme permettant de déterminer, pour un entier naturel $n$ donné, la valeur de $I_n$.\index{algorithme} 
+	\end{enumerate}
+\item Soit $n$ un entier naturel non nul. 
+
+On admet que si $x$ appartient à l'intervalle $\left[0~;~\frac{1}{2}\right]$ alors $0 \leqslant \dfrac{x^n}{1 - x} \leqslant \dfrac{1}{2^{n-1}}$. 
+
+	\begin{enumerate}
+		\item Montrer que pour tout entier naturel $n$ non nul, $0 \leqslant  I_n \leqslant \dfrac{1}{2^n}$.
+		\item En déduire la limite de la suite $\left(I_n\right)$ lorsque $n$ tend vers $+\infty$. 
+	\end{enumerate}
+\item Pour tout entier naturel $n$ non nul, on pose 
+
+\[S_n = \dfrac{1}{2} + \dfrac{\left(\frac{1}{2} \right)^2}{2} + \dfrac{\left(\frac{1}{2} \right)^3}{3} + \ldots +\dfrac{\left( \frac{1}{2}\right)^n}{n}. \]
+
+	\begin{enumerate}
+		\item Montrer que pour tout entier naturel $n$ non nul, $S_n = I_0 - I_n$. 
+		\item Déterminer la limite de $S_n$ lorsque $n$ tend vers $+\infty$. 
+	\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Liban 2019]
+\textbf{Exercice 1 \hfill 5 points} 
+
+\textbf{Commun à tous les candidats} 
+
+\medskip
+
+Le plan est muni d'un repère orthogonal (O, I, J).
+
+\medskip 
+
+\begin{enumerate}
+\item On considère la fonction $f$ définie sur l'intervalle ]0~;~1] par 
+
+\[f(x) = x(1 - \ln x)^2.\]\index{fonction logarithme népérien}
+
+	\begin{enumerate}
+		\item Déterminer une expression de la fonction dérivée de $f$ et vérifier que pour tout $x \in ]0~;~1]$, $f'(x) = (\ln x + 1)(\ln x - 1)$.\index{dérivée} 
+		\item Étudier les variations de la fonction $f$ et dresser son tableau de variations sur l'intervalle ]0~;~1] (on admettra que la limite de la fonction $f$ en 0 est nulle). 
+\end{enumerate}
+	\end{enumerate}
+
+On note $\Gamma$ la courbe représentative de la fonction $g$ définie sur l'intervalle ]0~;~1]  par $g(x) = \ln x$. 
+
+Soit $a$ un réel de l'intervalle ]0~;~1]. On note $M_a$ le point de la courbe $\Gamma$ d'abscisse $a$ et $d_a$ la tangente à la courbe $\Gamma$ au point $M_a$. Cette droite $d_a$ coupe l'axe des abscisses au point $N_a$ et l'axe des ordonnées au point $P_a$ . 
+
+On s'intéresse à l'aire du triangle O$N_aP_a$ quand le réel $a$ varie dans l'intervalle ]0~;~1]. 
+
+\begin{enumerate}[resume]
+\item Dans cette question, on étudie le cas particulier où $a = 0,2$ et on donne la figure ci-dessous. 
+
+\begin{center}
+\scalebox{0.8}{
+\psset{xunit=10cm,yunit=2cm}
+\begin{pspicture*}(-0.3,-3)(1.1,1.5)
+\psgrid[unit=1cm,subgriddiv=1,gridlabels=0,gridcolor=lightgray](-1,-6)(11,3)
+\psaxes[linewidth=1.25pt,labels=none]{->}(0,0)(-0.1,-3)(1.1,1.5)
+\psplot[plotpoints=2000,linewidth=0.5pt]{-0.1}{0.8}{ x 5 mul 2.609 sub}
+\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=blue]{0.05}{1}{ x ln}
+\psdots(0.2,-1.6)(0.5218,0)(1,0)(0,-2.609)(0,1)
+\uput[dr](1,0){I}\uput[ur](0,1){J}\uput[dl](0,0){O}
+\uput[dr](0.6,-0.5){\blue $\Gamma$}\uput[dr](0.7,0.9){$d_{0,2}$}
+\uput[dr](0.2,-1.6){$M_{0,2}$}\uput[ul](0.5218,0){$N_{0,2}$}
+\uput[ul](0,-2.609){$P_{0,2}$}
+\end{pspicture*}
+}%%% fin du scalebox
+\end{center}    
+
+\medskip
+
+	\begin{enumerate}
+		\item Déterminer graphiquement une estimation de l'aire du triangle O$N_{0,2}P_{0,2}$ en unités d'aire. 
+		\item Déterminer une équation de la tangente $d_{0,2}$.\index{equation de la tangente@équation de la tangente} 
+		\item Calculer la valeur exacte de l'aire du triangle O$N_{0,2}P_{0,2}$ . 
+
+Dans ce qui suit, on admet que, pour tout réel $a$ de l'intervalle ]0~;~1], l'aire du triangle O$N_aP_a$ en unités d'aire est donnée par $\mathcal{A}(a) = \dfrac{1}{2}a (1 - \ln a)^2$.
+	\end{enumerate}
+\item  À l'aide des questions précédentes, déterminer pour quelle valeur de $a$ l'aire 
+$\mathcal{A}(a)$ est maximale. Déterminer cette aire maximale. 
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Antilles Guyanne 2019]
+\textbf{\textsc{Exercice 1} \hfill 6 points}
+
+\smallskip
+
+\textsc{Commun à tous les candidats}
+
+\bigskip
+
+\textbf{Partie A}
+
+\medskip
+
+Soit $a$ et $b$ des nombres réels. On considère une fonction $f$ définie sur $[0~;~+\infty[$ par
+
+\[f(x) = \dfrac{a}{1 + \text{e}^{-bx}}.\]
+
+La courbe $\mathcal{C}_f$ représentant la fonction $f$ dans un repère orthogonal est donnée
+ci-dessous.
+
+La courbe $\mathcal{C}_f$ passe par le point A(0~;~0,5).
+La tangente à la courbe $\mathcal{C}_f$ au point A passe par le point B(10~;~1).
+
+\begin{center}
+\psset{xunit=0.675cm,yunit=5cm,comma=true}
+\begin{pspicture}(-1,-0.1)(20,1,2)
+\psaxes[linewidth=1.25pt,Dy=0.1]{->}(0,0)(0,0)(20,1.2)
+\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=blue]{0}{20}{1 1 2.71828 x 0.2 mul neg exp add div}
+\psplot[plotpoints=2000,linewidth=1.25pt]{0}{14}{x 0.05 mul 0.5 add}
+\psdots(10,1)\uput[ul](10,1){B}
+\uput[u](17,0.95){\blue $\mathcal{C}_f$}
+\end{pspicture}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Justifier que $a = 1$.
+
+On obtient alors, pour tout réel $x \geqslant 0$,
+
+\[f(x) = \dfrac{1}{1 + \text{e}^{-bx}}.\]
+
+\item  On admet que la fonction $f$ est dérivable sur $[0~;~+\infty[$ et on note $f'$ sa fonction dérivée.
+
+Vérifier que, pour tout réel $x \geqslant 0$\index{dérivée}
+
+\[f'(x) = \dfrac{b\text{e}^{-bx}}{\left(1 + \text{e}^{-bx}\right)^2}.\]
+\item  En utilisant les données de l'énoncé, déterminer $b$.\index{fonction exponentielle}
+\end{enumerate}
+
+\bigskip
+
+\textbf{Partie B}
+
+\medskip
+
+La proportion d'individus qui possèdent un certain type d'équipement dans une
+population est modélisée par la fonction $p$ définie sur $[0~;~+\infty[$ par
+
+\[p(x) = \dfrac{1}{1 + \text{e}^{-0,2x}}.\]
+
+Le réel $x$ représente le temps écoulé, en année, depuis le 1\up{er} janvier 2000.
+
+Le nombre $p(x)$ modélise la proportion d'individus équipés après $x$ années.
+
+Ainsi, pour ce modèle, $p(0)$ est la proportion d'individus équipés au 1\up{er} janvier 2000 et $p(3,5)$ est la proportion d'individus équipés au milieu de l'année 2003.
+
+\medskip
+
+\begin{enumerate}
+\item Quelle est, pour ce modèle, la proportion d'individus équipés au 1er janvier
+2010? On en donnera une valeur arrondie au centième.
+\item 
+	\begin{enumerate}
+		\item Déterminer le sens de variation de la fonction $p$ sur $[0~;~+\infty[$.
+		\item Calculer la limite de la fonction $p$ en $+\infty$.
+		\item Interpréter cette limite dans le contexte de l'exercice.
+ 	\end{enumerate}
+\item  On considère que, lorsque la proportion d'individus équipés dépasse 95\,\%, le
+marché est saturé.
+	
+Déterminer, en expliquant la démarche, l'année au cours de laquelle cela se
+produit.
+\item  On définit la proportion moyenne d'individus équipés entre 2008 et 2010 par
+
+\[m = \dfrac{1}{2}\displaystyle\int_8^{10} p(x)\:\text{d}x.\]
+	
+	\begin{enumerate}
+		\item Vérifier que, pour tout réel $x \geqslant 0$,
+
+\[p(x) = \dfrac{\text{e}^{0,2x}}{1 + \text{e}^{0,2x}}.\]
+
+		\item En déduire une primitive de la fonction $p$ sur $[0~;~+\infty[$.\index{primitive}
+		\item Déterminer la valeur exacte de $m$ et son arrondi au centième.
+	\end{enumerate}
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Métropole juin 2019]
+\textbf{\Large Exercice 1 \hfill  6 points}
+
+\textbf{Commun à  tous les candidats}
+
+{\large\bf Partie A}
+
+\medskip
+
+% \def\e{\text{e}}
+On considère la fonction $f$ définie sur l'ensemble $\R$ des nombres réels par :
+
+\[f(x)=\dfrac{7}{2}-\dfrac{1}{2}\left(\e^x+\e^{-x}\right)\]\index{fonction exponentielle}
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Déterminer la limite de la fonction $f$ en $+\infty$.
+		\item Montrer que la fonction $f$ est strictement décroissante sur l'intervalle $[0~;~+\infty[$.\index{dérivée}
+		\item Montrer que l'équation $f(x) = 0$ admet, sur l'intervalle $[0~;~+\infty[$, une unique solution, que l'on note $\alpha$.
+	\end{enumerate}
+\item En remarquant que, pour tout réel $x$, $f(-x) = f(x)$, justifier que l'équation $f(x)=0$ admet exactement deux solutions dans $\R$ et qu'elles sont opposées.
+\end{enumerate}
+
+{\large\bf Partie B}
+
+\medskip
+
+Les \textbf{serres en forme de tunnel} sont fréquemment utilisées pour la culture des plantes fragiles; elles limitent les effets des intempéries ou des variations de température.
+
+Elles sont construites à partir de plusieurs arceaux métalliques identiques qui sont ancrés au sol et supportent une bâche en plastique.
+\medskip
+
+Le plan est rapporté à un repère orthonormé d'unité 1 mètre. La fonction $f$ et le réel $\alpha$ sont définis dans la \textbf{partie A}. Dans la suite de l'exercice, on modélise un arceau de serre par la courbe $\mathcal{C}$ de la fonction $f$ sur l'intervalle $[-\alpha~;~+\alpha]$.
+
+On a représenté ci-dessous la courbe $\mathcal{C}$ sur l'intervalle  $[-\alpha~;~+\alpha]$.
+
+
+\begin{center}
+\psset{unit=1.5cm,linewidth=1.2pt}
+\def\xmin{-3} \def\xmax{3.9} \def\ymin{-.85} \def\ymax{3.5}
+\begin{pspicture*}(-3,-.85)(3.9,3.5)
+%\psframe[fillstyle=solid,fillcolor=lightgray](-1,0)(1,2.2)
+\psaxes[linewidth=1.25pt](0,0)(-3.5,-.5)(3,3.5)
+\psplot{-1.92}{1.92}{3.5 2.7181828 x -1 mul exp 2.7181828 x exp add .5 mul sub}
+\psline(-3.2,2.2)(-3.2,-3.5)
+\psline(-4.8,2.2)(-4.8,-3.5)
+\psframe(-5.4,-3.5)(-2.6,-5)
+\psline[linestyle=dashed](-3,2.5)(3,2.5)
+\psline[arrows=<->,linewidth=1.pt](2.5,0.)(2.5,2.5)
+\rput[l](2.65,1.25){\textbf{hauteur}}
+\rput[l](-1.65,1.5){$\mathcal{C}$}
+\end{pspicture*}
+\end{center}
+
+On admettra que la courbe $\mathcal{C}$ admet l'axe des ordonnées pour axe de symétrie.
+
+\begin{enumerate}
+	\item Calculer la hauteur d'un arceau.
+	\item \begin{enumerate}
+		\item Dans cette question, on se propose de calculer la valeur exacte de la longueur de la courbe~$\mathcal{C}$ sur l'intervalle $[0~;~\alpha]$. On admet que cette longueur est donnée, en mètre, par l'intégrale : 
+		
+\[I=\displaystyle\int_0^{\alpha}\sqrt{1+(f'(x))^2}\ dx\]
+
+		Montrer que, pour tout réel $x$, on a : $1+(f'(x))^2=\dfrac{1}{4}(\e^x+\e^{-x})^2$
+		\item En déduire la valeur de l'intégrale $I$ en fonction de $\alpha$.
+		
+Justifier que la longueur d'un arceau, en mètre, est égale à : $\e^{\alpha}-\e^{-\alpha}$.
+	\end{enumerate}
+\end{enumerate}
+
+{\large\bf Partie C}
+
+\medskip
+
+On souhaite construire une serre de jardin en forme de tunnel.
+
+On fixe au sol quatre arceaux métalliques, dont la forme est celle décrite dans la partie précédente, espacés de 1,5~mètre, comme indiqué sur le schéma ci-dessous.
+
+Sur la façade sud, on prévoit une ouverture modélisée sur le schéma par le rectangle $ABCD$ de largeur 1~mètre et de longueur 2~mètres.
+
+\begin{center}
+	\psset{unit=1.2cm,linewidth=1.2pt}
+	\def\xmin{-3} \def\xmax{7} \def\ymin{-.85} \def\ymax{6}
+	\begin{pspicture*}(-3,-.85)(7,6)
+	\psframe[fillstyle=vlines,fillcolor=lightgray](-.5,0)(.5,2)
+	%\psaxes[linewidth=1.25pt](0,0)(-3.5,-.5)(3,3.5)
+	\psplot{-1.92}{1.92}{3.5 2.7181828 x  -1 mul exp 2.7181828 x exp add .5 mul sub}
+	\psplot{-.92}{2.92}{3.5 2.7181828 x 1 sub  -1 mul exp 2.7181828 x 1 sub exp add .5 mul sub 1 add}
+	\psplot{.08}{3.92}{3.5 2.7181828 x 2 sub  -1 mul exp 2.7181828 x 2 sub exp add .5 mul sub 2 add}
+	\psplot{1.08}{4.92}{3.5 2.7181828 x 3 sub  -1 mul exp 2.7181828 x 3 sub exp add .5 mul sub 3 add}
+\psline(-3.2,2.2)(-3.2,-3.5)
+\psline(-4.8,2.2)(-4.8,-3.5)
+\psframe(-5.4,-3.5)(-2.6,-5)
+\psline[linestyle=dashed](-1.92,0)(1.08,3)(4.92,3)
+\psline(-1.92,0)(1.92,0)(4.92,3)
+\psline(-.96,2)(0.96,2)
+\psline(0,2.5)(3,5.5)
+\psline[arrows=<->,linewidth=1.pt](2.5,0.)(3.5,1)
+\rput[l](3.2,.5){\textbf{1m50}}
+\uput[35](.5,0){$C$}
+\uput[-35](.5,2){$B$}
+\uput[135](-.5,0){$D$}
+\uput[-35](-.5,2){$A$}
+\rput[b](-.5,-0.5){\textbf{Façade sud}}
+\rput[b](3.5,3){\textbf{Façade nord}}
+\end{pspicture*}
+\end{center}
+
+On souhaite connaître la quantité, exprimée en m$^2$, de bâche plastique nécessaire pour réaliser cette serre.
+
+Cette bâche est constituée de trois parties, l'une recouvrant la façade nord, l'autre la façade sud (sauf l'ouverture), la troisième partie de forme rectangulaire recouvrant le toit de la serre.
+
+\begin{enumerate}
+	\item Montrer que la quantité de bâche nécéssaire pour recouvrir les façades sud et nord est donnée, en m$^2$, par : \[\mathcal{A}=4\int_0^{\alpha}f(x)\ dx-2\]
+	\item On prend $1,92$ pour valeur approchée de $\alpha$. Déterminer, au m$^2$ près, l'aire totale de la bâche plastique nécessaire pour réaliser cette serre.
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}[Antilles Guyane spetembre 2019]
+\textbf{\textsc{Exercice 3} \hfill 5 points} 
+
+\textbf{Commun à tous les candidats}
+
+\medskip
+
+Soit $g$ la fonction définie sur $]0~;~+\infty[$ par 
+
+\[g(x) = 4x - x \ln x.\]\index{fonction logarithme népérien}
+
+On admet que la fonction $g$ est dérivable sur $]0~;~ +\infty[$ et on note $g'$ sa dérivée.
+
+\bigskip
+
+\textbf{Partie A}
+
+\medskip
+
+\begin{minipage}{0.48\linewidth}Le graphique ci-contre représente une partie de la 
+courbe représentative de la fonction $g$ obtenue par un élève sur sa calculatrice. Cet élève émet les deux conjectures suivantes :
+
+\setlength\parindent{10mm}
+\begin{itemize}
+\item[$\bullet~~$] il semble que la fonction $g$ soit positive ;
+\item[$\bullet~~$] il semble que la fonction $g$ soit strictement
+croissante.
+\end{itemize}
+\setlength\parindent{0mm}
+\end{minipage}\hfill 
+\begin{minipage}{0.48\linewidth}
+\psset{xunit=0.5cm,yunit=0.3cm,labelFontSize=\scriptstyle}
+\begin{pspicture}(-1,-1)(10.5,10.5)
+\psaxes(0,0)(-0.9,-0.9)(10.5,10.5)
+\psplot[plotpoints=2000,linewidth=1.25pt,Dy=2]{0.001}{4}{4 x mul x x ln mul sub}
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+L'objectif de cette partie est de valider ou d'invalider chacune de ces conjectures.
+
+\medskip
+
+\begin{enumerate}
+\item Résoudre l'équation $g(x) = 0$ sur l'intervalle $]0~;~ +\infty[$.
+\item Déterminer le signe de $g(x)$ sur l'intervalle $]0~;~ +\infty[$.
+\item Les conjectures de l'élève sont-elles vérifiées ?
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{Partie B}
+
+\medskip
+
+Dans cette partie, on poursuit l'étude de la fonction $g$.
+
+\medskip
+
+\begin{enumerate}
+\item 
+	\begin{enumerate}
+		\item On rappelle que
+		
+\[\displaystyle\lim_{t \to + \infty} \dfrac{\ln t}{t} = 0.  \]
+
+En déduire que
+
+\[\displaystyle\lim_{x \to 0} x \ln x = 0.\]
+
+		\item Calculer la limite de $g(x)$ lorsque $x$ tend vers $0$.
+	\end{enumerate}
+\item
+	\begin{enumerate}
+		\item Démontrer que, pour tout réel $x$ strictement positif, $g'(x) = 3 - \ln x$.\index{dérivée}
+		\item Dresser le tableau de variations de la fonction $g$.
+	\end{enumerate}
+\item On désigne par $G$ la fonction définie sur $]0~;~ +\infty[$ par 
+
+\[G(x) = \dfrac{1}{4}x^2(9 - 2\ln x).\]
+
+On admet que la fonction $G$ est dérivable sur $]0~;~ +\infty[$.
+	\begin{enumerate}
+		\item Démontrer que la fonction $G$ est une primitive de la fonction $g$ sur $]0~;~ +\infty[$.\index{primitive}
+		\item L'affirmation suivante est-elle vraie ?
+		
+\og Il n'existe aucun réel $\alpha$ strictement supérieur à 1 tel que $\displaystyle\int_1^{\alpha} g(x) \:\text{d}x = 0$. \fg
+	\end{enumerate}
+\end{enumerate}
+\end{exercice}
+\end{document}

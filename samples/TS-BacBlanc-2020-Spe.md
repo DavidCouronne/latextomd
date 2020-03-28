@@ -141,10 +141,12 @@ $u^2$ est donc pair. D'après la question **3.b.**, $u$ est donc pair.
 
 On assimile un couple de nombres entiers $(u,~v)$ à la matrice colonne
 $X = 
-\begin{pmatrix}u\\v\end{pmatrix}$.
+\begin{pmatrix}u\\v\end{pmatrix}
+$.
 
 On définit également la matrice $A = 
-\begin{pmatrix}3&2\\4&3\end{pmatrix}$.
+\begin{pmatrix}3&2\\4&3\end{pmatrix}
+$.
 
 **4.a)** Démontrer que si une matrice colonne $X$ est une solution de
 l'équation $(E)$, alors $AX$ est aussi une solution de l'équation $(E)$.
@@ -152,16 +154,20 @@ l'équation $(E)$, alors $AX$ est aussi une solution de l'équation $(E)$.
 :::startsolution
 
 Soit $X=
-\begin{pmatrix}     u\\v        \end{pmatrix}$ une solution de
+\begin{pmatrix}     u\\v        \end{pmatrix}
+$ une solution de
 l'équation $(E)$.
 
 $AX=
 \begin{pmatrix} 3&2\\ 4&3 \end{pmatrix}
+
  \times 
 \begin{pmatrix} u\\ v
 \end{pmatrix}
+
 =
-\begin{pmatrix} 3u+2v\\ 4u+3v\end{pmatrix}$.
+\begin{pmatrix} 3u+2v\\ 4u+3v\end{pmatrix}
+$.
 
 On a :
 $(4u+3v)^2-2(3u+2v)^2=16u^2+24uv+9v^2-18u^2-24uv-8v^2=v^2-2u^2=1$.
@@ -210,7 +216,8 @@ On a : $3^2-2 \times 2^2=9-8=1$ donc le couple $(2;3)$ est solution de
 $(E)$.
 
 $A^5 \times X = 
-\begin{pmatrix} 13860\\ 19601\end{pmatrix}$.
+\begin{pmatrix} 13860\\ 19601\end{pmatrix}
+$.
 
 Donc le couple $(13860~;~19601)$ est une solution de $(E)$ telle que
 $v > 10000$.
