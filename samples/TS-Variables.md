@@ -32,6 +32,7 @@ $f(x)=\left\{
 x+1 \textrm{ si } x\in\left[-1\ ;\ 0 \right[ \\
 -x+1 \textrm{ si } x\in\left[0\ ;\ 1 \right]
 \end{array}
+
 \right.$.
 
 ![image](./TS-Variables-0.jpg)
