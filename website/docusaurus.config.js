@@ -35,9 +35,9 @@ module.exports = {
         alt: "My Site Logo",
         src: "img/android-chrome-512x512.png"
       },
-      links: [
+      items: [
         { to: "docs/installation", label: "Docs", position: "left" },
-        { to: "blog", label: "Blog", position: "left" },
+
         {
           href: "https://github.com/DavidCouronne/latextomd",
           label: "GitHub",
@@ -78,10 +78,6 @@ module.exports = {
           title: "Social",
           items: [
             {
-              label: "Blog",
-              to: "blog"
-            },
-            {
               label: "GitHub",
               href: "https://github.com/DavidCouronne"
             },
@@ -100,6 +96,7 @@ module.exports = {
     [
       "@docusaurus/preset-classic",
       {
+        blog: false,
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:

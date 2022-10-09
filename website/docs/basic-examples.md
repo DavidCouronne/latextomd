@@ -1,5 +1,4 @@
 ---
-id: basic-examples
 title: Basic Examples
 sidebar_label: Basic Examples
 description: latextomd basics examples
@@ -95,4 +94,5 @@ will produce `sample-tikz.md` and `sample-tikz-0.jpg`
 ![image](./sample-tikz-0.jpg)
 ```
 
-![image](./sample-tikz-0.jpg)
+
+![Image](./assets/sample-tikz-0.jpg)
