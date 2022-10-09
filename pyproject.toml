@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "latextomd"
-version = "0.1.4"
+version = "0.1.5"
 description = "Simple project to convert latex in markdown"
 authors = ["David Couronné <couronne.david@gmail.com>"]
 license = "MIT"
@@ -11,7 +11,7 @@ keywords = ["latex", "markdown", "convert"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-TexSoup = "^0.2.1"
+TexSoup = "^0.2.2"
 chardet = "^3.0.4"
 
 [tool.poetry.dev-dependencies]
