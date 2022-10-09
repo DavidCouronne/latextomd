@@ -15,9 +15,11 @@ import TabItem from '@theme/TabItem';
 
 ## Install dependencies
 
-:::important
+
+
 latextomd need some externals dependencies
-:::
+
+
 
 - miktex or texlive
 - pandoc: [https://pandoc.org/](https://pandoc.org/)

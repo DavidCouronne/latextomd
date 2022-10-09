@@ -1,5 +1,7 @@
 const remarkMath = require("remark-math");
 const rehypeKatex = require("rehype-katex");
+const math = require('remark-math')
+const katex = require('rehype-katex')
 
 module.exports = {
   stylesheets: [
@@ -22,8 +24,7 @@ module.exports = {
 
   themeConfig: {
     image: "img/open-graph.png",
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+
 
     prism: {
       theme: require("prism-react-renderer/themes/nightOwl")
@@ -102,15 +103,12 @@ module.exports = {
           editUrl:
             "https://github.com/DavidCouronne/latextomd/edit/master/website/",
           admonitions: false,
-          remarkPlugins: [
-            require("remark-math"),
-            require("gridsome-plugin-remark-container")
-            //require('remark-admonitions')
-          ],
-          rehypePlugins: [
-            require("rehype-katex")
-            //require("remark-rehype")
-          ]
+
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
+          showLastUpdateTime: true,
+
+
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css")
