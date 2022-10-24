@@ -46,10 +46,12 @@ def _strip_lines(latex_string):
 
 def _clean_lines(latex_string):
     lines = latex_string.splitlines()
-    while lines[0] == "":
-        lines = lines[1:]
-    while lines[-1] == "":
-        lines = lines[:-1]
+    if lines == []:
+        return latex_string
+    # while lines[0] == "":
+    #     lines = lines[1:]
+    # while lines[-1] == "":
+    #     lines = lines[:-1]
     content = "\n".join(lines)
     while "\n\n\n" in content:
         content = content.replace("\n\n\n", "\n\n")
@@ -97,6 +99,7 @@ def _pandoc(preamble, content):
 def to_markdown(latex_string, export_file_name=""):
     content = latex_string
     content = _strip_lines(content)
+    content = re.sub("(?<!\\\\)%.*$", "", content, flags=re.M)
 
     preamble, content = _process_preamble(content)
     if not os.path.exists("temp"):
@@ -108,6 +111,9 @@ def to_markdown(latex_string, export_file_name=""):
     )
     with open("temp/pandoc_raw.tex", "r") as f:
         content = f.read()
+    content = content.replace(r"\textbackslash begin\{document\}", r"\begin{document}")
+    content = content.replace(r"\textbackslash end\{document\}", r"\end{document}")
+
     content = Postpandoc(content).process()
     # with open("temp/vrac2.tex", "w", encoding="utf-8") as f:
     #     f.write(content)
