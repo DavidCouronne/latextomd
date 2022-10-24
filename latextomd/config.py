@@ -70,6 +70,8 @@ replace_commands = [
 blocks = [
     [r"\\begin\{multicols\}\{((?P<arg>.*?))\}", ""],
     [r"\\end{multicols}", ""],
+    [r"\\begin\{minipage\}\{((?P<arg>.*?))\}", ""],
+    [r"\\end{minipage}", ""],
     [r"\\begin\{colitemize\}\{((?P<arg>.*?))\}", r"\\begin{itemize}"],
     [r"\\end{colitemize}", r"\\end{itemize}"],
     [
