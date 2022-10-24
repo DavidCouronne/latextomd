@@ -1,5 +1,6 @@
 from latextomd import config
 from TexSoup import TexSoup
+from TexSoup.reader import BracketGroup
 
 
 class Latex(object):
@@ -16,7 +17,11 @@ class Latex(object):
 
     def _replace_commands(self):
         for command in config.replace_commands:
-            print(command[0])
+            liste_commands = self.soup.find_all(command[0])
+            for cmd in liste_commands:
+                for arg in cmd.args:
+                    if isinstance(arg, BracketGroup):
+                        cmd.args.remove(arg)
             liste_commands = self.soup.find_all(command[0])
             self.content = str(self.soup)
             for match in liste_commands:
@@ -35,3 +40,6 @@ class Latex(object):
             self.content = self.content.replace(string, string.strip())
 
         return self.content
+
+    def get_content(self):
+        return str(self.soup)

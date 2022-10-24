@@ -24,8 +24,7 @@ class LatexBlocks(object):
         return self.content
 
     def process_exercice(self):
-        """Process block: exercice
-        """
+        """Process block: exercice"""
         regex_exercice = (
             r"\\begin{exercice}(\[(?P<block_title>.*?)\])?(\[(?P<block_bareme>.*?)\])?"
         )

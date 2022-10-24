@@ -146,7 +146,7 @@ class LatexString(object):
                     pstricks.append("\n".join(lignes_pstricks))
                     lignes_pstricks = []
             else:
-                if r"\begin{pspicture" in line:
+                if r"\psset" in line or r"\begin{pspicture" in line:
                     in_pstricks = True
                     lignes_pstricks.append(line)
         self.figure = self.figure + pstricks
@@ -185,23 +185,26 @@ class LatexString(object):
         if not os.path.exists("temp"):
             os.mkdir("temp")
 
-        f = codecs.open("prepandoc.tex", "w", "utf-8")
+        f = codecs.open("temp/prepandoc.tex", "w", "utf-8")
         f.write(total)
         f.close()
-        os.system("xelatex prepandoc.tex")
-        os.system("pdfcrop prepandoc.pdf")
+        os.system("cd temp")
+        os.system("lualatex -output-dir=temp prepandoc.tex ")
+        os.system("pdfcrop temp/prepandoc.pdf")
         print(self.export_file_name)
         command = (
-            "magick convert -density 600 prepandoc-crop.pdf "
+            "magick convert -density 600 temp/prepandoc-crop.pdf img/"
             + self.export_file_name.replace(".md", "")
             + ".jpg"
         )
+        if not os.path.exists("img"):
+            os.mkdir("img")
         os.system(command)
         # os.system("magick convert -density 600 prepandoc-crop.pdf truc-%p.jpg")
         for figure in self.figure:
             self.content = self.content.replace(
                 figure,
-                "\\includegraphics{./"
+                "\\includegraphics{./img/"
                 + self.export_file_name.replace(".md", "")
                 + "-"
                 + str(self.nbfigure)

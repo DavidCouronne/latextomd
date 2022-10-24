@@ -81,13 +81,14 @@ def _pandoc(preamble, content):
     Returns:
         string -- Markdown
     """
-    total = "\n\\begin{document}\n".join([preamble, content]) + "\n\\end{document}"
-    f = codecs.open("temp.tex", "w", "utf-8")
+    total = "\n\\begin{document}\n".join([preamble, content])  # + "\n\\end{document}"
+    total = content
+    f = codecs.open("temp/temp.tex", "w", "utf-8")
     f.write(total)
     f.close()
     # os.system("pandoc temp.tex -o temp.md --katex --from latex --to gfm")
-    os.system("pandoc temp.tex -o temp.md")
-    with codecs.open("temp.md", "r", "utf-8") as f:
+    os.system("pandoc temp/temp.tex -o temp/temp.md -f latex+raw_tex")
+    with codecs.open("temp/temp.md", "r", "utf-8") as f:
         content = f.read()
     return content
     # os.system(f"dvisvgm temp.dvi")
@@ -98,6 +99,23 @@ def to_markdown(latex_string, export_file_name=""):
     content = _strip_lines(content)
 
     preamble, content = _process_preamble(content)
+    if not os.path.exists("temp"):
+        os.mkdir("temp")
+    with open("temp/vrac.tex", "w", encoding="utf-8") as f:
+        f.write(latex_string)
+    os.system(
+        "pandoc temp/vrac.tex -o temp/pandoc_raw.tex -f latex+raw_tex -r markdown-auto_identifiers"
+    )
+    with open("temp/pandoc_raw.tex", "r") as f:
+        content = f.read()
+    content = Postpandoc(content).process()
+    # with open("temp/vrac2.tex", "w", encoding="utf-8") as f:
+    #     f.write(content)
+    #     os.system("pandoc temp/vrac2.tex -o temp/pandoc_2.tex -f latex+raw_tex ")
+    # with open("temp/pandoc_2.tex", "r") as f:
+    #     content = f.read()
+    # content = Postpandoc(content).process()
+
     content = LatexString(content, preamble, export_file_name).process()
     content = _pandoc(preamble, content)
     # content = Latex(content).process()
@@ -146,8 +164,7 @@ class LatexToMd(object):
         self.content = _clean_lines(self.content)
 
     def _remove_comments(self):
-        """Remove comments in latex_string
-        """
+        """Remove comments in latex_string"""
         self.content = re.sub("(?<!\\\\)%.*$", "", self.content, flags=re.M)
 
     def _replace_simple(self):
@@ -158,8 +175,7 @@ class LatexToMd(object):
             self.content = self.content.replace(replace_simple[0], replace_simple[1])
 
     def _strip_lines(self):
-        """Strip lines in latex string
-        """
+        """Strip lines in latex string"""
         lines = self.content.splitlines()
         result = []
         for line in lines:

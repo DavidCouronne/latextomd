@@ -1,0 +1,865 @@
+\documentclass{cornouaille}
+
+
+\begin{document}
+\fexo{Terminale spécialité}{Chapitre 4 : Limites de fonctions et continuité}{Cours}
+
+\section{Introduction : observations}
+
+\subsection{Quelles sont les positions possibles d'une courbe en $+\infty$ ?}
+
+\begin{tabularx}{\linewidth}{|c|*{2}{>{\centering \arraybackslash}X|}} \hline
+\includegraphics[scale=1.2]{figintro1.png} & Plus $x$ devient grand, plus $f(x)$ devient grand. $\displaystyle \lim_{x\rightarrow +\infty} f(x)=+\infty$ \\ \hline
+\includegraphics[scale=0.5]{figintro2.png} &    Plus $x$ devient grand, plus $f(x)$ devient petit. $\displaystyle \lim_{x\rightarrow +\infty} f(x)=-\infty$\\ \hline
+\includegraphics[scale=1.4]{figintro3.png} & Plus $x$ devient grand, $f(x)$ devient de plus en plus proche de 1 sans jamais l'atteindre. $\displaystyle \lim_{x\rightarrow +\infty} f(x)=1$ \\ \hline
+\includegraphics[scale=1.2]{figintro4.png} &  Plus $x$ grandit, plus $f(x)$ ne cesse de varier. $\displaystyle \lim_{x\rightarrow +\infty} f(x)$ n'existe pas.\\ \hline 
+\includegraphics[scale=1.4]{figintro5.png} & Plus $x$ devient grand, plus $f(x)$ devient grand. $\displaystyle \lim_{x\rightarrow +\infty} f(x)=+\infty$ \\ \hline
+\end{tabularx}
+
+\medskip
+
+\underline{Remarque} : On peut visualiser les mêmes types de limite en $-\infty$.
+
+\subsection{Quelles sont les positions possibles d'une courbe en une valeur finie $a$ ?}
+
+\begin{tabularx}{\linewidth}{|c|*{2}{>{\centering \arraybackslash}X|}} \hline
+\includegraphics[scale=0.4]{figintro6.png}  $f$ est définie en $a$ & Plus $x$ devient proche de $a$, plus $f(x)$ devient proche de $f(a)$. $\displaystyle \lim_{x\rightarrow a} f(x)=f(a)$ \\ \hline
+\includegraphics[scale=1.3]{figintro7.png} $f$ est définie en $a$ &    Plus $x$ devient proche de $a$, plus l'ordonnée se rapproche de deux valeurs différentes, suivant que $x$ se rapproche par la gauche ou par la droite. $\displaystyle \lim_{x\rightarrow a} f(x)=$ n'existe pas.\\ \hline
+\includegraphics[scale=0.4]{figintro8.png} $f$ n'est pas définie en $a$ & Plus $x$ se rapproche de $a$, plus $f(x)$ devient proche de $b$. $\displaystyle \lim_{x\rightarrow a} f(x)=b$ \\ \hline
+\includegraphics[scale=0.4]{figintro9.png} $f$ n'est pas définie en $a$ &  Plus $x$ se rapproche de $a$ par la droite, plus $f(x)$ devient grand. $\displaystyle \lim_{x\rightarrow a^{+}} f(x) = +\infty$.\\ \hline 
+\includegraphics[scale=0.4]{figintro10.png} $f$ n'est pas définie en $a$ &  Plus $x$ se rapproche de $a$ par la gauche, plus $f(x)$ devient petit. $\displaystyle \lim_{x\rightarrow a^{-}} f(x) =  -\infty$ \\ \hline
+\end{tabularx}
+
+
+\section{Limite d'une fonction en l'infini}
+
+Dans toute cette partie, $\mathcal{C}_f$ désigne la courbe représentative de la fonction $f$ dans un repère quelconque du plan.
+
+\subsection{Limite infinie en l'infini}
+
+\begin{definition}
+La fonction $f$ a  pour limite $+\infty$ en $+\infty$ si tout intervalle de $\mathbb{R}$  du type  $]a~;~+\infty[$
+contient toutes les valeurs de $f(x)$ pour $x$ assez grand. On note alors : $ \lim_{x\to+\infty}f(x)=+\infty$.\\
+\end{definition}
+
+\begin{exemple}
+Soit $f$ la fonction racine carrée. 
+En effet, $\sqrt{x}$ devient aussi grand que l'on veut à mesure que $x$ augmente.\\
+On a $\lim_{x\to+\infty}\sqrt{x}=+\infty$.\\
+Soit un intervalle ouvert $I=]a~;~+\infty[$. Alors, $f(x)$ sera toujours dans $I$ pour $x$ assez grand.\\
+ Graphiquement, si on considère le demi-plan supérieur de frontière une droite d'équation \mbox{$y=a$}, il existe toujours une valeur de $a$ au delà de laquelle $\mathcal{C}_f$ ne sort plus de ce demi-plan.
+\begin{center}
+\psset{xunit=0.5cm,yunit=1cm,algebraic=true}
+\begin{pspicture*}(-2.5,-0.6)(20.5,4.8)
+\psframe*[linecolor=H4](0,3.75)(20.5,4.8)
+\psgrid[yunit=0.5cm,subgriddiv=1,linewidth=0.5pt,gridcolor=A3,gridlabels=0pt](0,0)(21,10)
+\psaxes[linewidth=0.8pt,Dx=1,Dy=1,ticksize=-2pt]{->}(0,0)(-0.5,-0.25)(20.5,4.8)
+\uput[r](1.2,2.7){\textcolor{B2}{$\boldsymbol{\mathcal{C}_{f}:y=\sqrt{x}}$}}
+\psplot[linecolor=B2,plotpoints=5000,linewidth=1pt]{0.01}{20.5}{sqrt(x)}
+\psline[linewidth=0.8pt,linestyle=dashed,linecolor=B2](0,3.75)(20.5,3.75)
+\uput[l](0,3.75){\textcolor{H1}{$a$}}
+\end{pspicture*}
+\end{center}
+\end{exemple}
+
+\begin{remarque}
+\begin{itemize}
+\item On définit de façon analogue :
+$\lim_{x\to +\infty}f(x)=-\infty$,
+$\lim_{x\to -\infty}f(x)=+\infty$ et
+$\lim_{x\to -\infty}f(x)=-\infty$.
+\item Il existe des fonctions qui n'admettent pas de limite en
+  l'infini. Par exemple, les fonctions sinus et cosinus n'admettent
+  de limite ni en $+\infty$, ni en $-\infty$.
+\item Une fonction qui tend vers $+\infty$ lorsque $x$ tend vers $+\infty$ n'est pas forcément croissante(voir observations figure 5)
+\end{itemize}
+\end{remarque}
+
+
+
+
+%
+%\begin{methode} [Étudier les limites d'une fonction en l'infini \label{A2-methode1}]
+%
+%  
+
+%\textbf{Exercice:}
+
+
+%
+%  \textbf{Conjecturer avec une calculatrice}
+%
+%  $g$ est la fonction sur
+%  $]-\infty\ ;\ 0\left[\cup \right]0\ ;\ +\infty [$ par
+%  $g = \frac{3x-7}{x}$.
+%
+%  On obtient avec la calculatrice le tableau de valeurs de la
+%  fonction $g$ ci-contre.
+%  \begin{enumerate}
+%  \item Conjecturer la limite de $g$ en $+\infty{}$.
+%  \item Démontrer cette conjecture à l'aide de la définition.
+%  \item Interpréter graphiquement cette conjecture.
+%  \end{enumerate}
+%
+%  \begin{center}
+%%    \includegraphics{}
+%  \end{center}
+%
+%  
+
+%\textbf{Correction}
+
+
+%
+%  \begin{enumerate}
+%  \item On examine la limite de $g$ en $+\infty{}$ et on remarque que
+%    la limite est 3.
+%
+%  \item On a, pour tout réel $x$ non nul $[$ par $(x)=3- \frac{7}{x}$.\par
+%    $g(x) \in{}]3-\varepsilon\ ;\ 3+\varepsilon [\ \Longleftrightarrow
+%    (3-\varepsilon )<3-\ \frac{7}{x}<\left(3+\varepsilon
+%    \right)\Longleftrightarrow \ (-\varepsilon )<3-\
+%    \frac{7}{x}<\left(+\varepsilon \right)$.\par
+%    De plus, pour $x ]0\ ;\ +\infty[$, donc
+%    $\varepsilon > \frac{7}{x}>0 \Longleftrightarrow
+%    \frac{1}{\varepsilon} < \frac{x}{7} $,
+%    (car la fonction inverse est strictement croissante sur
+%    $]0\ ;\ +\infty[$), $\Longleftrightarrow \frac{7}{\varepsilon}<x$.\par
+%    Donc, l'intervalle $]3-\varepsilon\ ;\ 3+\varepsilon[$, est centré
+%    en 3, et contient toutes les valeurs de $g (x)$ pour
+%    $x> \frac{7}{\varepsilon}$, c'est-à-dire pour $x$ assez grand $\lim_{x\rightarrow+\infty{}}$
+%    $g(x) = 3$.
+%  \item La courbe représentant $g$ dans n'importe quel repère admet
+%    une asymptote horizontale d'équation $(y = 3)$.
+%  \end{enumerate}
+%\end{methode}
+\subsection{Limite finie en l'infini}
+
+\begin{definition}
+Soit $f$ une fonction définie au moins sur un intervalle de $\mathbb{R}$ du type $]a~;~+\infty[$.\\
+La fonction $f$ a pour limite $\ell$ en $+\infty$ si tout intervalle ouvert contenant $\ell$
+contient toutes les valeurs de $f(x)$ pour $x$ assez grand. On note alors : $ \lim_{x\to+\infty}f(x)=\ell$.\\
+\end{definition}
+
+\begin{exemple}
+Soit $f$ la fonction définie sur $]0~;~+\infty[$ par $f(x)=\dfrac{1}{x}+1$. \\
+L'inverse de $x$ se rapproche de $0$ à mesure que $x$ augmente.
+On a donc $\lim_{x\to+\infty}\left(\dfrac{1}{x}+1\right)=1$.\\
+\\
+Soit un intervalle ouvert $I$ tel que $1\in I$. Alors, $f(x)$ sera toujours dans $I$ pour $x$ assez grand. Graphiquement, aussi étroite que soit une bande parallèle à la droite d'équation $y=1$ et qui la contient, il existe toujours une valeur de $x$ au delà de laquelle $\mathcal{C}_f$ ne sort plus de cette bande.
+\begin{center}
+\psset{xunit=0.5cm,yunit=2cm,algebraic=true}
+\begin{pspicture*}(-2.5,-0.3)(20.5,2.4)
+\psframe*[linecolor=H4](0,0.875)(20,1.125)
+\psgrid[yunit=0.5cm,subgriddiv=1,linewidth=0.5pt,gridcolor=A3,gridlabels=0pt](0,0)(20,9)
+\psaxes[linewidth=0.8pt,Dx=1,Dy=1,ticksize=-2pt]{->}(0,0)(-0.5,-0.125)(20.5,2.4)
+\uput[r](1,2.125){\textcolor{B2}{$\boldsymbol{\mathcal{C}_{f}:y=\dfrac{1}{x}+1}$}}
+\psplot[linecolor=B2,plotpoints=5000,linewidth=1pt]{0.8}{20}{1/x+1}
+\psline[linewidth=0.8pt,linestyle=dashed,linecolor=B2](0,1.125)(20,1.125)
+\psline[linewidth=0.8pt,linestyle=dashed,linecolor=B2](0,0.875)(20,0.875)
+\psline[linewidth=0.8pt,linecolor=H1](0,1)(20,1)
+\uput[l](0,0.875){\textcolor{H1}{$1-\varepsilon$}}
+\uput[l](0,1.125){\textcolor{H1}{$1+\varepsilon$}}
+\end{pspicture*}
+\end{center}
+\end{exemple}
+
+\begin{definition}[Asymptote horizontale]
+La droite d'équation $y=\ell$ est \textbf{asymptote horizontale} à $\boldsymbol{\mathcal{C}_f}$ \textbf{en} $\boldsymbol{+\infty}$   si $\lim_{x\to+\infty} f(x)=\ell$.
+\end{definition}
+
+  \begin{remarque}
+  On définit de façon analogue $\lim_{x\to-\infty} f(x)=\ell$
+  qui caractérise une asymptote horizontale à $\mathcal{C}_f$ en $-\infty$ d'équation $y=\ell$.
+  \end{remarque}
+
+  \begin{exemple}
+On a vu précédemment que $\lim_{x\to+\infty}\left(\dfrac{1}{x}+1\right)=1$. On a aussi $\lim_{x\to-\infty}\left(\dfrac{1}{x}+1\right)=1$.\\
+Donc, la droite d'équation $y=1$  est asymptote horizontale à la courbe $\mathcal{C}_f$  en $+\infty$ et en $-\infty$ .
+  \end{exemple}
+
+\subsection{Limites des fonctions de référence en $\pm\infty$}
+
+\begin{propriete}[Limites finies des fonctions usuelles en $\pm\infty$]
+Soit $n$ un entier naturel non nul.
+\begin{colitemize}{2}
+\item $ \lim_{x\to+\infty}\sqrt{x}=\lim_{x\to+\infty}x^n=+\infty$
+\item $ \lim_{x\to-\infty}x^n=\left\{\begin{array}{@{}ll}
++\infty &  \text{pour~} n \text{~pair} \\
+-\infty &  \text{pour~} n \text{~impair}
+\end{array}\right.$
+\item $ \lim_{x\to+\infty}\frac{1}{\sqrt{x}}=\lim_{x\to+\infty}\frac{1}{x^n}=0$
+\item $ \lim_{x\to-\infty}\frac{1}{x^n}=0$
+\item $ \lim_{x\to-\infty} e^x=0$
+\item $ \lim_{x\to+\infty} e^x=+\infty$
+\end{colitemize}
+\end{propriete}
+
+
+
+
+\section{Limite infinie en un réel}
+
+%\subsection{Limite finie en un réel}
+%
+%\begin{definition} [Limite finie en un réel \emph{a}]
+%  Dire qu'une fonction $f$ a pour limite le nombre $\ell $ en $a$,
+%  signifie que tout intervalle ouvert de centre $\ell$, même
+%  extrêmement petit, contient tous les nombres $f(x)$ dès lors que $x$
+%  est \textbf{"suffisamment proche de} $a$" (c'est-à-dire dès que $x$
+%  appartient à un intervalle du type $]a - \alpha~; a + \alpha[$ et à
+%  $D_{f}$).
+%
+%  On écrit~alors $\mathop{\lim }\limits_{x\to a} f(x)=\ell $.
+%\end{definition}
+%
+%Les distances de $f(x)$ à $\ell$ tendent donc vers 0. Or la distance
+%de $f(x)$ à $\ell$ s'écrit $|f(x) - \ell|$.
+%
+%Donc dire que $\mathop{\lim }\limits_{x\to a} f(x)=\ell $ signifie que
+%$\mathop{\lim } \limits_{x\to a} \left|f(x)-\ell \right|=0$.
+%
+%\subsection{Limite infinie en un réel}
+
+\begin{definition}
+Soit $f$ une fonction définie sur un intervalle ouvert de $\mathbb{R}$ du type $]x_0-\varepsilon~;~x_0[$ ou $]x_0~;~x_0+\varepsilon[$.\\
+La fonction $f$ a pour limite $+\infty$ en $x_0$ si tout intervalle de $\mathbb{R}$ du type 
+$]A~;~+\infty[$  contient toutes les valeurs de $f(x)$ pour $x$ assez proche de $x_0$. On note alors : $ \lim_{x\to x_0}f(x)=+\infty$.\\
+\end{definition}
+
+
+\begin{exemple}
+Soit $f$ la fonction définie sur $]1~;~+\infty[$ par $f(x)=\dfrac{1}{x-1}$.\\
+Si $x$ tend  $1$, alors $x-1$ tend vers $0$ et son inverse tend vers $+\infty$.On a $\lim_{x\to 1}\dfrac{1}{x-1}=+\infty$.\\
+
+Soit un intervalle ouvert $I=]1~;~1+\varepsilon[$. Alors, $f(x)$ sera toujours dans $I$ pour $x$ assez proche de $x_0$. Graphiquement,  $\mathcal{C}_f$ peut être aussi proche que l'on veut de la droite d'équation $x=1$.
+\begin{center}
+\psset{xunit=2cm,yunit=0.2cm,algebraic=true}
+\begin{pspicture*}(-.3,-2.5)(4.5,21)
+\psframe*[linecolor=H4](1,0)(1.2,21)
+\psgrid[yunit=1cm,subgriddiv=1,linewidth=0.5pt,gridcolor=A3,gridlabels=0pt](0,0)(5,10)
+\psaxes[linewidth=0.8pt,Dx=1,Dy=5,ticksize=-2pt]{->}(0,0)(-0.25,-2)(4.5,21)
+\uput[r](2,2.5){\textcolor{B2}{$\boldsymbol{\mathcal{C}_{f}:y=\dfrac{1}{x-1}}$}}
+\psplot[linecolor=B2,plotpoints=5000,linewidth=1pt]{1.01}{4.5}{1/(x-1)}
+\psline[linewidth=0.8pt,linestyle=dashed,linecolor=B2](1.2,0)(1.2,21)
+\psline[linewidth=0.8pt,linecolor=H1](1,0)(1,21)
+\uput{7pt}[d](1.3,0){\textcolor{H1}{$1+\varepsilon$}}
+\end{pspicture*}
+\end{center}
+\end{exemple}
+
+
+\begin{definition}[Asymptote verticale]
+  La droite d'équation $x=x_0$ est \textbf{asymptote
+    verticale} à $\boldsymbol{\mathcal{C}_f}$ si
+  $\lim_{x\to x_0} f(x)=\pm\infty$.
+\end{definition}
+
+\begin{exemple}
+On a vu précédemment que $\lim_{x\to 1}\dfrac{1}{x-1}=+\infty$.\\
+Donc, la droite d'équation $x=1$  est asymptote verticale à l'hyperbole $\mathcal{C}_f$.
+\end{exemple}
+
+
+\begin{remarque}
+\begin{itemize}
+\item Lorsque $x$ tend vers $x_0$, cela peut parfois se faire en augmentant ou en diminuant. On parle alors de
+limite de $f$ à gauche (resp. droite) en $x_0$ qu'on note $ \lim_{\substack{x\to x_0\\ x<x_0}}f(x)$
+(resp. $ \lim_{\substack{x\to x_0\\ x>x_0}}f(x)$).
+\item Une fonction admet une limite en $x_0$ si, et seulement si, $f$ admet des
+ limites à droite et à gauche en $x_0$ qui sont égales (ce qui n'est pas toujours le cas).
+\item  Une fonction peut très bien ne pas avoir de limite du tout en un point.\par
+Par exemple, la fonction $x \mapsto \sin \dfrac{1}{x}$ n'a pas de limite en 0.
+\end{itemize}
+\end{remarque}
+
+
+\begin{propriete}[Limites finies des fonctions usuelles en $\boldsymbol{0}$]
+Soit $n$ un entier naturel non nul.
+\begin{colitemize}{2}
+\item $\lim_{\substack{x\to 0\\ x>0}}\frac{1}{\sqrt{x}}=\lim_{\substack{x\to 0\\ x>0}}\frac{1}{x^n}=+\infty$
+\item $\lim_{\substack{x\to 0\\ x<0}}\dfrac{1}{x^n}=\left\{\begin{array}{@{}ll}
++\infty &  \text{pour~} n \text{~pair} \\
+-\infty &  \text{pour~} n \text{~impair}
+\end{array}\right.$
+\end{colitemize}
+\end{propriete}
+
+
+\begin{remarque}
+L'aperçu de la courbe représentative d'une fonction avec une  calculatrice ou un logiciel peut aider à conjecturer une limite (et donc éventuellement une asymptote  à la courbe).\\
+
+Soit $f$ une fonction dont on a un aperçu du graphe $\mathcal{C}$. Déterminer son ensemble de définition $\mathcal{D}$, puis conjecturer les limites aux bornes de $\mathcal{D}$ et les  asymptotes à $\mathcal{C}$.
+\begin{colenumerate}{2}
+\item $f:x\mapsto \dfrac{x^3-1}{x^3+1}$\par
+% \fcolorbox{fondTI}{fondTI}{
+  %\includegraphics[scale=.75]{meth_graph1.eps}
+\item $f:x\mapsto 2x-\sqrt{4x^2-1}$ \par
+% \fcolorbox{fondTI}{fondTI}{
+  %\includegraphics[scale=.75]{meth_graph2.eps}
+\end{colenumerate}
+
+\end{remarque}  
+
+\textbf{Correction}
+
+  \begin{enumerate}
+  \item  $\mathcal{D}=\mathbb{R}\setminus\{-1\}$. A priori, on aurait : $\lim_{x\to\pm+\infty}f(x)=1$ ; $\lim_{\substack{x\to -1\\ x<-1}}f(x)=+\infty$ et $\lim_{\substack{x\to -1\\ x>-1}}f(x)=-\infty$.\par
+        $\mathcal{C}$ aurait alors une asymptote  horizontale d'équation $y=1$ en $\pm\infty$ et une asymptote verticale d'équation $x=-1$.
+  \item  $\mathcal{D}=]-\infty~;~-\tfrac{1}{2}[\,\cup\,]\tfrac{1}{2}~;~+\infty[$. On a : $\lim_{x\to -1/2}f(x)=-1$ et $\lim_{x\to 1/2}f(x)=1$ et, il semblerait que $\lim_{x\to-\infty}f(x)=-\infty$ et $\lim_{x\to +\infty}f(x)=0$.\par
+        $\mathcal{C}$ aurait alors une asymptote horizontale d'équation $y=0$ (l'axe des abscisses) en $+\infty$.\par
+         
+  \end{enumerate}
+  
+
+\section{Opérations sur les limites}
+
+\enlargethispage{5mm}
+
+\begin{propriete}[Limite d'une somme, d'un produit et d'un quotient de deux fonctions]
+\begin{colitemize}{3}
+\item Limite d'une somme :\par
+\begin{tabular}{@{}|c|c|c|}
+\hline
+\rowcolor{white} $f$ & $g$ & $f+g$ \\
+\hline
+$\ell$ & $\ell'$ & $\ell+\ell'$ \\
+\hline
+$\ell$ & $\infty$ &  $\infty$ \\
+\hline
+$+\infty$ & $+\infty$  & $+\infty$  \\
+\hline
+$-\infty$ & $-\infty$  & $-\infty$  \\
+\hline
+ \rowcolor{Noir!10}  $+\infty$ &  $-\infty$ &  $???$ \\
+ \hline
+ \end{tabular}
+\item Limite d'un produit :\par
+\begin{tabular}{@{}|c|c|c|}
+\hline
+\rowcolor{white} $f$ & $g$ & $fg$ \\
+\hline
+$\ell$ & $\ell'$ & $\ell\ell'$ \\
+\hline
+$\ell\!\neq\!0$ & $\infty$ &  $\infty$ \\
+\hline
+$\infty$ & $\infty$  & $\infty$  \\
+\hline
+ \rowcolor{Noir!10}  $0$ &  $\infty$ &  $???$ \\
+ \hline
+ \end{tabular}
+ \item Limite d'un quotient :\par
+\begin{tabular}{@{}|c|c|c|}
+\hline
+\rowcolor{white} $f$ & $g$ & $f/g$ \\
+\hline
+$\ell$ & $\ell'\!\neq\!0$ & $\ell/\ell'$ \\
+\hline
+$\ell\!\neq\!0$ & $0$ &  $\infty$ \\
+\hline
+$\ell$ & $\infty$  & $0$  \\
+\hline
+\rowcolor{Noir!10}   $0$ & $0$  & $???$  \\
+\hline
+ \rowcolor{Noir!10}  $\infty$ &  $\infty$ &  $???$ \\
+ \hline
+ \end{tabular}
+\end{colitemize}
+\end{propriete}
+
+
+
+\begin{remarque}
+\begin{itemize}
+\item $\infty$ peut signifier $+\infty$ ou $-\infty$. Les règles du signe d'un produit ou d'un quotient demeurent.
+\item Pour la limite de la différence $f-g$, on considère la limite de la somme $f+(-g)$.
+\item Les quatre lignes grises des tableaux correspondent aux quatre cas d'indétermination :\\
+\begin{minipage}{1.1\linewidth}
+\begin{colitemize}{4}
+\item " $\boldsymbol{(+\infty)+(-\infty)}$ "
+\item " $\boldsymbol{0\times\infty}$ "
+\item " $\boldsymbol{\dfrac{0}{0}}$ "
+\item " $\boldsymbol{\dfrac{\infty}{\infty}}$ "
+\end{colitemize}
+\end{minipage}
+
+\end{itemize}
+\end{remarque}
+
+\begin{exemple}
+Soit $f:x\mapsto  \frac{x-1}{x^2-4}$.
+Calculons les limites de $f(x)$ aux bornes de son domaine de définition.
+\end{exemple}
+
+
+\section{Limite d'une fonction composée}
+
+\subsection{\textbf{Fonction composée}}
+
+Une composée de deux fonctions correspond à un enchaînement de deux fonctions l'une après l'autre.\\
+Par exemple, composons la fonction $f:x\mapsto1-x$ suivie de $g:x\mapsto\sqrt{x}$. On peut ainsi schématiser :
+\begin{center}\renewcommand{\arraystretch}{0.7}
+\begin{tabular}{c@{}c@{}c@{}c@{}c}
+$x$ & $\,\mapsto\,$ & $1-x$ & $\,\mapsto\,$ & $\sqrt{1-x}$. \\
+ & $f$ & &  $g$ &
+\end{tabular}\renewcommand{\arraystretch}{1.}
+\end{center}
+Cependant, on voit que la fonction $g$ ne peut s'appliquer que si l'ensemble des images par la fonction $f$ est inclus dans l'ensemble de définition de $g$.\\
+Ainsi, pour appliquer ici la racine carrée, il faut que $1-x\geqslant0$ c'est-à-dire que $x\leqslant1$.\\
+La composée existe donc dans le schéma suivant où on précise les ensembles de départ et d'arrivée pour $f$ :
+\begin{center}\renewcommand{\arraystretch}{0.7}
+\begin{tabular}{c@{}c@{}c@{}c@{}c}
+$]-\infty~;~2]$ & $\rightarrow$ & $[0~;~+\infty[$ &  $\rightarrow$ & $\mathbb{R}$ \\
+$x$ & $\,\mapsto\,$ & $1-x$ & $\,\mapsto\,$ & $\sqrt{1-x}$ \\
+ & $f$ & &  $g$ & \\
+\end{tabular}\renewcommand{\arraystretch}{1.}
+\end{center}
+En composant $f$ suivie de $g$, on a ainsi défini sur $]-\infty~;~1]$ la fonction $x\mapsto\sqrt{1-x}$.\\
+
+
+\begin{definition}
+Soit $f$ une fonction définie sur $E$ et à valeurs dans  $F$, et soit $g$ une fonction définie sur $F$.\\
+\textbf{La composée de} $\boldsymbol{f}$ \textbf{suivie de} $\boldsymbol{g}$ est la fonction notée $\boldsymbol{g\circ f}$ définie sur $E$ par $g\circ f(x)=g(f(x))$.
+\end{definition}
+
+\begin{remarque}
+Il ne faut pas confondre $g\circ f$ et $f\circ g$ qui sont, en général, différentes.
+\end{remarque}
+
+\begin{exemple}
+ En reprenant $f$ et $g$ de l'exemple précédent, définissons $f\circ g$.\\
+La composée de $g$ suivie de $f$ est possible en partant de l'ensemble de définition de $g$ :
+\begin{center}\renewcommand{\arraystretch}{0.7}
+\begin{tabular}{c@{}c@{}c@{}c@{}c}
+$[0~;~+\infty[$ & $\rightarrow$ & $[0~;~+\infty[$ &  $\rightarrow$ & $\mathbb{R}$ \\
+$x$ & $\,\mapsto\,$ & $\sqrt{x}$ & $\,\mapsto\,$ & $1-\sqrt{x}$ \\
+ & $g$ & &  $f$ & \\
+\end{tabular}\renewcommand{\arraystretch}{1.}
+\end{center}
+En composant $g$ suivie de $f$, on a ainsi défini sur $[0~;~+\infty[$ la fonction $x\mapsto1-\sqrt{x}$.
+\end{exemple}
+
+
+\subsection{Théorème de composition des limites}
+
+\begin{theoreme}
+Soit $h$ la composée de la fonction $f$ suivie de $g$ et
+$\textcolor{B2}{\alpha}$, $\textcolor{J1}{\beta}$ et
+$\textcolor{H2!60!black}{\gamma}$ trois réels ou $\pm\ \infty$.\\
+Si $\lim_{x\to\textcolor{B2}{\alpha}} f(x)=\textcolor{J1}{\beta}$ et $\lim_{x\to\textcolor{J1}{\beta}} g(x)=\textcolor{H2!60!black}{\gamma}$, alors $\lim_{x\to\textcolor{B2}{\alpha}} h(x)=\textcolor{H2!60!black}{\gamma}$.
+\end{theoreme}
+
+\begin{exemple}
+Déterminons la limite en $-\infty$ de la fonction  $g\circ f$ de l'exemple précédent.\\
+La composée de $f:x\mapsto 1-x$ suivie de $g:x\mapsto\sqrt{x}$ est $h:x\mapsto \sqrt{1-x}$ définie sur $]-\infty~;~1]$.\\
+Or, $\lim_{x\to\textcolor{B2}{-\infty}} (1-x)=\textcolor{J1}{+\infty}$ (par somme) et $\lim_{x\to\textcolor{J1}{+\infty}}  \sqrt{x}=\textcolor{H2!60!black}{+\infty}$ (limite de référence).\\
+Donc, d'après le théorème de composition, $\lim_{x\to\textcolor{B2}{-\infty}} \sqrt{1-x}=\textcolor{H2!60!black}{+\infty}$.
+\end{exemple}
+
+
+
+\begin{methode}[Déterminer une limite de fonction ]
+On applique les propriétés d'opérations sur les limites.\\
+Si la limite est indéterminée, " $+\infty+(-\infty)$ ", " $0\times\infty$ ", " $\dfrac{\infty}{\infty}$ " ou " $\dfrac{0}{0}$ ", on essaye de :
+\begin{itemize}
+\item factoriser par le terme prépondérant ;
+\item multiplier par la quantité conjuguée si des racines carrées interviennent ;
+\item effectuer un changement de variable (voir théorème de
+  composition des limites).
+\end{itemize}
+D'autres techniques existent et seront vues ultérieurement.
+  
+
+\textbf{Exercice:}
+
+ \label{meth_limite_fonction}
+Calculer les limites suivantes :
+\begin{colenumerate}{3}
+\item $\lim_{x\to+\infty}\left(\sqrt{x+1}-\sqrt{x}\right)$
+\item $\lim_{x\to+\infty}\dfrac{2x^2-3x+1}{x^2-1}$
+\item $\lim_{x\to4}\dfrac{x - 4}{\sqrt{x} - 2}$
+\end{colenumerate}
+
+  
+
+\textbf{Correction}
+
+
+Ces  limites sont indéterminées (respectivement formes " $\infty-\infty$ ", " $\dfrac{\infty}{\infty}$ " et " $\dfrac{0}{0}$ ").
+  \begin{enumerate}
+  \item On multiplie le numérateur et le dénominateur par la quantité
+    conjuguée de $\sqrt{x+1}-\sqrt{x}$ :\par
+    $\sqrt{x+1}-\sqrt{x}=\dfrac{\left(\sqrt{x+1}-\sqrt{x}\right)\left(\sqrt{x+1}+\sqrt{x}\right)}{\sqrt{x+1}+\sqrt{x}}=\dfrac{1}{\sqrt{x+1}+\sqrt{x}}$.\par
+    Or, par composition :
+    $\lim_{x\to\textcolor{B2}{+\infty}}(x+1)=\textcolor{J1}{+\infty}$
+    et
+    $\lim_{x\to\textcolor{J1}{+\infty}}\sqrt{x}=\textcolor{H1}{+\infty}$
+    donc
+    $\lim_{x\to\textcolor{B2}{+\infty}}\sqrt{x+1}=\textcolor{J1}{+\infty}$.\par
+    Et, par somme :
+    $\lim_{x\to+\infty}\left(\sqrt{x+1}+\sqrt{x}\right)=+\infty$. Donc,
+    par inverse :
+    $\lim_{x\to+\infty}\dfrac{1}{\sqrt{x+1}+\sqrt{x}}=0$.
+
+
+
+\item Divisons le numérateur et le dénominateur par $x^2$. Alors,
+  $\dfrac{2x^2-3x+1}{x^2-1}=
+  \dfrac{2-\tfrac{3}{x}+\tfrac{1}{x^2}}{1-\tfrac{1}{x^2}}$.\par
+  Or, par somme :
+  $\lim_{x\to+\infty}\left(2-\dfrac{3}{x}+\dfrac{1}{x^2}\right)=2$
+  et
+  $\lim_{x\to+\infty}\left(1-\dfrac{1}{x^2}\right)=1$.
+
+
+
+Donc, par quotient : $\lim_{x\to+\infty}\dfrac{2-\tfrac{3}{x}+\tfrac{1}{x^2}}{1-\tfrac{1}{x^2}}=2$.
+  \item Changeons de variable en posant $u=\sqrt x$. Si $x$ tend vers $4$, alors $u$ tend vers $2$.\par
+  $\dfrac{x-4}{\sqrt x-2}=\dfrac{u^2-4}{u-2}=\dfrac{(u+2)(u-2)}{u-2}=u+2$ pour $u\neq2$. Donc, par somme : $\lim_{u\to2}(u+2)=4$.
+  \end{enumerate}
+\end{methode}
+
+\section{Limites et comparaison}
+
+\subsection{Théorème de comparaison}
+
+\begin{theoreme}
+Soit $f$ et $g$ deux fonctions telles que $f(x)\leqslant g(x)$ sur un intervalle $]\alpha~;~+\infty[$ de $\mathbb{R}$.
+\begin{colitemize}{2}
+\item $\lim_{x\to+\infty} f(x)=+\infty\Rightarrow\lim_{x\to+\infty} g(x)=+\infty$.
+\item $\lim_{x\to+\infty} g(x)=-\infty\Rightarrow\lim_{x\to+\infty} f(x)=-\infty$.
+\end{colitemize}
+
+
+
+Soit $f$ et $g$ deux fonctions telles que $f(x)\leqslant g(x)$ sur un intervalle $]-\infty~;~\beta[$ de $\mathbb{R}$.
+
+\begin{colitemize}{2}
+\item $\lim_{x\to-\infty} f(x)=+\infty\Rightarrow\lim_{x\to-\infty} g(x)=+\infty$.
+\item $\lim_{x\to-\infty} g(x)=-\infty\Rightarrow\lim_{x\to-\infty} f(x)=-\infty$.
+\end{colitemize}
+
+
+
+Soit $f$ et $g$ deux fonctions telles que $f(x)\leqslant g(x)$ sur un intervalle $]\alpha~;~\beta[$ de $\mathbb{R}$  et $x_0\in]\alpha~;~\beta[$.
+
+\begin{colitemize}{2}
+\item $\lim_{x\to x_0} f(x)=+\infty\Rightarrow\lim_{x\to x_0} g(x)=+\infty$.
+\item $\lim_{x\to x_0} g(x)=-\infty\Rightarrow\lim_{x\to x_0} f(x)=-\infty$.
+\end{colitemize}
+\end{theoreme}
+
+
+\begin{exemple}
+Déterminons la limite en $+\infty$ et en $-\infty$ de $f(x)=x+\sin x$.\\
+La limite de $\sin x$ en $\pm \infty$ est indéterminée donc, celle de $f(x)$ aussi.\\
+Mais pour tout $x\in\mathbb{R}$, $-1\leqslant\sin x\leqslant 1$ donc $x-1\leqslant x+\sin x\leqslant x+1$. Ainsi :
+\begin{itemize}
+\item De $x-1\leqslant x+\sin x$ ~~et~~ $\lim_{x\to +\infty} (x-1)=+\infty$, on déduit que $\lim_{x\to +\infty} (x+\sin x)=+\infty$.
+\item De $x+\sin x\leqslant x+1$ ~~et~~ $\lim_{x\to -\infty} (x+1)=-\infty$, on déduit que $\lim_{x\to -\infty} (x+\sin x)=-\infty$.
+\end{itemize}
+
+
+\end{exemple}
+
+\subsection{Conséquence : croissance comparée}
+\begin{theoreme}
+Pour tout entier naturel $n$, $\lim_{n\rightarrow +\infty} \frac{e^x}{x^n}=+\infty$.
+\end{theoreme}
+
+\underline{Démonstration} :\\
+
+Pour tout réel $y$, $y<e^y$.\\
+On pose : $y=\frac{x}{n+1}$. L'inégalité devient: $\frac{x}{n+1}<\e^{\frac{x}{n+1}}$.\\
+La fonction $t \mapsto t^{n+1}$ est strictement croissante sur $[0 ; +\infty[$.\\
+Donc : $\left(\frac{x}{n+1}\right)^{n+1}<\left(\e^{\frac{x}{n+1}}\right)^{n+1} \iff \frac{x^{n+1}}{(n+1)^{n+1}}<e^x \iff \frac{x}{(n+1)^{n+1}}<\frac{e^x}{x^n}$.\\
+Or, $\lim_{x\rightarrow+\infty} \frac{x}{(n+1)^{n+1}}=+\infty$, donc d'après le théorème de comparaison, $\lim_{x\rightarrow+\infty} \frac{e^x}{x^n}=+\infty$.
+
+
+
+\subsection{Théorème d'encadrement dit " des gendarmes "}
+
+\begin{theoreme}
+Soit deux réels $\alpha$ et $\ell$ et trois fonctions $f$, $g$ et $h$ telles que, pour $x>\alpha$, on a $f(x)\leqslant g(x)\leqslant h(x)$.\\
+Si  $\lim_{x\rightarrow+\infty}f(x)=\lim_{x\rightarrow+\infty}h(x)=\ell$, alors $\lim_{x\rightarrow+\infty}g(x)=\ell$.
+\end{theoreme}
+
+\begin{remarque}
+On a, comme pour le théorème de comparaison précédent,  deux théorèmes analogues lorsque $x$ tend vers $-\infty$ et lorsque $x$ tend vers un réel $x_0$.\\
+\end{remarque}
+
+\begin{exemple}
+Déterminons la limite en $-\infty$ de $f(x)=\dfrac{x\cos x}{x^2+1}$.\\
+ La limite de $\cos x$ en $-\infty$ est indéterminée. Donc celle de $f(x)$ aussi.\\
+ Cependant pour tout $x$ réel strictement négatif, $-1\leqslant\cos x\leqslant 1$ donc $x\leqslant x\cos x\leqslant -x$.\\
+ Et en divisant membre à membre par $x^2+1>0$ on a : $\dfrac{x}{x^2+1}\leqslant \dfrac{x\cos x}{x^2+1}\leqslant \dfrac{-x}{x^2+1}$.\\[2mm]
+Pour $x\in\mathbb{R}^*$, $\dfrac{x}{x^2+1}\hspace{-1mm} =\hspace{-1mm} \dfrac{1}{x+\tfrac{1}{x}}$. Or, $\lim_{x\rightarrow-\infty}\left(x+\frac{1}{x}\right)\hspace{-1mm} =\hspace{-1mm} -\infty$ donc $\lim_{x\rightarrow-\infty}\dfrac{x}{x^2+1}\hspace{-1mm} =\hspace{-1mm} \lim_{x\rightarrow-\infty}\dfrac{-x}{x^2+1}=0$.\\[2mm]
+Donc, d'après le théorème des gendarmes, $\lim_{x\rightarrow-\infty}\dfrac{x\cos x}{x^2+1}=0$.
+\end{exemple}
+
+\section{Continuité d'une fonction}
+
+
+\begin{definition}
+Soit $f$ une fonction définie sur un intervalle $I$ et un réel $x_{0}\in I$.
+\begin{itemize}
+\item $f$ est \textbf{continue en} $\bolsymbol{x_{0}}$ si  $\lim_{x\to x_0}f(x)=f(x_0)$.
+\item $f$ est \textbf{continue sur} $\boldsymbol{I}$ si, pour tout $x\in I$, $f$ est continue en $x$.
+\end{itemize}
+\end{definition}
+
+\begin{remarque}
+On peut considérer qu'une fonction est continue sur un intervalle $I$ si sa courbe représentative sur $I$ peut être tracée entièrement sans lever le crayon.
+\end{remarque}
+
+\begin{propriete}
+\begin{itemize}
+\item Les fonctions usuelles (affines, carré, inverse, racine carrée, valeur absolue) sont continues sur tout intervalle inclus dans  leur ensemble de définition.
+\item Toute fonction construite algébriquement (par somme, produit, inverse ou composée) à partir de fonctions usuelles est continue  sur tout intervalle de son ensemble de définition.
+\item On convient qu'une flèche oblique dans un tableau de variation traduit la continuité
+et la stricte monotonie de la fonction sur l’intervalle considéré.
+\item Une fonction dérivable sur un intervalle est continue sur cet intervalle.
+  \end{itemize}
+\end{propriete}
+
+\begin{remarque}
+Attention, la réciproque de cette dernière propriété est fausse.\\
+Par exemple, la fonction valeur absolue $x\mapsto |x|$ est continue en 0 mais non dérivable en 0.
+\end{remarque}
+
+\newcommand{\lcro}{\textcolor{B2}{\textbf{\textsf{]}}}}
+\newcommand{\rcro}{\textcolor{B2}{\textbf{\textsf{[}}}}
+
+\begin{exemple}
+Par convention,  une fonction est continue là où elle est tracée. S'il n'y a pas continuité en $x_0$ :
+\begin{itemize}
+\item le symbole \textcolor{B2}{$\bullet$} indique le point de la courbe de coordonnées $(x_0~;~f(x_0))$ ;
+\item le symbole  \textcolor{white}{$\bullet$}\hspace{-5.5pt}\textcolor{B2}{$\boldsymbol{\circ}$} indique un  point qui n'appartient pas à la courbe mais dont l'ordonnée est égale à la limite à gauche ou à droite en $x_0$.
+\end{itemize}
+
+%\begin{colenumerate}{2}
+%\item Soit  la fonction partie entière $f:x\mapsto \lfloor x\rfloor$.
+%\begin{center}
+%\psset{xunit=0.8cm,yunit=0.8cm,algebraic=true}
+%\begin{pspicture*}(-3.5,-2.2)(3.5,2.8)
+%\psgrid[subgriddiv=1,linewidth=0.5pt,gridcolor=A3,gridlabels=0pt](-4,-3)(4,3)
+%\psaxes[linewidth=0.8pt,Dx=1,Dy=1,ticksize=-2pt]{->}(0,0)(-3.5,-2.2)(3.5,2.8)
+%\rput[0](2.5,2.3){\textcolor{B2}{$\mathcal{C}_{f}$}}
+%\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](-2,-2){.07}\psline[linecolor=B2,linewidth=0.8pt](-2,-2)(-1,-2)
+%\rput[0](-1,-2){$\textcolor{white}{\bullet}$} \rput[0](-1,-2){$\textcolor{B2}{\boldsymbol{\circ}}$}
+%\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](-1,-1){.07}\psline[linecolor=B2,linewidth=0.8pt](-1,-1)(0,-1)
+%\rput[0](0,-1){$\textcolor{white}{\bullet}$} \rput[0](0,-1){$\textcolor{B2}{\boldsymbol{\circ}}$}
+%\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](0,0){.07}\psline[linecolor=B2,linewidth=0.8pt](0,0)(1,0)
+%\rput[0](1,0){$\textcolor{white}{\bullet}$} \rput[0](1,0){$\textcolor{B2}{\boldsymbol{\circ}}$}
+%\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](1,1){.07}\psline[linecolor=B2,linewidth=0.8pt](1,1)(2,1)
+%\rput[0](2,1){$\textcolor{white}{\bullet}$} \rput[0](2,1){$\textcolor{B2}{\boldsymbol{\circ}}$}
+%\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](2,2){.07}\psline[linecolor=B2,linewidth=0.8pt](2,2)(3,2)
+%\rput[0](3,2){$\textcolor{white}{\bullet}$} \rput[0](3,2){$\textcolor{B2}{\boldsymbol{\circ}}$}
+%\end{pspicture*}
+%\end{center}
+%\item 
+Soit  la fonction $f$ représentée ci-dessous.
+\begin{center}
+\psset{xunit=0.8cm,yunit=0.8cm,algebraic=true}
+\begin{pspicture*}(-3.5,-2.2)(3.5,2.8)
+\psgrid[subgriddiv=1,linewidth=0.5pt,gridcolor=A3,gridlabels=0pt](-4,-3)(4,3)
+\psaxes[linewidth=0.8pt,Dx=1,Dy=1,ticksize=-2pt]{->}(0,0)(-3.5,-2.2)(3.5,2.8)
+\rput[0](2.5,2.3){\textcolor{B2}{$\mathcal{C}_{f}$}}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](-3,-2){.07}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](0,-1){.07}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](3,2){.07}
+\psline[linecolor=B2,linewidth=0.8pt](-3,-2)(0,-1)
+\psline[linecolor=B2,linewidth=0.8pt](0,1)(3,2)
+\rput[0](0,1){$\textcolor{white}{\bullet}$} \rput[0](0,1){$\textcolor{B2}{\boldsymbol{\circ}}$}
+\end{pspicture*}
+\end{center}
+%\end{colenumerate}
+
+  %\begin{enumerate}
+  %\item En tout point d'abscisse $a\in\mathbb{Z}$, $\mathcal{C}_f$ présente un saut : on a $f(a)=a$ mais $\lim_{\substack{x\to a\\ x<a}} f(x)=a-1$. Ainsi, $f$ n'est pas continue en $a$ mais $f$ est continue sur tout intervalle $[a~;~a+1[$.
+  %\item
+	$f$ est " affine par morceaux ". $\mathcal{C}_f$ a un " saut " en 0 donc $f$ n'est pas continue sur $[-3~;~3]$ mais elle est continue sur $[-3~;~0]$ et $]0~;~3]$. En effet, on a $f(0)=-1$ mais $\lim_{\substack{x\to 0\\ x>0}} f(x)=1$.
+    %\end{enumerate}
+\end{exemple}
+
+
+
+\section{Théorème des valeurs intermédiaires}
+
+
+
+\begin{theoreme}[Cas général]
+Soit $f$ une fonction définie sur un intervalle $I$  contenant deux réels $a$ et $b$ tels que $a<b$.\\
+Si $f$ est continue sur  $[a~;~b]$, alors pour tout réel $k$ compris entre $f(a)$ et $f(b)$, il existe au moins un réel $c$ appartenant à $[a~;~b]$ tel que $f(c)=k$.
+\end{theoreme}
+
+\begin{remarque} $f$ prend au moins une fois toute valeur intermédiaire entre $f(a)$ et $f(b)$.\\
+Autrement dit, l'équation $f(x)=k$ a  au moins une solution dans $[a~;~b]$ et, sur
+$[a~;~b]$, la courbe représentative de $f$ coupe la droite d'équation $y=k$ en un point au moins.
+\end{remarque}
+
+
+\begin{exemple}
+Soit $f$ la fonction définie sur $[0~;~6]$ par  $f(x)=\dfrac{x^3}{4}-\dfrac{9}{4}x^2+6x-3$.\\
+\begin{minipage}{0.35\linewidth}
+\begin{center}
+\psset{xunit=.6cm,yunit=0.4cm,algebraic=true}
+\begin{pspicture*}(-1,-3.4)(6.5,6.4)
+\psgrid[subgriddiv=1,linewidth=0.5pt,gridcolor=A3,subgridcolor=A3,gridlabels=0pt](0,-4)(7,7)
+\psaxes[linewidth=0.8pt,Dx=1,Dy=1,ticksize=-2pt]{->}(0,0)(-.6,-3.4)(6.5,6.4)
+\uput[r](4.7,4.5){\textcolor{B2}{$\mathcal{C}_{f}$}}
+\psplot[linecolor=B2,plotpoints=5000,linewidth=0.8pt]{0}{6}{(x^3-9*x^2+24*x-12)/4}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](0,-3){.07}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](6,6){.07}
+\end{pspicture*}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.62\linewidth}
+\begin{minipage}{0.45\linewidth}
+On dresse le  tableau de variation de $f$.\\
+$f$ admet pour minimum $-3$ et pour  maximum 6.\\
+$f$ est continue sur $[0~;~6]$.
+\end{minipage}\hspace{.5cm}
+\begin{minipage}{0.3\linewidth}
+\begin{center}
+\begin{tikzpicture}[general, scale=0.75]
+  \tkzTabInit[lgt=0.8, espcl=1.2, color, colorC=H4, colorV=H4, colorL=H4, colorT=A4, lw=0.3mm]
+  {$x$ / 1, $f$ / 2}
+  { $0$, $2$, $4$, $6$}
+  \tkzTabVar{-/$-3$,+/$2$,-/$1$,+/$6$}
+ \end{tikzpicture}
+\end{center}
+\end{minipage}\\[2mm]
+Donc, d'après le théorème des valeurs intermédiaires, $f$ prend toutes les valeurs de  $[-3~;~6]$. En particulier, \mbox{l'équation} $f(x)=0$ a au moins une solution dans $[0~;~6]$.
+\end{minipage}
+\end{exemple}
+
+\begin{theoreme}[Cas d'une fonction strictement monotone]
+Soit $f$ une fonction définie sur un intervalle $I$ contenant deux réels $a$ et $b$ tels que $a<b$.\\
+Si $f$ est continue et \textbf{strictement monotone} sur  $[a~;~b]$, alors pour tout réel $k$ compris entre $f(a)$ et $f(b)$, il existe \textbf{un unique} réel $c$ appartenant à $[a~;~b]$ tel que $f(c)=k$.
+\end{theoreme}
+
+\begin{exemple}
+Reprenons la fonction $f:x\mapsto\dfrac{x^3}{4}-\dfrac{9}{4}x^2+6x-3$.\\
+\begin{minipage}{0.23\linewidth}
+\begin{center}
+\psset{xunit=.8cm,yunit=0.6cm,algebraic=true}
+\begin{pspicture*}(-.75,-3.5)(2.5,2.5)
+\psgrid[subgriddiv=1,linewidth=0.5pt,gridcolor=A3,subgridcolor=A3,gridlabels=0pt](0,-4)(3,3)
+\psaxes[linewidth=0.8pt,Dx=1,Dy=1,ticksize=-2pt]{->}(0,0)(-.75,-3.5)(2.5,2.5)
+ \uput[ul](1,1){\textcolor{B2}{$\mathcal{C}_{f}$}}
+\psplot[linecolor=B2,plotpoints=5000,linewidth=0.8pt]{0}{2}{(x^3-9*x^2+24*x-12)/4}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](0,-3){.07}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=B2,fillcolor=B2](2,2){.07}
+\pscircle[fillstyle=solid,linewidth=0.8pt,linecolor=H2!60!black,fillcolor=Blanc](0.6647,0){.07}  \uput{9pt}[d](0.6647,0){\textcolor{H2!60!black}{$\alpha$}}
+\end{pspicture*}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.27\linewidth}
+\begin{center}
+\begin{tikzpicture}[general, scale=0.8]
+  \tkzTabInit[lgt=0.8, espcl=2, color, colorC=H4, colorV=H4, colorL=H4, colorT=A4, lw=0.3mm]
+  {$x$ / 1, $f$ / 2}
+  { $0$, $2$ }
+  \tkzTabVar{-/$-3$,+/$2$}
+  \tkzTabVal[draw]{1}{2}{0.5}{\textcolor{H2!60!black}{$\alpha$}}{$0$}
+ \end{tikzpicture}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+Sur $[0~;~2]$, $f$ est continue, strictement croissante et admet pour minimum $-3$ et maximum $2$.\\
+Donc, $f$ prend une fois, et une seule, toutes les valeurs intermédiaires entre $-3$ et 2.\\
+En particulier, l'équation $f(x)=0$ a  une unique solution $\alpha$ entre 0 et 2.
+\end{minipage}
+
+
+\end{exemple}
+
+
+
+\begin{remarque}
+  Le théorème des valeurs intermédiaires s'applique aussi pour $f$
+  continue sur un intervalle $I$ de type : $[a~;~b[$, $]a~;~b]$,
+  $]a~;~b[$, $[a~;~+\infty[$, $]a~;~+\infty[$,
+  $]-\infty~;~b]$ ou $]-\infty~;~b[$, $]-\infty\ ;\ +\infty[$.
+
+  Si une borne $a$ ou $b$ de l'intervalle est ouverte, alors on
+  remplace $f(a)$ ou $f(b)$ par la limite de $f$ en cette borne ; si
+  une borne de l'intervalle est $\pm\infty$, alors on considère la
+  limite de $f$ en $\pm\infty$.
+\end{remarque}
+
+
+\underline{Exercice : Exploiter le théorème des valeurs intermédiaires}\\
+
+
+Le théorème des valeurs intermédiaires (T.V.I.) est utile pour prouver l'existence d'une \mbox{solution} d'une équation du type $f(x)=k$ et dénombrer ces solutions.Pour cela:
+\begin{itemize}
+\item On dresse le tableau de variation de la fonction $f$ ;
+\item On applique le T.V.I. à chaque intervalle où la fonction est strictement monotone.
+\end{itemize}
+
+  
+
+Dénombrer les solutions de l'équation (E) : $x^4+3x^3+x^2+1=0$.
+
+  
+
+\textbf{Correction}
+
+
+$f:x\mapsto x^4+3x^3+x^2+1$ est une fonction polynôme de degré 4 dérivable sur $\mathbb{R}$.\\
+$f'(x)=4x^3+9x^2+2x=x(4x^2+9x+2)=x(x+2)(4x+1)$ après factorisation du trinôme.\\
+On établit alors le tableau de signes de $f'(x)$ et de variation de $f$ :
+\begin{center}\newcommand{\valeur}{$\simeq1,02$}
+ \begin{tikzpicture}[general, xscale=1.2, yscale=0.70, font=\fontsize{9}{10.5}\selectfont]
+  \tkzTabInit[lgt=1, espcl=2.0, color, colorC=H4, colorV=H4, colorL=H4, colorT=A4, lw=0.3mm]
+  {$x$ / 1, $f'(x)$ / 1, $f$ / 2}
+  {$-\infty$, $-2$, $-\tfrac{1}{4}$, $0$, $+\infty$}
+  \tkzTabLine{ ,-,z,+,z,-,z,+,}
+  \tkzTabVar{+/$+\infty$,-/$-3$,+/\valeur,-/1,+/$+\infty$}
+  \tkzTabVal[draw]{1}{2}{0.5}{\textcolor{H2!60!black}{$\alpha$}}{$0$}
+ \tkzTabVal[draw]{2}{3}{0.5}{\textcolor{H2!60!black}{$\beta$}}{$0$}
+ \end{tikzpicture}
+ \end{center}
+
+ \enlargethispage{12mm}
+
+Sur $]-\infty~;~-2]$, $f$ est continue, strictement décroissante et : $\lim_{x\to-\infty}f(x)=+\infty$ ; $f(-2)=-3$.\\
+Donc, d'après le T.V.I., l'équation (E) a une unique solution \textcolor{H2!60!black}{$\alpha$} inférieure à $-2$.\\
+Sur $\left[-2~;~-\frac{1}{4}\right]$ , $f$ est continue, strictement croissante et : $f(-2)=-3$ ; $f\left(-\frac{1}{4}\right)\approx1,02>0$.\\
+Donc, d'après le T.V.I., l'équation (E) a une unique solution \textcolor{H2!60!black}{$\beta$} comprise entre $-2$ et $-\frac{1}{4}$.\\
+Sur $\left[-\frac{1}{4}~;~0\right]$ et $\left[0~;~+\infty\right[$, le minimum de $f$ est $1>0$ donc on n'y trouve pas de solution.\\
+Conclusion : l'équation (E) admet exactement deux solutions dans $\mathbb{R}$.
+
+\section{Fonction continue et suite convergente}
+
+\begin{theoreme}
+Soit une fonction $f$ définie et continue sur un intervalle $I$ et une suite $(u_n)$ telle que pour tout entier naturel $n$,on a : $u_n \in I$ et $u_{n+1}=f(u_n)$.\\
+Si $(u_n)$ converge vers $l$ de $I$, alors $f(l)=l$.\\
+Autrement dit : $l$ est solution de l'équation $f(x)=x$.
+\end{theoreme}
+
+\underline{Exemple} :\\
+Soit la suite $(u_n)$ définie pour tout entier naturel $n$ par $u_0=0$ et $u_{n+1}=\sqrt{3u_n+4}$.\\
+
+On peut démontrer par récurrence que $(u_n)$ est croissante et majorée par 4. (on l'admet sur cet exemple). Donc $(u_n)$ converge (théorème de convergence des suites monotones).
+
+la fonction $f$ associée est f: x \mapsto \sqrt{3x+4}$.\\
+ $f$ est continue sur $[-\frac{4}{3} ; +\infty[$ comme composée de fonctions continues sur cet intervalle.
+($f=g\circ h$, avec $h : x \mapsto 3x+4$ et $g:x \mapsto \sqrt{x}$) 
+
+Soit $l=\lim_{n \to +\infty} u_n$.
+$l$ est solution de l'équation : $l=f(l) \iff l=\sqrt{3l+4}$.
+
+Déterminons $l$.\\
+$l$ existe ssi $3l+4 \geq 0$ ssi $l \geq -\frac{4}{3}$.
+
+$l=\sqrt{3l+4} \Rightarrow l^2=3l+4 \iff l^2-3l-4=0$.\\
+$\Delta=25$ . $l_1=-1$ et $l_2=4$.
+
+Or, $u_0=0$ et $(u_n)$ est croissante donc la seule possibilité est $l_2=4$.
+
+la limite de la suite $(u_n)$ est 4. 
+
+\end{document}

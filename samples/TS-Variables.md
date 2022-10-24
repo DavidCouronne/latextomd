@@ -1,5 +1,12 @@
-Variables aléatoires à densité
-==============================
+```{=latex}
+\fexo{TS}{C11 Variables à Densité}{}
+```
+```{=latex}
+\tableofcontents
+```
+# Variables aléatoires à densité
+
+:::note Exemple:
 
 Dans une bouteille vide de contenance 1,5 litres, on verse une quantité
 au hasard d'eau. On considère la variable aléatoire $X$ égale à ce
@@ -9,6 +16,10 @@ nombre de l'intervalle $\left[0\ ;\ 1,5 \right]$.
 Cela signifie que $X$ prend ses valeurs dans l'intervalle
 $\left[0\ ;\ 1,5 \right]$.
 
+:::
+
+:::note Remarque:
+
 Jusqu'à présent on a travaillé avec des variables aléatoires
 **discrètes** qui prennent un nombre fini de valeurs et leur loi est
 soit connue (binomiale ou Bernoulli), soit présentable sous la forme
@@ -16,7 +27,9 @@ d'un tableau. Dans l'exemple précédent, la variable aléatoire prend une
 infinité de valeurs et toutes ces valeurs sont dans un intervalle de
 $\R$.
 
-:::definition Définition:
+:::
+
+:::tip Définition:
 
 Si une fonction $f$ définie sur un intervalle $I$ est continue et
 positive sur $I$ et si l'aire du domaine compris entre l'axe des
@@ -25,6 +38,8 @@ d'aire) alors on dit que $f$ est une **fonction de densité** (ou une
 **densité de probabilité**).
 
 :::
+
+:::note Exemple:
 
 On considère la fonction $f$ définie sur $\left[-1\ ;\ 1 \right]$ par
 $f(x)=\left\{
@@ -35,7 +50,7 @@ x+1 \textrm{ si } x\in\left[-1\ ;\ 0 \right[ \\
 
 \right.$.
 
-![image](./TS-Variables-0.jpg)
+![image](./img/TS-Variables-0.jpg)
 
 La fonction $f$ est positive et continue sur $\left[-1\ ;\ 1 \right]$.
 
@@ -43,11 +58,14 @@ De plus, le domaine entre la courbe de $f$ et l'axe des abscisses sur
 $\left[-1\ ;\ 1 \right]$ est un triangle d'aire $\dfrac{2\times1}{2}=1$
 : la fonction $f$ est donc une fonction de densité.
 
-:::definition Définition:
+:::
+
+:::tip Définition:
 
   
 
-Soit $f$ une fonction de densité sur un intervalle $I$.
+Soit $f$ une fonction de densité sur un intervalle
+$I$.`\medskip`{=latex}
 
 Dire que la variable aléatoire $X$ suit la loi de densité $f$ signifie
 que pour tout intervalle $\left[a\ ;\ b \right]$ inclus dans $I$ on a
@@ -55,12 +73,14 @@ ${P(a\leqslant X \leqslant b )=\textrm{aire}\left(\mathcal{D}\right)}$
 où $\mathcal{D}$ est le domaine compris entre l'axe des abscisses, la
 courbe de $f$ et les droites d'équation $x=a$ et $x=b$.
 
-![image](./TS-Variables-1.jpg)
+![image](./img/TS-Variables-1.jpg)
 
 On a alors
 $P(a \leqslant X \leqslant b)=\displaystyle \int_a^b f(t) \, \textrm{d}t$.
 
 :::
+
+:::note Remarques:
 
 -   On dit alors que $X$ est une **variable aléatoire à densité**.
 
@@ -73,33 +93,49 @@ $P(a \leqslant X \leqslant b)=\displaystyle \int_a^b f(t) \, \textrm{d}t$.
     probabilités : par exemple
     $P\left(1 < X \leqslant 3\right)=P\left(1 \leqslant X \leqslant 3\right)$.
 
-Loi uniforme sur $\left[a\ ;\ b \right]$
-========================================
+:::
 
-:::definition Définition:
+# Loi uniforme sur $\left[a\ ;\ b \right]$
+
+:::tip Définition:
 
 Une variable aléatoire $X$ suit **la loi uniforme sur
 $\left[a\ ;\ b \right]$** si elle admet pour densité la fonction
 constante $f$ définie sur $\left[a\ ;\ b \right]$ par
 $f(x)=\dfrac{1}{b-a}$.
 
-![image](./TS-Variables-2.jpg)
+![image](./img/TS-Variables-2.jpg)
 
 :::
 
-$X$ suit la loi uniforme sur $\left[a\ ;\ b \right]$ s'écrit aussi $X$
-suit la loi $\mathcal{U}\left(\left[a\ ;\ b \right]\right)$ .
+:::note Remarque:
+
+`\og `{=latex}$X$ suit la loi uniforme sur $\left[a\ ;\ b \right]$
+`\fg{}`{=latex} s'écrit aussi `\og `{=latex}$X$ suit la loi
+$\mathcal{U}\left(\left[a\ ;\ b \right]\right)$ `\fg`{=latex}.
+
+:::
+
+:::tip Propriété:
 
 Soit $X$ une variable aléatoire suivant la loi uniforme sur
 $\left[a\ ;\ b \right]$ et $\left[c\ ;\ d \right]$ un intervalle inclus
 dans $\left[a\ ;\ b \right]$. Alors on a
 $P\left(X\in\left[c\ ;\ d \right]\right)=\dfrac{d-c}{b-a}$.
 
+:::
+
+:::note Preuve:
+
 $X$ admet pour densité $f:t\mapsto \dfrac{1}{b-a}$ sur
 $\left[a\ ;\ b \right]$.
 
 Donc on a
 $P\left(X\in\left[c\ ;\ d \right]\right)=\displaystyle \int_{c}^{d} f(t) \, \textrm{d}t=\left[\dfrac{1}{b-a}t\right]_{c}^{d}=\dfrac{d-c}{b-a}$.
+
+:::
+
+:::tip Propriété:
 
 On considère une variable aléatoire $X$ suivant la loi uniforme sur
 $\left[a\ ;\ b \right]$ de densité $f$ et on appelle espérance
@@ -108,14 +144,26 @@ $E(X)=\displaystyle \int_{a}^{b} tf(t) \, \textrm{d}t$.
 
 On a alors $E(X)=\dfrac{a+b}{2}$.
 
+:::
+
+:::note Preuve:
+
 On a
 $E(X)=\displaystyle \int_{a}^{b} tf(t) \, \textrm{d}t=\displaystyle \int_{a}^{b} \dfrac{1}{b-a} t \, \textrm{d}t=\left[\dfrac{t^2}{2(b-a)}\right]_a^b=\dfrac{b^2-a^2}{2(b-a)}$
 
 $=\dfrac{(b-a)(b+a)}{2(b-a)}=\dfrac{a+b}{2}$.
 
+:::
+
+:::warning Méthode: Calculer une probabilité et une espérance pour une
+loi uniforme
+
 On utilise les différentes formules des propriétés ou on calcule à
 l'aide de la fonction de densité et des intégrales.
 
+```{=latex}
+\exercice
+```
 Armand et Lise rentrent de l'école à pied. Leurs parents savent qu'ils
 doivent arriver entre 17h et 18h à la maison. On peut modéliser leur
 heure d'arrivée par une variable aléatoire $X$ suivant la loi uniforme
@@ -123,8 +171,8 @@ sur $\left[17\ ;\ 18 \right]$.
 
 **1.** Quelle est la probabilité qu'ils arrivent entre 17h et 17h15 ?
 
-**2.** À quelle heure leurs parents peuvent-ils espérer les voir arriver
-?
+**2.** À quelle heure leurs parents peuvent-ils
+`\og{}`{=latex}espérer`\fg{}`{=latex} les voir arriver ?
 
 **Correction**
 
@@ -134,29 +182,44 @@ $P(17\leqslant X \leqslant 17,25)=\dfrac{17,25-17}{18-17}=0,25$.
 **2.** On a $E(X)=\dfrac{17+18}{2}=17,5$ donc leurs parents peuvent
 espérer les voir arriver à 17h30.
 
+:::
+
+:::note Remarque:
+
 Pour la question 1 de la méthode 1, comme
 ${f:t\mapsto \dfrac{1}{18-17}=1}$ sur $\left[17\ ;\ 18 \right]$ est la
 fonction de densité de $X$, on aurait aussi pu calculer
 ${P(17\leqslant X \leqslant 17,25)=\displaystyle \int_{17}^{17,25} 1 \, \textrm{d}t=\left[t\right]_{17}^{17,25}=17,25-17=0,25}$.
 
-Loi exponentielle de paramètre $\lambda$ ($\lambda>0$)
-======================================================
+:::
 
-:::definition Définition:
+```{=latex}
+\newpage
+```
+# Loi exponentielle de paramètre $\lambda$ ($\lambda>0$)
+
+:::tip Définition:
 
 Une variable aléatoire $X$ suit la **loi exponentielle de paramètre**
 $\lambda$ où $\lambda>0$ si elle admet pour densité la fonction $f$
 définie sur $\left[0\ ;\ +\infty \right[$ par
-$f(x)=\lambda\textrm{e}^{-\lambda x}$.
+$f(x)=\lambda\textrm{e}^{-\lambda x}$. `\vfill`{=latex}
 
   
 
-![image](./TS-Variables-3.jpg)
+![image](./img/TS-Variables-3.jpg)
 
 :::
 
-$X$ suit la loi exponentielle de paramètre $\lambda$ s'écrit aussi $X$
-suit la loi $\mathcal{E}\left(\lambda\right)$ .
+:::note Remarque:
+
+`\og `{=latex}$X$ suit la loi exponentielle de paramètre $\lambda$
+`\fg{}`{=latex} s'écrit aussi `\og `{=latex}$X$ suit la loi
+$\mathcal{E}\left(\lambda\right)$ `\fg`{=latex}.
+
+:::
+
+:::tip Propriété:
 
 Soit $X$ une variable aléatoire suivant la loi
 $\mathcal{E}\left(\lambda\right)$ et $a$, $c$ et $d$ trois réels
@@ -174,9 +237,10 @@ positifs. On a alors :
 ```
 -   $P\left(X \geqslant a \right)=\textrm{e}^{-\lambda a}$
 
-```{=html}
-<!-- -->
-```
+:::
+
+:::note Preuve:
+
 -   Pour tous réels $c$ et $d$ positifs, on a
     $P(c\leqslant X \leqslant d)=\displaystyle \int_{c}^{d} \lambda\textrm{e}^{-\lambda t} \, \textrm{d}t=\left[-\textrm{e}^{-\lambda t}\right]_{c}^{d}$
     ${=-\textrm{e}^{-\lambda d}-\left(-\textrm{e}^{-\lambda c}\right)=\textrm{e}^{-\lambda c}-\textrm{e}^{-\lambda d}}$.
@@ -188,12 +252,20 @@ positifs. On a alors :
 -   On a
     $P\left(X \geqslant a \right)=1-P\left(X<a\right)=1-P\left(X\leqslant a\right)=1-\left(1-\textrm{e}^{-\lambda a}\right)=\textrm{e}^{-\lambda a}$.
 
+:::
+
+:::tip Propriété:
+
 On considère une variable aléatoire $X$ suivant la loi exponentielle de
 paramètre $\lambda$ de densité $f$ et on appelle espérance mathématique
 de $X$ le nombre
 $E(X)=\displaystyle \lim_{x \rightarrow +\infty} \int_{0}^{x} tf(t) \, \textrm{d}t$.
 
 On a alors $E(X)=\dfrac{1}{\lambda}$.
+
+:::
+
+:::note Preuve:
 
 La fonction $f$ est définie sur $\left[0\ ;\ +\infty \right[$ par
 $f(t)=\lambda\textrm{e}^{-\lambda t}$.
@@ -227,6 +299,13 @@ $\displaystyle \lim_{x \rightarrow +\infty} -\lambda x=-\infty$ :
 Finalement, on obtient bien
 $E(X) = \displaystyle \lim_{x \rightarrow +\infty} \dfrac{-\lambda x\textrm{e}^{-\lambda x}}{\lambda}-\dfrac{1}{\lambda}\textrm{e}^{-\lambda x}+\dfrac{1}{\lambda}=\dfrac{1}{\lambda}$.
 
+:::
+
+:::warning Méthode: Calculer avec une loi exponentielle
+
+```{=latex}
+\exercice
+```
 On considère que le temps d'attente en minutes à un guichet du service
 après-vente d'un magasin peut être modélisé par une variable aléatoire
 $T$ suivant la loi exponentielle de paramètre 0,2.
@@ -237,8 +316,8 @@ inférieur ou égal à 5 minutes.
 **2.** Calculer au millième près la probabilité d'attendre plus de 10
 minutes.
 
-**3.** Un client se présente au guichet. Quel temps peut-il espérer
-attendre ?
+**3.** Un client se présente au guichet. Quel temps peut-il
+`\og `{=latex}espérer `\fg{}`{=latex} attendre ?
 
 **Correction**
 
@@ -251,6 +330,10 @@ $P(T \geqslant 10)=\textrm{e}^{-0,2 \times 10}=\textrm{e}^{-2}\approx 0,135$.
 **3.** $E(T)=\dfrac{1}{0,2}=5$ donc le client peut espérer attendre 5
 minutes.
 
+:::
+
+:::note Remarque:
+
 Dans le cas de la première probabilité, un calcul d'intégrale était
 envisageable : la fonction de densité de $T$ est la fonction définie sur
 $\left[0\ ;\ +\infty \right[$ par $f(t)=0,2\textrm{e}^{-0,2t}$.
@@ -260,10 +343,18 @@ donc :
 
 $P(0\leqslant T \leqslant 5)=\displaystyle \int_{0}^{5} 0,2\textrm{e}^{-0,2t} \, \textrm{d}t=\left[-\textrm{e}^{-0,2t}\right]_{0}^{5}=-\textrm{e}^{-0,2\times5}-\left(-\textrm{e}^{-0,2\times0}\right)=1-\textrm{e}^{-1}\approx 0,632$.
 
+:::
+
+:::warning Méthode: Déterminer le paramètre $\lambda$ d'une loi
+exponentielle
+
 Dans les cas où une information (probabilité ou espérance) peut être
 exploitée, on pose l'équation issue des formules du cours et on résout
 cette équation pour déterminer $\lambda$.
 
+```{=latex}
+\exercice
+```
 Soit $X$ une variable aléatoire suivant la loi $\mathcal{E}(\lambda)$
 avec $P(X\leqslant 5)=0,2$. Déterminer $\lambda$.
 
@@ -278,6 +369,10 @@ $1-\textrm{e}^{-5\lambda }=0,2 \Leftrightarrow \textrm{e}^{-5\lambda }=0,8 \Left
 $\Leftrightarrow -5\lambda=\ln(0,8)$ donc
 $\lambda = \dfrac{\ln(0,8)}{-5}\approx 0,045$.
 
+:::
+
+:::tip Propriété:
+
 Soit $X$ une variable aléatoire suivant une loi exponentielle de
 paramètre $\lambda>0$ et deux nombres $t>0$ et $h>0$.
 
@@ -287,10 +382,18 @@ la probabilité $P(X>h)$.
 On dit que la loi exponentielle est **sans vieillissement** ou **avec
 absence de mémoire**.
 
+:::
+
+:::note Preuve:
+
 Par définition, on a :
 $P_{(X>t)}(X>t+h)=\dfrac{P((X>t)\cap (X>t+h))}{P(X>t)}$
 
 $=\dfrac{P(X>t+h)}{P(X>t)}=\dfrac{\textrm{e}^{-\lambda(t+h)}}{\textrm{e}^{-\lambda t}}=\dfrac{\textrm{e}^{-\lambda t} \times \textrm{e}^{-\lambda h}}{\textrm{e}^{-\lambda t}}=\textrm{e}^{-\lambda h}=P(X>h)$.
+
+:::
+
+:::note Exemple:
 
 On considère un appareil dont la durée de vie en années suit la loi
 exponentielle de paramètre 0,05 : d'après la propriété,
@@ -300,47 +403,54 @@ Concrètement, si l'appareil a déjà fonctionné 4 ans, la probabilité
 qu'il fonctionne encore 5 ans de plus est égale à la probabilité (non
 conditionnelle) qu'il fonctionne plus de 5 ans.
 
-Lois normales
-=============
+:::
 
-Loi normale centrée réduite $\mathcal{N}(0\ ;\ 1)$
---------------------------------------------------
+# Lois normales
 
-:::definition Définition:
+## Loi normale centrée réduite $\mathcal{N}(0\ ;\ 1)$
+
+:::tip Définition:
 
 Une variable aléatoire est centrée lorsque son espérance vaut $0$ et
 elle est réduite lorsque son écart-type vaut $1$.
 
 :::
 
-Soit $X_n$ une variable aléatoire suivant une loi binomiale
-$\mathcal{B}(n\ ;\ p)$ et $Z=\cfrac{X_n-np}{\sqrt{np(1-p)}}$, variable
-aléatoire centrée réduite. Alors pour tous réels $a$ et $b$ tels que
-$a\leqslant b$, on a :
+:::tip Théorème: **Théorème de Moivre-Laplace**
 
+Soit $X_n$ une variable aléatoire suivant une loi binomiale
+$\mathcal{B}(n\ ;\ p)$ et $Z=\cfrac{X_n-np}{\sqrt{np(1-p)}}$,
+`\mbox{variable}`{=latex} aléatoire centrée réduite. Alors pour tous
+réels $a$ et $b$ tels que $a\leqslant b$, on a :
 $$\lim_{n\rightarrow +\infty}P(a\leqslant
-Z\leqslant b)=\int_a^b \dfrac{1}{\sqrt{2\pi}}
-\textrm{e}^{-\dfrac{x^2}{2}} \textrm{d} x.$$
+  Z\leqslant b)=\int_a^b \dfrac{1}{\sqrt{2\pi}}
+  \textrm{e}^{-\dfrac{x^2}{2}} \textrm{d} x.$$
 
   
 
-:::definition Définition:
+:::
 
-Une variable aléatoire $X$ suit la **loi normale centrée réduite**
-$\mathcal{N}(0\ ;\ 1)$ si elle admet pour densité la fonction $f$ (dont
-la courbe est donnée ci-contre) définie sur $\R$ par :
+:::tip Définition:
 
+Une variable aléatoire $X$ suit la **loi normale centrée
+`\mbox{réduite}`{=latex}** $\mathcal{N}(0\ ;\ 1)$ si elle admet pour
+densité la fonction $f$ (dont la courbe est donnée ci-contre) définie
+sur $\R$ par :
 $$f(x)=\dfrac{1}{\sqrt{2\pi}}\textrm{e}^{-\dfrac{x^2}{2}}.$$
 
-![image](./TS-Variables-4.jpg)
+![image](./img/TS-Variables-4.jpg)
 
 Autrement dit, pour tous réels $a$ et $b$ tels que $a\leqslant b$, on a
-: $$P(a\leqslant X\leqslant b)=\displaystyle
+:
+
+$$P(a\leqslant X\leqslant b)=\displaystyle
 \int_a^b \cfrac{1}{\sqrt{2\pi}}\text{ e}^{-\dfrac{x^2}{2}}\textrm{d} x.$$
 
   
 
 :::
+
+:::note Remarque:
 
 Comme on ne peut pas calculer l'intégrale à l'aide d'une primitive (car
 cette fonction de densité n'en admet pas d'explicite), on utilise une
@@ -348,12 +458,16 @@ calculatrice pour calculer des probabilités de la forme
 $P(a\leqslant X\leqslant b)$ ou pour trouver un nombre $x$ tel que
 $P(X\leqslant x)=p$ avec $p$ donné .
 
+:::
+
+:::tip Propriété:
+
 Soit $f$ : $x\mapsto \cfrac{1}{\sqrt{2\pi}}\text{ e}^{-\dfrac{x^2}{2}}$
 la fonction de densité d'une variable aléatoire suivant la loi
 $\mathcal{N}(0\ ;\ 1)$.
 
 -   L'aire totale entre
-    la courbe représentant la fonction de densité $f$ et l'axe des abscisses est $1$.
+    `\hbox{la courbe représentant la fonction de densité $f$ et l'axe des abscisses est $1$.}`{=latex}
 
 -     
 
@@ -361,19 +475,27 @@ $\mathcal{N}(0\ ;\ 1)$.
     symétrique par rapport à l'axe des ordonnées.
 
     Par un argument de symétrie, pour tout réel $u$, on a :
-
     $$P(X\leqslant -u)=P(X\geqslant u).$$
 
-    ![image](./TS-Variables-5.jpg)
+    ![image](./img/TS-Variables-5.jpg)
+
+:::
+
+:::note Remarque:
 
 Pour $u=0$, on a $P(X\leqslant 0)=P(X\geqslant 0)=0,5$.
+
+:::
+
+:::tip Propriété:
 
 Soit $X$ une variable aléatoire suivant la loi normale centrée réduite
 $\mathcal{N}(0\ ;\ 1)$, de fonction de densité $f$. Alors
 
 -   $E(X)=\displaystyle \lim_{x \rightarrow -\infty}
-    \int_x^0 tf(t)\textrm{d} t+ \displaystyle \lim_{y
-    \rightarrow +\infty} \int_0^y tf(t)\textrm{d} t=0$
+              \int_x^0 tf(t)\textrm{d} t+ \displaystyle \lim_{y
+                \rightarrow +\infty} \int_0^y tf(t)\textrm{d} t=0$
+    `\qquad`{=latex}
 
     ::: {style="color: DefSquareColor"}
 
@@ -382,6 +504,13 @@ $\mathcal{N}(0\ ;\ 1)$, de fonction de densité $f$. Alors
 
     $V(X)=1$ et $\sigma(X)=1$.
 
+:::
+
+:::warning Méthode: Calculer avec la loi $\mathcal{N}(0\ ;\ 1)$
+
+```{=latex}
+\exercice
+```
 Soit $X$ une variable aléatoire suivant la loi normale centrée réduite
 $\mathcal{N}(0\ ;\ 1)$.
 
@@ -413,6 +542,9 @@ millième de :
 
 -   On choisit `NormalFrep(` et on écrit `NormalFrep(2,3,0,1)`.
 
+```{=latex}
+\columnbreak
+```
 [**Calculatrice Casio**]{style="color: H1"}
 
 -   Dans le menu **RUN**, on appuie sur **OPTN** puis **STAT** puis
@@ -430,7 +562,7 @@ $P(X\leqslant 0,7)=P(X<0)+P(0\leqslant X\leqslant 0,7)$
 
 $\approx 0,5+0,258=0,758$.
 
-![image](./TS-Variables-6.jpg)
+![image](./img/TS-Variables-6.jpg)
 
 **1.c)**   
 
@@ -439,7 +571,7 @@ $P(X>-0,2)=P(-0,2<X<0)+P(X\geqslant 0)$
 
 $\approx 0,079+0,5=0,579$.
 
-![image](./TS-Variables-7.jpg)
+![image](./img/TS-Variables-7.jpg)
 
 **2.**
 
@@ -451,6 +583,9 @@ $\approx 0,079+0,5=0,579$.
 
     on choisit `FracNormale(` et on écrit `FracNormale(0.25,0,1)`.
 
+```{=latex}
+\columnbreak
+```
 [**Calculatrice Casio**]{style="color: H1"}
 
 -   Dans le menu
@@ -466,16 +601,24 @@ $P(X>u)=0,4 \Leftrightarrow P(X\leqslant u)=0,6$.
 
 On trouve $u\approx 0,253$.
 
-![image](./TS-Variables-8.jpg)
+![image](./img/TS-Variables-8.jpg)
 
   
 
   
+
+:::
+
+:::tip Théorème:
 
 Soit $X$ une variable aléatoire suivant la loi normale centrée réduite
 $\mathcal{N}(0\ ;\ 1)$ et $\alpha\in ]0\ ;\ 1[$. Alors il existe un
 unique réel $u_{\alpha}>0$ tel que
 $P(-u_{\alpha}\leqslant X\leqslant u_{\alpha})=1-\alpha$.
+
+:::
+
+:::note Preuve:
 
 Soit $\alpha\in]0\ ;\ 1[$, on a alors $1-\alpha\in]0\ ;\ 1[$.
 
@@ -488,7 +631,7 @@ Comme
 $g:x\mapsto \displaystyle\int_{0}^{x}\dfrac{1}{\sqrt{2\pi}}\textrm{e}^{-\cfrac{t^2}{2}}\textrm{d} t$
 est une primitive de
 $t\mapsto \dfrac{1}{\sqrt{2\pi}}\textrm{e}^{-\cfrac{t^2}{2}}$ :
-![image](./TS-Variables-9.jpg)
+![image](./img/TS-Variables-9.jpg)
 
 -   $f=2g$ est dérivable donc **continue** sur $[0\ ;\ +\infty[$ ;
 
@@ -497,22 +640,25 @@ $t\mapsto \dfrac{1}{\sqrt{2\pi}}\textrm{e}^{-\cfrac{t^2}{2}}$ :
 
 De plus, $f(0)=P(-0\leqslant X\leqslant 0)=P(X=0)=0$,
 ${\displaystyle\lim_{x\rightarrow +\infty} f(x)=\lim_{x\rightarrow
-+\infty} P(-x\leqslant X\leqslant x)=1}$ par définition d'une loi à
+    +\infty} P(-x\leqslant X\leqslant x)=1}$ par définition d'une loi à
 densité. Comme $\mathbf{1-}\alpha\mathbf{\in[0\ ;\ 1[}$, d'après le
 théorème de bijection, l'équation $f(x)=1-\alpha$ admet une unique
 solution notée $u_{\alpha}$ sur $[0\ ;\ +\infty[$ c'est-à-dire qu'il
 existe un unique réel $u_{\alpha}> 0$ tel que
 $P(-u_{\alpha}\leqslant X\leqslant u_{\alpha})=1-\alpha$.
 
-En particulier, $u_{0,05} \approx 1,96$ et $u_{0,01}\approx 2,58$.
+:::
 
-Autrement dit, $P(-1,96\leqslant X\leqslant 1,96)\approx 0,95$ et
-$P(-2,58\leqslant X\leqslant 2,58)\approx 0,99$.
+```{=latex}
+\begin{valeurspart}En particulier, $u_{0,05} \approx 1,96$ et $u_{0,01}\approx 2,58$.
 
-Lois normales $\mathcal{N}(\mu\ ;\ \sigma^2)$
----------------------------------------------
+Autrement dit, $P(-1,96\leqslant X\leqslant 1,96)\approx 0,95$ et $P(-2,58\leqslant X\leqslant 2,58)\approx 0,99$.
+\end{valeurspart}
 
-:::definition Définition:
+```
+## Lois normales $\mathcal{N}(\mu\ ;\ \sigma^2)$
+
+:::tip Définition:
 
 Soit $\mu$ et $\sigma$ deux réels avec $\sigma>0$. On dit qu'une
 variable aléatoire $X$ suit la **loi normale
@@ -520,6 +666,8 @@ $\mathcal{N}(\mu\ ;\ \sigma^2)$** si $Z=\cfrac{X-\mu}{\sigma}$ suit la
 loi normale centrée réduite $\mathcal{N}(0\ ;\ 1)$.
 
 :::
+
+:::note Remarques:
 
 -   Il en résulte que si $X$ suit la loi $\mathcal{N}(0\ ;\ 1)$ alors
     $\mu+\sigma X$ suit la loi $\mathcal{N}(\mu\ ;\ \sigma^2)$.
@@ -532,9 +680,14 @@ loi normale centrée réduite $\mathcal{N}(0\ ;\ 1)$.
     rapport à la droite d'équation $x=\mu$ ce qui permet d'en déduire
     des probabilités par symétrie autour de $\mu$.
 
-    ![image](./TS-Variables-10.jpg)
+    ![image](./img/TS-Variables-10.jpg)
 
-[\[methode5SP2\]]{#methode5SP2 label="methode5SP2"}
+:::
+
+:::warning Méthode: Calculer avec une loi
+$\mathcal{N}(\mu\ ;\ \sigma^2)$
+
+`\exercice`{=latex}`\label{methode5SP2}`{=latex}
 
 **1.** Soit $X$ une variable aléatoire suivant la loi
 $\mathcal{N}(7\ ;\ 2^2)$.
@@ -573,7 +726,7 @@ $P(6\leqslant X\leqslant 9)\approx 0,533$.
 
     $\approx 0,5+0,433=0,933$.
 
-![image](./TS-Variables-11.jpg)
+![image](./img/TS-Variables-11.jpg)
 
 -   Pour calculer $P(X<a)$, on peut aussi calculer
     $P\left(-10^{99}\leqslant X<a \right)$ avec une calculatrice. On
@@ -586,7 +739,7 @@ $P(6\leqslant X\leqslant 9)\approx 0,533$.
 
     $\approx 0,5-0,191=0,309$.
 
-![image](./TS-Variables-12.jpg)
+![image](./img/TS-Variables-12.jpg)
 
 -   Pour calculer $P(X\geqslant a)$, on peut aussi calculer
     $P\left(a\leqslant X\leqslant 10^{99}\right)$ avec une calculatrice.
@@ -604,41 +757,56 @@ On a $P(X\geqslant u)=0,1 \Leftrightarrow P(X<u)=0,9$.
 
 Une calculatrice donne $u\approx 9,845$.
 
-![image](./TS-Variables-13.jpg)
+![image](./img/TS-Variables-13.jpg)
 
   
 
+:::
+
+:::note Remarque:
+
 Ces méthodes utilisant le fait que
 $P(X\leqslant a)\approx P(-10^{99}\leqslant X\leqslant a)$
-et$P(X\geqslant a)\approx P(a\leqslant X\leqslant 10^{99})$ peuvent
-également être utilisées dans le cas particulier de la loi normale
-centrée réduite $\mathcal{N}(0\ ;\ 1)$.
+et`\linebreak `{=latex}$P(X\geqslant a)\approx P(a\leqslant X\leqslant 10^{99})$
+peuvent également être utilisées dans le cas particulier de la loi
+normale centrée réduite $\mathcal{N}(0\ ;\ 1)$.
+
+:::
+
+:::tip Propriété:
 
 Soit $X$ une variable aléatoire suivant la loi normale
 $\mathcal{N}(\mu\ ;\ \sigma^2)$. On a alors :
 
-2
+-   $E(X)=\mu$ ;
 
-$E(X)=\mu$ ;
+-   $V(X)=\sigma^2$ et $\sigma(X)=\sigma$.
 
-$V(X)=\sigma^2$ et $\sigma(X)=\sigma$.
+:::
+
+:::note Remarques:
 
 -   Plus $\sigma$ est petit, plus les valeurs prises par $X$ sont
     concentrées autour de la moyenne.
 
-    ![image](./TS-Variables-14.jpg)
+    ![image](./img/TS-Variables-14.jpg)
 
 -   On peut considérer que sous certaines conditions (par exemple
     ${n\geqslant30}$, ${np\geqslant 5}$ et ${n(1-p)\geqslant5}$), la loi
     $\mathcal{N}(np\ ;\ \sqrt{np(1-p)}^2)$ approxime convenablement la
     loi $\mathcal{B}(n\ ;\ p)$.
 
+:::
+
+:::warning Méthode: Centrer et réduire pour déterminer des paramètres
+d'une loi
+
 Centrer et réduire une variable aléatoire suivant une loi normale de
 paramètre(s) inconnu(s) permet de travailler avec la loi connue
 $\mathcal{N}(0\ ;\ 1)$.
 
-[\[methode6SP2\]]{#methode6SP2 label="methode6SP2"} On modélise par une
-loi normale d'espérance $\mu$ et d'écart-type $\sigma$ le temps $T$ (en
+`\exercice`{=latex}`\label{methode6SP2}`{=latex} On modélise par une loi
+normale d'espérance $\mu$ et d'écart-type $\sigma$ le temps $T$ (en
 secondes) mis par un sportif amateur pour parcourir un 100 mètres.
 
 Ce sportif a remarqué qu'il mettait en moyenne $13$ secondes à parcourir
@@ -669,6 +837,10 @@ Déterminer les valeurs de $\mu$ et $\sigma$.
 
   
 
+:::
+
+:::tip Propriété: Quelques intervalles remarquables
+
 Soit $X$ une variable aléatoire suivant la loi normale
 $\mathcal{N}(\mu\ ;\ \sigma^2)$. On a alors :
 
@@ -682,10 +854,12 @@ $\mathcal{N}(\mu\ ;\ \sigma^2)$. On a alors :
 
 Graphiquement, on a alors :
 
-![image](./TS-Variables-15.jpg)
+![image](./img/TS-Variables-15.jpg)
 
 où l'aire du domaine en bleu est environ 0,68, l'aire du domaine en bleu
 et vert est environ 0,954 et l'aire du domaine en bleu, vert et orange
 (jusqu'à $\mu-3\sigma$ et $\mu+3\sigma$) est environ 0,997.
+
+:::
 
   
