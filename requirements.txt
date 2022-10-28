@@ -1,0 +1,5 @@
+chardet==3.0.4 \
+    --hash=sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691 \
+    --hash=sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae
+texsoup==0.2.2 \
+    --hash=sha256:f5759628df491d93fea1420ad638d1d2aece621f053850d2f023ee6c9c041e57

@@ -9,7 +9,7 @@ from latextomd.soup import Latex
 from latextomd.text_manipulation import LatexString
 
 
-def _process_preamble(latex_string):
+def _process_preamble(latex_string: str) -> tuple:
     """Detect Latex Preamble
 
     Arguments:
@@ -28,7 +28,7 @@ def _process_preamble(latex_string):
     return preamble, content
 
 
-def _strip_lines(latex_string):
+def _strip_lines(latex_string: str) -> str:
     """Strip Lines in Latex Source
 
     Arguments:
@@ -37,6 +37,7 @@ def _strip_lines(latex_string):
     Returns:
         string -- Latex with lines striped
     """
+    # latex_string = latex_string.replace("\\\\", "\\newline\n")
     lines = latex_string.splitlines()
     result = []
     for line in lines:
@@ -44,7 +45,7 @@ def _strip_lines(latex_string):
     return "\n".join(result)
 
 
-def _clean_lines(latex_string):
+def _clean_lines(latex_string: str) -> str:
     lines = latex_string.splitlines()
     if lines == []:
         return latex_string
@@ -58,7 +59,7 @@ def _clean_lines(latex_string):
     return content
 
 
-def _delete_blocks(latex_string):
+def _delete_blocks(latex_string: str) -> str:
     """delete blocks define in config.del_environnements
 
     Arguments:
@@ -73,7 +74,7 @@ def _delete_blocks(latex_string):
     return content
 
 
-def _pandoc(preamble, content):
+def _pandoc(preamble: str, content: str) -> str:
     """Convert latex to md with pandoc
 
     Arguments:
@@ -89,23 +90,27 @@ def _pandoc(preamble, content):
     f.write(total)
     f.close()
     # os.system("pandoc temp.tex -o temp.md --katex --from latex --to gfm")
-    os.system("pandoc temp/temp.tex -o temp/temp.md -f latex+raw_tex")
+    os.system(
+        "pandoc temp/temp.tex -o temp/temp.md -f latex+raw_tex  --shift-heading-level-by=1"
+    )
     with codecs.open("temp/temp.md", "r", "utf-8") as f:
         content = f.read()
+
     return content
     # os.system(f"dvisvgm temp.dvi")
 
 
-def to_markdown(latex_string, export_file_name=""):
+def to_markdown(
+    latex_string: str, export_file_name: str = "", options: dict = None
+) -> str:
     content = latex_string
     content = _strip_lines(content)
     content = re.sub("(?<!\\\\)%.*$", "", content, flags=re.M)
 
-    preamble, content = _process_preamble(content)
     if not os.path.exists("temp"):
         os.mkdir("temp")
     with open("temp/vrac.tex", "w", encoding="utf-8") as f:
-        f.write(latex_string)
+        f.write(content)
     os.system(
         "pandoc temp/vrac.tex -o temp/pandoc_raw.tex -f latex+raw_tex -r markdown-auto_identifiers"
     )
@@ -114,6 +119,7 @@ def to_markdown(latex_string, export_file_name=""):
     content = content.replace(r"\textbackslash begin\{document\}", r"\begin{document}")
     content = content.replace(r"\textbackslash end\{document\}", r"\end{document}")
 
+    preamble, content = _process_preamble(content)
     content = Postpandoc(content).process()
     # with open("temp/vrac2.tex", "w", encoding="utf-8") as f:
     #     f.write(content)
@@ -122,7 +128,7 @@ def to_markdown(latex_string, export_file_name=""):
     #     content = f.read()
     # content = Postpandoc(content).process()
 
-    content = LatexString(content, preamble, export_file_name).process()
+    content = LatexString(content, preamble, export_file_name, options).process()
     content = _pandoc(preamble, content)
     # content = Latex(content).process()
     content = Postpandoc(content).process()
@@ -130,7 +136,29 @@ def to_markdown(latex_string, export_file_name=""):
     # content = _strip_lines(content)
 
     content = _clean_lines(content)
+    if options["mkdocs"]:
+        content = admonition_mkdocs(content)
     return content
+
+
+def admonition_mkdocs(content: str):
+
+    lines = content.splitlines()
+    in_block = False
+    result = []
+    for line in lines:
+        if ":::" in line:
+            in_block = False
+            result.append("")
+        elif in_block:
+            result.append("    " + line)
+        elif "!!!" in line:
+            in_block = True
+            result.append(line)
+        else:
+            result.append(line)
+
+    return "\n".join(result)
 
 
 class LatexToMd(object):

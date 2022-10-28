@@ -1,25 +1,22 @@
----
-id: installation
-title: Installation of latextomd
-description: How to install latextomd
-keywords: 
-  - latextomd
-  - latex
-  - markdown
-  - convert
-  - python
----
+# Welcome to latextomd
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## Features
+
+!!!tip "Easy to Use"
+
+    latextomd was designed from the ground up to be easily installed and used to convert your latex files to markdown and running quickly.
+
+!!!tip "TikZ and PsTricks"
+
+    latextomd convert Tikz and PsTricks environnements in .jpg, and insert tags in markdown file.
+
+!!!tip "Mkdocs admonition"
+
+    latextomd can convert some LateX blocs in mkdocs admonition !
 
 ## Install dependencies
 
-
-
 latextomd need some externals dependencies
-
-
 
 - miktex or texlive
 - pandoc: [https://pandoc.org/](https://pandoc.org/)
@@ -50,7 +47,7 @@ pip install latextomd
 2. Then run in a terminal, in the previous file folder:
 
 ```bash
-latextomd -i sample-tikz.tex
+latextomd sample-tikz.tex
 ```
 
 3. It will produce `sample-tikz.md` and `sample-tikz-0.jpg`

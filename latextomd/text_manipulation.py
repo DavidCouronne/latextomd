@@ -8,9 +8,10 @@ from latextomd.latexblocks import LatexBlocks
 
 
 class LatexString(object):
-    def __init__(self, latex_string, preamble, export_file_name):
+    def __init__(self, latex_string, preamble, export_file_name, options):
         self.content = latex_string
         self.preamble = preamble
+        self.options = options
         self.nbfigure = 0
         self.export_file_name = export_file_name
         self.figure = []
@@ -21,17 +22,30 @@ class LatexString(object):
         Returns:
             str -- pre-markdown
         """
+        self.__process_options()
         self._remove_comments()
         self._replace_simple()
         self._math_replace()
         self._convertList()
         # self._convertItemize()
-        self._convertEnumerate()
+        # self._convertEnumerate()
         self.content = LatexBlocks(self.content).process()
         self._findTikz()
         self.findPstricks()
         self.replaceFigure()
         return self.content
+
+    def __process_options(self):
+
+        print(self.options)
+
+        if self.options["mkdocs"]:
+            self.blocs = config.blocks + config.admonitions_mkdocs + config.math_sub
+        elif self.options["docusaurus"]:
+            self.blocs = config.blocks + config.admonitions_docusaurus + config.math_sub
+
+        else:
+            self.blocs = config.blocks + config.math_sub
 
     def _remove_comments(self):
         self.content = re.sub("(?<!\\\\)%.*$", "", self.content, flags=re.M)
@@ -41,7 +55,7 @@ class LatexString(object):
             self.content = self.content.replace(replace_simple[0], replace_simple[1])
 
     def _math_replace(self):
-        for item in config.math_sub:
+        for item in self.blocs:
             p = re.compile(item[0])
             self.content = p.sub(item[1], self.content)
 
