@@ -20,17 +20,16 @@ latextomd -i source.tex -o export.md
 
 # Requirements (Windows 10)
 
-+ miktex
-+ pandoc
-+ perl: [http://strawberryperl.com/](http://strawberryperl.com/)
+- miktex
+- pandoc
+- perl: [http://strawberryperl.com/](http://strawberryperl.com/)
 
 ```{bash}
 choco install berrybrew
 ```
 
-+ Image Magick: [https://imagemagick.org/](https://imagemagick.org/)
+- Image Magick: [https://imagemagick.org/](https://imagemagick.org/)
 
 ```{bash}
 choco install imagemagick
 ```
-
